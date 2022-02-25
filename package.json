@@ -1,0 +1,12 @@
+{
+  "name": "autoschool_landing",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./src/index"
+  },
+  "keywords": [],
+  "author": "Gevorg Nakhapetyan <ngs22071993@gmail.com> (https://github.com/shahimat)",
+  "license": "MIT"
+}
