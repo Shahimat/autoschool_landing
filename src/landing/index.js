@@ -1,3 +1,5 @@
+const { className } = require("../lib/lf");
+
 module.exports = (lf, slf, project) => {
 
   const { $print, $attr, doctype, html, head, body, meta, title, link, p } = lf;
@@ -27,18 +29,21 @@ module.exports = (lf, slf, project) => {
                 $attr('name', 'description'),
                 $attr('content', ''),
               )),
-              // link(null, $print(
-              //   $attr('href', 'favicon.ico'),
-              //   $attr('rel', 'shortcut icon'),
-              // )),
-              // link(null, $print(
-              //   $attr('href', 'assets/styles/app.min.css'),
-              //   $attr('rel', 'stylesheet'),
-              // )),
+              link(null, $print(
+                $attr('href', './assets/favicon.ico'),
+                $attr('rel', 'shortcut icon'),
+              )),
+              link(null, $print(
+                $attr('href', './style.css'),
+                $attr('rel', 'stylesheet'),
+              )),
             )
           ),
           body(
-            Text(sData)
+            $print(
+              ...['a', 'b', 'c'].map(elem => Text(elem)),
+              Text(sData),
+            )
           )
         )
       )

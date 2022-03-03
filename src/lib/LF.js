@@ -106,37 +106,6 @@ const $for = (getArr, setIndex, render) => {
   }
 }
 
-// const $state = (defdata = {}) => {
-//   if (defdata)
-//   let data = {};
-//   Object.assign(data, defdata);
-//   let getter = function (data = undefined) {
-//     if (this.data === undefined || data !== undefined) {
-//       if (typeof(data) === 'object') {
-//         this.data = {};
-//         Object.assign(this.data, data);
-//       } else {
-//         console.error('data not found');
-//       }
-//       return;
-//     }
-//     return this.data;
-//   }.bind({ data: undefined });
-//   let inserter = (path) => {
-//     if (typeof(path) === 'string') {
-//       return () => getter()[path];
-//     }
-//     return undefined;
-//   }
-//   if (typeof(defdata) === 'object') {
-//     getter(defdata);
-//   }
-//   return [
-//     getter,
-//     inserter,
-//   ];
-// }
-
 module.exports = {
   $put,
   $putCheck,
@@ -148,9 +117,6 @@ module.exports = {
   $printCheck,
   $attr,
   $tag,
-
-  // $for,
-  // $state,
 
   div    : ( content, attr ) => $tag('div',    content, attr),
   span   : ( content, attr ) => $tag('span',   content, attr),
@@ -170,6 +136,6 @@ module.exports = {
 
   doctype: (...args) => $print('<!DOCTYPE html>', ...args),
 
-  className : (value) => attr('class', value),
-  type      : (value) => attr('type',  value),
+  className : (value) => $attr('class', value),
+  type      : (value) => $attr('type',  value),
 };
