@@ -16,9 +16,3 @@ let gen = Project.build();
 Project.run();
 
 console.log(gen());
-
-// const Landing = require('./landing/index');
-
-// const generator = Landing(LF);
-
-// console.log( generator() );
