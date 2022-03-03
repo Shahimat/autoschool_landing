@@ -1,6 +1,24 @@
-const LF = require('./lib/LF');
-const Landing = require('./landing/index');
+const path = require('path')
+const LFP = require('./lib/lfp');
 
-const generator = Landing(LF);
+const Project = LFP.Project({
+  input: path.join(__dirname, 'landing'),
+  output: path.join(__dirname, 'dist'),
+  dependencies: {
+    Text: 'Text',
+  },
+  models: {
+    model: 'model',
+  }
+});
 
-console.log( generator() );
+let gen = Project.build();
+Project.run();
+
+console.log(gen());
+
+// const Landing = require('./landing/index');
+
+// const generator = Landing(LF);
+
+// console.log( generator() );
