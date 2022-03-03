@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "Gevorg Nakhapetyan <ngs22071993@gmail.com> (https://github.com/shahimat)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
 }
