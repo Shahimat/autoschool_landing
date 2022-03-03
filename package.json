@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node ./src/index"
+    "build": "node ./src/index",
+    "copy": "node ./tasks/copy",
+    "serve": "node ./server",
+    "start": "npm run copy && npm run build && npm run serve"
   },
   "keywords": [],
   "author": "Gevorg Nakhapetyan <ngs22071993@gmail.com> (https://github.com/shahimat)",
@@ -12,6 +15,7 @@
   "devDependencies": {
     "express": "^4.17.3",
     "node-sass": "^7.0.1",
+    "open": "^8.4.0",
     "rimraf": "^3.0.2"
   }
 }
