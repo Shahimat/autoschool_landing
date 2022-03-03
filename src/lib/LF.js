@@ -91,21 +91,6 @@ const $tag = (name, content, attr) => {
   }
 }
 
-const $for = (getArr, setIndex, render) => {
-  if (typeof(getArr) !== 'function' || typeof(setIndex) !== 'function' || typeof(render) !== 'function') {
-    return undefined;
-  }
-  return () => {
-    let arr = getArr();
-    let sRes = '';
-    for (let i = 0; i < arr.length; i++) {
-      setIndex(i);
-      sRes += render();
-    }
-    return sRes;
-  }
-}
-
 module.exports = {
   $put,
   $putCheck,
