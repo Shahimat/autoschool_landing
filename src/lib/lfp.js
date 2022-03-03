@@ -1,5 +1,6 @@
 const fs   = require('fs')
 const path = require('path')
+const sass = require('node-sass');
 const lf   = require('./lf');
 const slf  = require('./slf');
 
@@ -15,6 +16,21 @@ const loadModel = (sBasePath, sPath) => {
   return require(sFullPath);
 }
 
+const loadSCSS = (sBasePath, sPath) => {
+  return new Promise((res, rej) => {
+    sass.render({
+      file: path.join(sBasePath, ...sPath.split('.'), 'index.scss'),
+      outputStyle: 'compressed',
+    }, (error, result) => {
+      if (error) {
+        rej(error);
+        return;
+      }
+      res(result.css.toString());
+    });
+  });
+}
+
 const Project = ({
   input,
   output,
@@ -23,7 +39,11 @@ const Project = ({
 }) => {
 
   const Base = loadModule(input, '');
+  let scss = {
+    default: '',
+  };
   for (let key in dependencies) {
+    scss[key] = dependencies[key];
     dependencies[key] = loadModule(input, dependencies[key]);
   }
   for (let key in models) {
@@ -50,11 +70,22 @@ const Project = ({
       console.log('generator created');
       return generator;
     },
-    run: () => {
-      let sRes = generator();
-      fs.writeFile(path.join(output, 'index.html'), sRes, 'utf-8', () => {
-        console.log('Files created');
-      });
+    run: async () => {
+      let sGen = generator();
+      await slf.onSaveFile(path.join(output, 'index.html'), sGen);
+      console.log('HTML created');
+
+      let sCss = '';
+      for (let key in scss) {
+        try {
+          let sFile = await loadSCSS(input, scss[key]);
+          sCss += sFile;
+        } catch (err) {
+          console.error(err);
+        }
+      }
+      await slf.onSaveFile(path.join(output, 'style.css'), sCss);
+      console.log('CSS created');
     },
   }
   return oProject;

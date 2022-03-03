@@ -12,7 +12,5 @@ const Project = LFP.Project({
   }
 });
 
-let gen = Project.build();
+Project.build();
 Project.run();
-
-console.log(gen());

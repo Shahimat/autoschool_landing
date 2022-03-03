@@ -1,6 +1,7 @@
 /**
  * ===== STANDART LIBRARY FUNCTIONS =====
  */
+const fs = require('fs')
 
 const slf = {
 
@@ -46,6 +47,30 @@ const slf = {
         oContext = slf.copyJSON(any);
       },
     }
+  },
+
+  onLoadFile: function (sPath) {
+    return new Promise((res, rej) => {
+      fs.readFile(sPath, 'utf8' , (err, data) => {
+        if (err) {
+          rej(err);
+          return;
+        }
+        res(data);
+      });
+    });
+  },
+
+  onSaveFile: function (sPath, sData) {
+    return new Promise((res, rej) => {
+      fs.writeFile(sPath, sData, 'utf8' , (err) => {
+        if (err) {
+          rej(err);
+          return;
+        }
+        res();
+      });
+    });
   },
 
 };
