@@ -8,6 +8,7 @@ const Project = LFP.Project({
     Text: 'Text',
     Header: 'Header',
     Footer: 'Footer',
+    SectionHeader: 'Sections.SectionHeader',
   },
   models: {
     model: 'model',

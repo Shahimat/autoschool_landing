@@ -5,6 +5,7 @@ module.exports = (lf, slf, project) => {
   const { $print, $attr, doctype, html, head, body, main, meta, title, link, p } = lf;
   const Header = project.def('Header');
   const Footer = project.def('Footer');
+  const SectionHeader = project.def('SectionHeader');
   const Model = project.model('model');
 
   let sData = JSON.stringify(Model.get());
@@ -45,7 +46,7 @@ module.exports = (lf, slf, project) => {
               Header(),
               main(
                 $print(
-
+                  SectionHeader()
                 ),
                 $print(
                   className('index'),
