@@ -126,7 +126,7 @@ module.exports = {
   $attr,
   $tag,
  
-  div     : ( content, attr ) => $tag('div',     content, attr),
+  div     : ( content, attr ) => $tag('div',     content, attr, false),
   span    : ( content, attr ) => $tag('span',    content, attr, false),
   a       : ( content, attr ) => $tag('a',       content, attr),
   p       : ( content, attr ) => $tag('p',       content, attr),
@@ -159,9 +159,10 @@ module.exports = {
 
   doctype: (...args) => $print('<!DOCTYPE html>', ...args),
 
-  className : (value) => $attr('class', value),
-  type      : (value) => $attr('type',  value),
-  src       : (value) => $attr('src',   value),
-  alt       : (value) => $attr('alt',   value),
-  href      : (value) => $attr('href',  value),
+  className : (value) => $attr('class',   value),
+  type      : (value) => $attr('type',    value),
+  src       : (value) => $attr('src',     value),
+  alt       : (value) => $attr('alt',     value),
+  href      : (value) => $attr('href',    value),
+  charset   : (value) => $attr('charset', value),
 };
