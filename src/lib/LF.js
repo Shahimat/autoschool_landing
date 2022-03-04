@@ -146,6 +146,7 @@ module.exports = {
   title   : ( content, attr ) => $tag('title',   content, attr),
   button  : ( content, attr ) => $tag('button',  content, attr),
   input   : ( content, attr ) => $tag('input',   content, attr),
+  label   : ( content, attr ) => $tag('label',   content, attr),
   header  : ( content, attr ) => $tag('header',  content, attr, false),
   main    : ( content, attr ) => $tag('main',    content, attr, false),
   footer  : ( content, attr ) => $tag('footer',  content, attr, false),
@@ -155,7 +156,8 @@ module.exports = {
   svg     : ( content, attr ) => $tag('svg',     content, attr),
   video   : ( content, attr ) => $tag('video',   content, attr, true, true),
   source  : ( content, attr ) => $tag('source',  content, attr),
-  picture : ( content, attr ) => $tag('source',  content, attr),
+  picture : ( content, attr ) => $tag('picture',  content, attr),
+  form    : ( content, attr ) => $tag('form',  content, attr, false),
 
   doctype: (...args) => $print('<!DOCTYPE html>', ...args),
 
@@ -165,4 +167,5 @@ module.exports = {
   alt       : (value) => $attr('alt',     value),
   href      : (value) => $attr('href',    value),
   charset   : (value) => $attr('charset', value),
+  value     : (value) => $attr('value',   value),
 };
