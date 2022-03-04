@@ -2,7 +2,7 @@ const { className } = require("../lib/lf");
 
 module.exports = (lf, slf, project) => {
 
-  const { $print, $attr, doctype, html, head, body, meta, title, link, p } = lf;
+  const { $print, $attr, doctype, html, head, body, main, meta, title, link, p } = lf;
   const Header = project.def('Header');
   const Footer = project.def('Footer');
   const Model = project.model('model');
@@ -43,6 +43,15 @@ module.exports = (lf, slf, project) => {
           body(
             $print(
               Header(),
+              main(
+                $print(
+
+                ),
+                $print(
+                  className('index'),
+                  $attr('role', 'main')
+                ),
+              ),
               Footer()
             )
           )
