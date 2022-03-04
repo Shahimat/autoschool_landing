@@ -7,6 +7,7 @@ const Project = LFP.Project({
   dependencies: {
     Text: 'Text',
     Header: 'Header',
+    Footer: 'Footer',
   },
   models: {
     model: 'model',
