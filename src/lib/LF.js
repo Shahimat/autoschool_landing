@@ -122,13 +122,22 @@ module.exports = {
   body   : ( content, attr ) => $tag('body',   content, attr),
   meta   : ( content, attr ) => $tag('meta',   content, attr),
   link   : ( content, attr ) => $tag('link',   content, attr),
+  use    : ( content, attr ) => $tag('use',    content, attr),
   title  : ( content, attr ) => $tag('title',  content, attr),
   button : ( content, attr ) => $tag('button', content, attr),
   input  : ( content, attr ) => $tag('input',  content, attr),
-  header : ( content, attr ) => $tag('header', content, attr),
+  header : ( content, attr ) => $tag('header', content, attr, false),
+  main   : ( content, attr ) => $tag('main',   content, attr, false),
+  footer : ( content, attr ) => $tag('footer', content, attr, false),
+  script : ( content, attr ) => $tag('script', content, attr, false),
+  img    : ( content, attr ) => $tag('img',    content, attr),
+  svg    : ( content, attr ) => $tag('svg',    content, attr),
 
   doctype: (...args) => $print('<!DOCTYPE html>', ...args),
 
   className : (value) => $attr('class', value),
   type      : (value) => $attr('type',  value),
+  src       : (value) => $attr('src',   value),
+  alt       : (value) => $attr('alt',   value),
+  href      : (value) => $attr('href',  value),
 };
