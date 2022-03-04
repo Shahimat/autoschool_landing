@@ -6,6 +6,7 @@ const Project = LFP.Project({
   output: path.join(__dirname, '..', 'dist'),
   dependencies: {
     Text: 'Text',
+    Header: 'Header',
   },
   models: {
     model: 'model',

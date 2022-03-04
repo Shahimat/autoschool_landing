@@ -3,7 +3,7 @@ const { className } = require("../lib/lf");
 module.exports = (lf, slf, project) => {
 
   const { $print, $attr, doctype, html, head, body, meta, title, link, p } = lf;
-  const Text = project.def('Text');
+  const Header = project.def('Header');
   const Model = project.model('model');
 
   let sData = JSON.stringify(Model.get());
@@ -41,8 +41,7 @@ module.exports = (lf, slf, project) => {
           ),
           body(
             $print(
-              ...['a', 'b', 'c'].map(elem => Text(elem)),
-              Text(sData),
+              Header()
             )
           )
         )
