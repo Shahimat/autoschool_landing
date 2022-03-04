@@ -61,10 +61,21 @@ const $ifelse = (cond, contentIf, contentElse) => {
 };
 
 const $attr = (key, value) => {
-  return $print(' ', key, '="', value, '"');
+  return $print(
+    ' ',
+    key,
+    $if(
+      $isDef(value),
+      $print(
+        '="',
+        value,
+        '"'
+      )
+    )
+  );
 };
 
-const $tag = (name, content, attr, simplify = true) => {
+const $tag = (name, content, attr, simplify = true, onlyAttrNames = false) => {
   if (typeof(name) === 'string') {
     return $print(
       '<',
@@ -72,7 +83,11 @@ const $tag = (name, content, attr, simplify = true) => {
       ' ',
       $if(
         $isDef(attr),
-        $printCheck(/^([^=]+\="[^"]*")*$/, attr)
+        $ifelse(
+          onlyAttrNames === true,
+          attr,
+          $printCheck(/^([^=]+\="[^"]*")*$/, attr)
+        )
       ),
       $ifelse(
         $isDef(content),
@@ -110,28 +125,37 @@ module.exports = {
   $printCheck,
   $attr,
   $tag,
-
-  div    : ( content, attr ) => $tag('div',    content, attr),
-  span   : ( content, attr ) => $tag('span',   content, attr, false),
-  a      : ( content, attr ) => $tag('a',      content, attr),
-  p      : ( content, attr ) => $tag('p',      content, attr),
-  ul     : ( content, attr ) => $tag('ul',     content, attr),
-  li     : ( content, attr ) => $tag('li',     content, attr),
-  html   : ( content, attr ) => $tag('html',   content, attr),
-  head   : ( content, attr ) => $tag('head',   content, attr),
-  body   : ( content, attr ) => $tag('body',   content, attr),
-  meta   : ( content, attr ) => $tag('meta',   content, attr),
-  link   : ( content, attr ) => $tag('link',   content, attr),
-  use    : ( content, attr ) => $tag('use',    content, attr),
-  title  : ( content, attr ) => $tag('title',  content, attr),
-  button : ( content, attr ) => $tag('button', content, attr),
-  input  : ( content, attr ) => $tag('input',  content, attr),
-  header : ( content, attr ) => $tag('header', content, attr, false),
-  main   : ( content, attr ) => $tag('main',   content, attr, false),
-  footer : ( content, attr ) => $tag('footer', content, attr, false),
-  script : ( content, attr ) => $tag('script', content, attr, false),
-  img    : ( content, attr ) => $tag('img',    content, attr),
-  svg    : ( content, attr ) => $tag('svg',    content, attr),
+ 
+  div     : ( content, attr ) => $tag('div',     content, attr),
+  span    : ( content, attr ) => $tag('span',    content, attr, false),
+  a       : ( content, attr ) => $tag('a',       content, attr),
+  p       : ( content, attr ) => $tag('p',       content, attr),
+  br      : (               ) => $tag('br',      null,    null),
+  ul      : ( content, attr ) => $tag('ul',      content, attr),
+  li      : ( content, attr ) => $tag('li',      content, attr),
+  h1      : ( content, attr ) => $tag('h1',      content, attr),
+  h2      : ( content, attr ) => $tag('h2',      content, attr),
+  h3      : ( content, attr ) => $tag('h3',      content, attr),
+  h4      : ( content, attr ) => $tag('h4',      content, attr),
+  html    : ( content, attr ) => $tag('html',    content, attr),
+  head    : ( content, attr ) => $tag('head',    content, attr),
+  body    : ( content, attr ) => $tag('body',    content, attr),
+  meta    : ( content, attr ) => $tag('meta',    content, attr),
+  link    : ( content, attr ) => $tag('link',    content, attr),
+  use     : ( content, attr ) => $tag('use',     content, attr),
+  title   : ( content, attr ) => $tag('title',   content, attr),
+  button  : ( content, attr ) => $tag('button',  content, attr),
+  input   : ( content, attr ) => $tag('input',   content, attr),
+  header  : ( content, attr ) => $tag('header',  content, attr, false),
+  main    : ( content, attr ) => $tag('main',    content, attr, false),
+  footer  : ( content, attr ) => $tag('footer',  content, attr, false),
+  section : ( content, attr ) => $tag('section', content, attr, false),
+  script  : ( content, attr ) => $tag('script',  content, attr, false),
+  img     : ( content, attr ) => $tag('img',     content, attr),
+  svg     : ( content, attr ) => $tag('svg',     content, attr),
+  video   : ( content, attr ) => $tag('video',   content, attr, true, true),
+  source  : ( content, attr ) => $tag('source',  content, attr),
+  picture : ( content, attr ) => $tag('source',  content, attr),
 
   doctype: (...args) => $print('<!DOCTYPE html>', ...args),
 
