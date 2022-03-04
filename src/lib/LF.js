@@ -64,7 +64,7 @@ const $attr = (key, value) => {
   return $print(' ', key, '="', value, '"');
 };
 
-const $tag = (name, content, attr) => {
+const $tag = (name, content, attr, simplify = true) => {
   if (typeof(name) === 'string') {
     return $print(
       '<',
@@ -83,7 +83,15 @@ const $tag = (name, content, attr) => {
           name,
           '>'
         ),
-        '/>'
+        $ifelse(
+          simplify === true,
+          '/>',
+          $print(
+            '></',
+            name,
+            '>'
+          )
+        )
       )
     );
   } else {
@@ -104,7 +112,7 @@ module.exports = {
   $tag,
 
   div    : ( content, attr ) => $tag('div',    content, attr),
-  span   : ( content, attr ) => $tag('span',   content, attr),
+  span   : ( content, attr ) => $tag('span',   content, attr, false),
   a      : ( content, attr ) => $tag('a',      content, attr),
   p      : ( content, attr ) => $tag('p',      content, attr),
   ul     : ( content, attr ) => $tag('ul',     content, attr),
