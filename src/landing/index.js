@@ -2,10 +2,11 @@ const { className } = require("../lib/lf");
 
 module.exports = (lf, slf, project) => {
 
-  const { $print, $attr, doctype, html, head, body, main, meta, title, link, p } = lf;
+  const { $print, $attr, doctype, html, head, body, main, meta, title, link, script, src, charset } = lf;
   const Header = project.def('Header');
   const Footer = project.def('Footer');
   const SectionHeader = project.def('SectionHeader');
+  const SectionCategory = project.def('SectionCategory');
   const Model = project.model('model');
 
   let sData = JSON.stringify(Model.get());
@@ -46,14 +47,16 @@ module.exports = (lf, slf, project) => {
               Header(),
               main(
                 $print(
-                  SectionHeader()
+                  SectionHeader(),
+                  SectionCategory()
                 ),
                 $print(
                   className('index'),
                   $attr('role', 'main')
                 ),
               ),
-              Footer()
+              Footer(),
+              script(null, $print( src('assets/scripts/app.min.js'), charset('utf-8') ))
             )
           )
         )
