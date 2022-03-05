@@ -168,4 +168,5 @@ module.exports = {
   href      : (value) => $attr('href',    value),
   charset   : (value) => $attr('charset', value),
   value     : (value) => $attr('value',   value),
+  id        : (value) => $attr('id',      value),
 };
