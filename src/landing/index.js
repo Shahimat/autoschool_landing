@@ -9,6 +9,7 @@ module.exports = (lf, slf, project) => {
   const SectionCategory = project.def('SectionCategory');
   const SectionCalculator = project.def('SectionCalculator');
   const SectionSchool = project.def('SectionSchool');
+  const SectionGroup = project.def('SectionGroup');
   const Model = project.model('model');
 
   let sData = JSON.stringify(Model.get());
@@ -52,7 +53,8 @@ module.exports = (lf, slf, project) => {
                   SectionHeader(),
                   SectionCategory(),
                   SectionCalculator(),
-                  SectionSchool()
+                  SectionSchool(),
+                  SectionGroup()
                 ),
                 $print(
                   className('index'),

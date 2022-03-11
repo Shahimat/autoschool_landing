@@ -12,6 +12,7 @@ const Project = LFP.Project({
     SectionCategory: 'Sections.SectionCategory',
     SectionCalculator: 'Sections.SectionCalculator',
     SectionSchool: 'Sections.SectionSchool',
+    SectionGroup: 'Sections.SectionGroup',
   },
   models: {
     model: 'model',
