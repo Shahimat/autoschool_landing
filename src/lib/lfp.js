@@ -4,7 +4,9 @@ const lf   = require('./lf');
 const slf  = require('./slf');
 
 const loadModule = (sBasePath, sPath) => {
-  let sFullPath = path.join(sBasePath, ...sPath.split('.'), 'index');
+  let aPath = sPath.split('.');
+  aPath[aPath.length - 1] = `${aPath[aPath.length - 1]}.js`;
+  let sFullPath = path.join(sBasePath, ...aPath);
   return require(sFullPath);
 }
 
@@ -16,18 +18,19 @@ const loadModel = (sBasePath, sPath) => {
 }
 
 const Project = ({
+  basePath,
   input,
   output,
   dependencies,
   models,
 }) => {
 
-  const Base = loadModule(input, '');
+  const Base = loadModule(basePath, input);
   for (let key in dependencies) {
-    dependencies[key] = loadModule(input, dependencies[key]);
+    dependencies[key] = loadModule(basePath, dependencies[key]);
   }
   for (let key in models) {
-    models[key] = loadModel(input, models[key]);
+    models[key] = loadModel(basePath, models[key]);
   }
 
   let generator = () => {};
