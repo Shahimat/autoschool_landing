@@ -24,8 +24,17 @@ const Project = ({
   dependencies,
   models,
 }) => {
-
-  const Base = loadModule(basePath, input);
+  const inputs = {};
+  const generators = {};
+  if (typeof(input) === 'string') {
+    inputs.index = loadModule(basePath, input);
+    generators.index = () => {};
+  } else if (typeof(input) === 'object') {
+    for (let key in input) {
+      inputs[key] = loadModule(basePath, input[key]);
+      generators[key] = () => {};
+    }
+  }
   for (let key in dependencies) {
     dependencies[key] = loadModule(basePath, dependencies[key]);
   }
@@ -33,7 +42,6 @@ const Project = ({
     models[key] = loadModel(basePath, models[key]);
   }
 
-  let generator = () => {};
   const oProject = {
     def: (sModuleName) => {
       if (typeof(sModuleName) !== 'string' || !dependencies[sModuleName]) {
@@ -48,14 +56,18 @@ const Project = ({
       return slf.State(models[sModelName]);
     },
     build: () => {
-      const Structure = Base(lf, slf, oProject);
-      generator = Structure();
-      console.log('generator created');
-      return generator;
+      for (let key in inputs) {
+        const Structure = inputs[key](lf, slf, oProject);
+        generators[key] = Structure();
+      }
+      console.log('generator(\'s) created');
+      return generators;
     },
     run: async () => {
-      let sGen = generator();
-      await slf.onSaveFile(path.join(output, 'index.html'), sGen);
+      for (let key in generators) {
+        let sGen = generators[key]();
+        await slf.onSaveFile(path.join(output, `${key}.html`), sGen);
+      }
       console.log('HTML created');
     },
   }

@@ -1,8 +1,6 @@
-const { className } = require("../lib/lf");
-
 module.exports = (lf, slf, project) => {
 
-  const { $print, $attr, doctype, html, head, body, main, meta, title, link, script, src, charset } = lf;
+  const { $print, $attr, doctype, html, head, body, main, meta, title, link, script, src, charset, className } = lf;
   const Header = project.def('Header');
   const Footer = project.def('Footer');
   const SectionHeader = project.def('SectionHeader');

@@ -4,7 +4,10 @@ const slf = require('./lib/slf');
 
 const Project = lfp.Project({
   basePath: path.join(__dirname, 'landing'),
-  input: 'index',
+  input: {
+    index: 'pages.HomePage',
+    about: 'pages.About',
+  },
   output: path.join(__dirname, '..', 'dist'),
   dependencies: {
     Text: 'Text.index',
