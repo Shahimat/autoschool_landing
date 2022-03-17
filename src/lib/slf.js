@@ -1,7 +1,8 @@
 /**
  * ===== STANDART LIBRARY FUNCTIONS =====
  */
-const fs = require('fs')
+const fs = require('fs');
+const sass = require('node-sass');
 
 const slf = {
 
@@ -69,6 +70,21 @@ const slf = {
           return;
         }
         res();
+      });
+    });
+  },
+
+  onLoadSCSS: (sPath) => {
+    return new Promise((res, rej) => {
+      sass.render({
+        file: sPath,
+        outputStyle: 'compressed',
+      }, (error, result) => {
+        if (error) {
+          rej(error);
+          return;
+        }
+        res(result.css.toString());
       });
     });
   },

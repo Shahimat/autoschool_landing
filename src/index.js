@@ -1,7 +1,8 @@
-const path = require('path')
-const LFP = require('./lib/lfp');
+const path = require('path');
+const lfp = require('./lib/lfp');
+const slf = require('./lib/slf');
 
-const Project = LFP.Project({
+const Project = lfp.Project({
   input: path.join(__dirname, 'landing'),
   output: path.join(__dirname, '..', 'dist'),
   dependencies: {
@@ -21,4 +22,10 @@ const Project = LFP.Project({
 });
 
 Project.build();
-Project.run();
+Project.run().then(() => {
+  return slf.onLoadSCSS(path.join(__dirname, 'style', 'index.scss'))
+}).then((css) => {
+  return slf.onSaveFile(path.join(__dirname, '..', 'dist', 'style.css'), css);
+}).then(() => {
+  console.log('CSS created');
+});
