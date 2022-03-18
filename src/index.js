@@ -29,7 +29,7 @@ const Project = lfp.Project({
     SectionContacts: 'feature.sections.SectionContacts',
   },
   models: {
-    model: 'model',
+    aboutModel: 'models.about',
   }
 });
 

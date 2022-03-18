@@ -1,1 +1,15 @@
 @import './components/text.scss';
+
+.about_page {
+  margin-top: 82px;
+  margin-bottom: 100px;
+
+  .about_wrapper {
+    width: 1170px;
+    margin: 0 auto;
+  }
+
+  .list_decimal {
+    list-style-type: decimal;
+  }
+}

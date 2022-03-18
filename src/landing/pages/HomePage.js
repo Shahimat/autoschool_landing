@@ -9,9 +9,6 @@ module.exports = (lf, slf, project) => {
   const SectionSchool = project.def('SectionSchool');
   const SectionGroup = project.def('SectionGroup');
   const SectionContacts = project.def('SectionContacts');
-  const Model = project.model('model');
-
-  let sData = JSON.stringify(Model.get());
 
   return () => {
   
