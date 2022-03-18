@@ -8,11 +8,11 @@ module.exports = (lf, slf, project) => {
     },
     {
       name: 'Услуги',
-      link: '#info',
+      link: '/#info',
     },
     {
       name: 'Набор в группы',
-      link: '#group',
+      link: '/#group',
     },
     {
       name: 'Пдд онлайн',
@@ -24,7 +24,7 @@ module.exports = (lf, slf, project) => {
     },
     {
       name: 'Контакты',
-      link: '#contacts',
+      link: '/#contacts',
     },
   ]
 
