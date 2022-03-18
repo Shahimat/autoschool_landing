@@ -7,6 +7,7 @@ const Project = lfp.Project({
   input: {
     index: 'pages.HomePage',
     about: 'pages.About',
+    'pdd-online': 'pages.PddOnline',
   },
   output: path.join(__dirname, '..', 'dist'),
   dependencies: {
