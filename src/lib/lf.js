@@ -5,6 +5,8 @@ const $put = (content) => {
     return content;
   } else if (typeof(content) === 'function') {
     return content();
+  } else if (Array.isArray(content)) {
+    return content.map(elem => $put(elem)).join('');
   } else {
     throw new Error(`invalid content type '${content}'`);
   }
