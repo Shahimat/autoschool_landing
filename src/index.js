@@ -8,6 +8,7 @@ const Project = lfp.Project({
     index: 'pages.HomePage',
     about: 'pages.About',
     'pdd-online': 'pages.PddOnline',
+    gallery: 'pages.Gallery',
   },
   output: path.join(__dirname, '..', 'dist'),
   dependencies: {
@@ -31,6 +32,7 @@ const Project = lfp.Project({
   },
   models: {
     aboutModel: 'models.about',
+    photoModel: 'models.photos',
   }
 });
 

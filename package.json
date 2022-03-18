@@ -6,8 +6,9 @@
   "scripts": {
     "build": "node ./src/index",
     "copy": "node ./tasks/copy",
+    "scan:photos": "node ./tasks/getPhotoNames",
     "serve": "node ./server",
-    "start": "npm run copy && npm run build && npm run serve"
+    "start": "npm run copy && npm run scan:photos && npm run build && npm run serve"
   },
   "keywords": [],
   "author": "Gevorg Nakhapetyan <ngs22071993@gmail.com> (https://github.com/shahimat)",

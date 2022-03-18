@@ -1,0 +1,27 @@
+.gallery_page {
+  margin-top: 82px;
+  margin-bottom: 100px;
+
+  .gallery_wrapper {
+    width: 1170px;
+    margin: 0 auto;
+  }
+
+  .gallery_photo {
+
+    &_img {
+      width: 170px;
+      height: 100%;
+      margin: 10px;
+      border-radius: 10px;
+
+      &:hover {
+        z-index: 10;
+        box-shadow: 8px 8px 15px #00000066;
+        transform: rotate(0deg) scale(1.2);
+        transition: 0.3s ease-out;
+      }
+    }
+  }
+
+}
