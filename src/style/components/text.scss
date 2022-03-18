@@ -1,0 +1,97 @@
+.base_text {
+  color: #363636;
+  text-align: left;
+  font-family: 'Source Sans Pro',Arial, Helvetica, sans-serif;
+  font-size: 90%;
+  line-height: 1.5;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.base_h1 {
+  border-bottom: 1px solid #ededed;
+  font-family: 'Droid Sans', Arial, Helvetica, sans-serif;
+  line-height: inherit;
+  margin: 0.5em 0;
+  padding: 16px 0;
+  font-weight: normal;
+  color: #d6463f;
+  font-size: 1.8em;
+  text-align: left;
+}
+
+.base_h2 {
+  font-family: 'Droid Sans', Arial, Helvetica, sans-serif;
+  margin: 0.5em 0;
+  font-weight: normal;
+  color: #d10042;
+  font-size: 1.4em;
+  line-height: 40px;
+}
+
+.base_h3 {
+  font-family: 'Droid Sans', Arial, Helvetica, sans-serif;
+  margin: 0.5em 0;
+  font-weight: normal;
+  color: #859A1F;
+  font-size: 1.4em;
+  line-height: 20px;
+  text-rendering: optimizelegibility;
+  text-align: left;
+}
+
+.base_h4 {
+  font-weight: bold;
+  color: #363636;
+  text-align: left;
+  font-family: 'Source Sans Pro',Arial, Helvetica, sans-serif;
+  font-size: 90%;
+  line-height: 1.5;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.base_kv {
+  color: #363636;
+  text-align: left;
+  font-family: 'Source Sans Pro',Arial, Helvetica, sans-serif;
+  font-size: 90%;
+  line-height: 1.5;
+  margin: 10px 0;
+  padding: 0;
+  .base_kv_key {
+    font-weight: bold;
+  }
+  .base_kv_value {
+  }
+}
+
+.base_mail, .base_link {
+  font-family: 'Source Sans Pro',Arial, Helvetica, sans-serif;
+  color: #2f9fb3;
+  -webkit-transition: 0.3s ease-out;
+  text-align: left;
+  font-size: 90%;
+  line-height: 1.5;
+  &:active, &:hover {
+    color: #999;
+    text-decoration: none;
+    outline: 0;
+  }
+}
+
+.base_list {
+  list-style-type: disc;
+  font-family: 'Source Sans Pro',Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 10px 0;
+  color: #363636;
+  text-align: left;
+  font-size: 90%;
+  line-height: 1.5;
+  .base_list_item {
+    padding: 0;
+    margin: 0.3em 0 0.3em 1.6em;
+    line-height: 20px;
+  }
+}
