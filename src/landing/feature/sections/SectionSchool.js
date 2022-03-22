@@ -120,11 +120,14 @@ module.exports = (lf, slf, project) => {
                         className('info-card-list__title')
                       ),
                       p(
-                        span(
-                          '25',
-                          className('info-card-list__num')
+                        $print(
+                          span(
+                            '25',
+                            className('info-card-list__num')
+                          ),
+                          ' занятий'
                         ),
-                        className('info-card-list__tex')
+                        className('info-card-list__text')
                       )
                     ),
                     className('info-card-list__item')
