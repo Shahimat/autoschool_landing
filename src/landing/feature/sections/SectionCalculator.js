@@ -117,7 +117,7 @@ module.exports = (lf, slf, project) => {
           form(
             $print(
               Selection( 'Транспорт', 'Легковое авто', oData.transport ),
-              Selection( 'Каробка передач', 'Механическая', oData.transmission ),
+              Selection( 'Коробка передач', 'Механическая', oData.transmission ),
               ...oData.labels.map(oElem => Block(oElem)),
               div(
                 $print(
