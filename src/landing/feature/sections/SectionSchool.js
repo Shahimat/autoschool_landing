@@ -9,6 +9,8 @@ module.exports = (lf, slf, project) => {
         target: '0-info',
         text: 'Теоретические занятия',
         src: 'assets/images/info-bg.jpg',
+        lessons_number: '25',
+        lessons_hour: '2',
         center_content: [
           'тренировка и практическое выполнение упражнений на автодроме',
           'учебная езда по городу',
@@ -21,6 +23,8 @@ module.exports = (lf, slf, project) => {
         target: '1-info',
         text: 'Практические занятия',
         src: 'assets/images/info-bg.jpg',
+        lessons_number: '25',
+        lessons_hour: '2',
         center_content: [
           'тренировка и практическое выполнение упражнений на автодроме',
           'учебная езда по городу',
@@ -33,6 +37,8 @@ module.exports = (lf, slf, project) => {
         target: '2-info',
         text: 'Организация экзамена в ГИБДД',
         src: 'assets/images/info-bg.jpg',
+        lessons_number: '25',
+        lessons_hour: '2',
         center_content: [
           'тренировка и практическое выполнение упражнений на автодроме',
           'учебная езда по городу',
@@ -122,7 +128,7 @@ module.exports = (lf, slf, project) => {
                       p(
                         $print(
                           span(
-                            '25',
+                            oItem.lessons_number,
                             className('info-card-list__num')
                           ),
                           ' занятий'
@@ -137,7 +143,7 @@ module.exports = (lf, slf, project) => {
                       $print(
                         'по ',
                         span(
-                          '2',
+                          oItem.lessons_hour,
                           className('info-card-list__num')
                         ),
                         ' часа'
