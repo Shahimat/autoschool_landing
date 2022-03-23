@@ -54,6 +54,7 @@ module.exports = (lf, slf, project) => {
                 $attr('href', './style.css'),
                 $attr('rel', 'stylesheet'),
               )),
+              script(null, $p( src('./bundle.js'), charset('utf-8') )),
             )
           ),
           body(

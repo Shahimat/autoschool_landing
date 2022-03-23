@@ -50,6 +50,7 @@ module.exports = (lf, slf, project) => {
                 $attr('href', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css'),
                 $attr('rel', 'stylesheet'),
               )),
+              script(null, $p( src('./bundle.js'), charset('utf-8') )),
             )
           ),
           body(

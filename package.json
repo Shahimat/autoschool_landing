@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node ./src/index",
+    "build:layout": "node ./src/index",
+    "build:logic": "webpack --mode=production",
+    "build:logic:dev": "webpack --mode=development",
+    "build": "npm run build:layout && npm run build:logic",
     "copy": "node ./tasks/copy",
     "scan:photos": "node ./tasks/getPhotoNames",
     "serve": "node ./server",
@@ -17,6 +20,8 @@
     "express": "^4.17.3",
     "node-sass": "^7.0.1",
     "open": "^8.4.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
   }
 }
