@@ -184,13 +184,14 @@ module.exports = (lf, slf, project) => {
                 ))
               )
             ),
-            className('tabs-content')
-          )
+            className('tabs-content school_tabs')
+          ),
+          span('* с личным инструктором', className('section_school_desc')),
         ),
         className('container')
       ),
       $print(
-        className('info'),
+        className('info section_school'),
         id('info')
       )
     );
