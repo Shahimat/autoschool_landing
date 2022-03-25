@@ -8,7 +8,7 @@ module.exports = (lf, slf, project) => {
       {
         class: 'is-active',
         target: '0-contacts',
-        title: 'НАРО-ФОМИНСК',
+        title: 'Наро-Фоминск',
         list: [
           {
             title: 'ул. Московская 9К',
@@ -36,7 +36,7 @@ module.exports = (lf, slf, project) => {
       {
         class: '',
         target: '1-contacts',
-        title: 'СЕЛЯТИНО',
+        title: 'Селятино',
         list: [
           {
             title: 'ул. Московская 9К',
@@ -64,7 +64,7 @@ module.exports = (lf, slf, project) => {
       {
         class: '',
         target: '2-contacts',
-        title: 'АПРЕЛЕВКА',
+        title: 'Апрелевка',
         list: [
           {
             title: 'ул. Московская 9К',
@@ -92,7 +92,7 @@ module.exports = (lf, slf, project) => {
       {
         class: '',
         target: '3-contacts',
-        title: 'ВИРЕЯ',
+        title: 'Вирея',
         list: [
           {
             title: 'ул. Московская 9К',
@@ -125,6 +125,26 @@ module.exports = (lf, slf, project) => {
       'Сообщение'
     ]
   };
+
+  const divClass = (sClass, ...args) => div(
+    $print(...args),
+    className(sClass)
+  );
+
+  const spanClass = (sClass, ...args) => span(
+    $print(...args),
+    className(sClass)
+  );
+
+  const ulClass = (sClass, ...args) => ul(
+    $print(...args),
+    className(sClass)
+  );
+
+  const liClass = (sClass, ...args) => li(
+    $print(...args),
+    className(sClass)
+  );
 
   return () => {
 
@@ -243,10 +263,7 @@ module.exports = (lf, slf, project) => {
                         ul(
                           $print(
                             ...oData.tabs.map(oItem => li(
-                              span(
-                                oItem.title,
-                                className('tabs__label')
-                              ),
+                              spanClass('tab_title', oItem.title),
                               $print(
                                 className(`tabs__tab ${oItem.class}`),
                                 $attr('data-tab-target', oItem.target)
@@ -291,7 +308,7 @@ module.exports = (lf, slf, project) => {
                       className('contacts-card__map')
                     )
                   ),
-                  className('contacts__card contacts-card')
+                  className('contacts__card contacts-card contacts_container')
                 ),
                 className('grid__col grid__col--xl-9 grid__col--lg-12')
               ),
@@ -353,7 +370,7 @@ module.exports = (lf, slf, project) => {
         className('container')
       ),
       $print(
-        className('contacts'),
+        className('contacts section_contacts'),
         id('contacts')
       )
     );
