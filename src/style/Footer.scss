@@ -1,0 +1,20 @@
+.footer_field {
+
+  .picture_container {
+    position: absolute;
+    overflow: hidden;
+    width: 150px;
+    height: 243px;
+    right: -165px;
+    top: -148px;
+    z-index: 1;
+
+    .picture {
+      width: 150px;
+      min-width: 100%;
+      min-height: 100%;
+    }
+
+  }
+
+}

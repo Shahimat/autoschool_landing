@@ -33,8 +33,8 @@ module.exports = (lf, slf, project) => {
       div(
         $print(
           div(
-            img(null, $print( src('./assets/images/decor/4.png'), alt('decor') )),
-            className('footer__decor')
+            img(null, $print( className('picture'), src('./assets/images/decor/4.png'), alt('decor') )),
+            className('picture_container')
           ),
           div(
             span('Автошкола «МИК-2000». © 2021 Все права защищены', className('footer__label')),
@@ -68,7 +68,7 @@ module.exports = (lf, slf, project) => {
         ),
         className('container container container--flex footer__container')
       ),
-      className('footer')
+      className('footer footer_field')
     );
   };
 }
