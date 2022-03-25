@@ -163,6 +163,9 @@ module.exports = {
   iframe   : ( content, attr ) => $tag('iframe',   content, attr, false),
   fieldset : ( content, attr ) => $tag('fieldset', content, attr),
   legend   : ( content, attr ) => $tag('legend',   content, attr),
+  select   : ( content, attr ) => $tag('select',   content, attr, false),
+  option   : ( content, attr ) => $tag('option',   content, attr, false),
+
 
   doctype: (...args) => $print('<!DOCTYPE html>', ...args),
 
