@@ -1,158 +1,157 @@
 module.exports = (lf, slf, project) => {
-  const { $print, $attr, section, div, span, button, img, svg, video, source, use, ul, li, a, br, className, alt, src, 
-    href, type, picture, h1, h2, form, label, value, input } = lf;
+  const {
+    $print,
+    $attr,
+    section,
+    div,
+    span,
+    button,
+    img,
+    svg,
+    video,
+    source,
+    use,
+    ul,
+    li,
+    a,
+    br,
+    className,
+    alt,
+    src,
+    href,
+    type,
+    picture,
+    h1,
+    h2,
+    form,
+    label,
+    value,
+    input,
+    select,
+    option,
+  } = lf;
 
   const oData = {
-    transport: [
-      'мотоцикл',
-      'легковое авто',
-      'переобучение с B на C',
-    ],
-    transmission: [
-      'Механическая',
-      'Автоматическая',
-    ],
+    transport: ['мотоцикл', 'легковое авто', 'переобучение с B на C'],
+    transmission: ['Механическая', 'Автоматическая'],
     labels: [
       {
-        name:  'Практика',
+        name: 'Практика',
         value: '28',
-        type:  'занятий',
+        type: 'занятий',
       },
       {
-        name:  'Теория',
+        name: 'Теория',
         value: '3',
-        type:  'месяца',
+        type: 'месяца',
       },
       {
-        name:  'Стоимость',
+        name: 'Стоимость',
         value: '30',
-        type:  'тыс. руб.',
-      }
-    ]
+        type: 'тыс. руб.',
+      },
+    ],
   };
+
+  const divClass = (sClass, ...args) => div(
+    $print(...args),
+    className(sClass)
+  );
+
+  const spanClass = (sClass, ...args) => span(
+    $print(...args),
+    className(sClass)
+  );
+
+  const ulClass = (sClass, ...args) => ul(
+    $print(...args),
+    className(sClass)
+  );
+
+  const liClass = (sClass, ...args) => li(
+    $print(...args),
+    className(sClass)
+  );
+
+  const Selection = (title, select, arr) => divClass(
+    'calculator_block selection_part',
+    ulClass(
+      'select_set',
+      ...arr.map(elem => liClass(
+        'select_set_item',
+        elem
+      ))
+    ),
+    divClass(
+      'left',
+      divClass('select_title', title),
+      divClass('select_value', select),
+    ),
+    divClass(
+      'right',
+      img(
+        null,
+        $print(
+          className('img'),
+          src('assets/images/arrow.svg'),
+          alt('arrow')
+        )
+      )
+    )
+  )
+
+  const Block = ({ name: sName, value: sValue, type: sType }) => divClass(
+    'calculator_block calculator_value_part',
+    divClass(
+      'block_title',
+      sName
+    ),
+    divClass(
+      'block_value',
+      spanClass(
+        'calculator_value',
+        sValue
+      ),
+      spanClass(
+        'calculator_type',
+        sType
+      )
+    )
+  )
 
   return () => {
 
-    const Selection = (title, select, arr) => div(
-      $print(
-        ul(
-          $print(
-            ...arr.map(sTransport => li(
-              span( sTransport, className('calculator-form-dropdown__label') ),
-              className('calculator-form-dropdown__item')
-            ))
-          ),
-          className('calculator-form-field__dropdown calculator-form-dropdown')
-        ),
-        div(
-          span(title, className('calculator-form-field__label')),
-          className('calculator-form-field__title')
-        ),
-        label(
-          $print(
-            input(
-              null,
-              $print(
-                className('calculator-form-field__value'),
-                type('hidden'),
-                value(select)
-              )
-            ),
-            span(
-              select,
-              className('calculator-form-field__label')
-            ),
-            img(
-              null,
-              $print(
-                className('calculator-form-field__arrow'),
-                src('assets/images/arrow.svg'),
-                alt('arrow')
-              )
-            )
-          ),
-          className('calculator-form-field__input calculator-form-field__select')
-        )
-      ),
-      className('calculator-form__field calculator-form-field calculator-form-field--select')
-    );
-
-    const Block = ({ name: sName, value: sValue, type: sType }) => div(
-      $print(
-        div(
-          span(
-            sName,
-            className('calculator-form-field__label')
-          ),
-          className('calculator-form-field__title')
-        ),
-        label(
-          $print(
-            input(
-              null,
-              $print(
-                className('calculator-form-field__value'),
-                type('hidden'),
-                value(sType)
-              )
-            ),
-            span(
-              sValue,
-              className('calculator-form-field__label calculator-form-field__label--num')
-            ),
-            span(
-              sType,
-              className('calculator-form-field__label')
-            )
-          ),
-          className('calculator-form-field__input calculator-form-field__count')
-        )
-      ),
-      className('calculator-form__field calculator-form-field calculator-form-field--count')
-    );
-
     return section(
-      div(
-        $print(
-          form(
-            $print(
-              Selection( 'Транспорт', 'Легковое авто', oData.transport ),
-              Selection( 'Коробка передач', 'Механическая', oData.transmission ),
-              ...oData.labels.map(oElem => Block(oElem)),
-              div(
-                $print(
-                  div(
-                    img(
-                      null,
-                      $print(
-                        src('assets/images/decor/1.png'),
-                        alt('decor')
-                      )
-                    ),
-                    className('calculator-form__decor')
-                  ),
-                  input(
-                    null,
-                    $print(
-                      className('calculator-form-field__label'),
-                      type('submit'),
-                      value('Записаться')
-                    )
-                  )
+      divClass(
+        'container',
+        form(
+          $print(
+            Selection('Транспорт', 'Легковое авто', oData.transport),
+            Selection('Коробка передач', 'Механическая', oData.transmission),
+            ...oData.labels.map((oElem) => Block(oElem)),
+            divClass(
+              'btn_part',
+              divClass(
+                'decor_part',
+                img(
+                  null,
+                  $print(src('assets/images/decor/1.png'), alt('decor'), className('decor_img'))
                 ),
-                className('calculator-form__field calculator-form-field calculator-form-field--btn')
+              ),
+              button(
+                spanClass('btn_enroll_text', 'Записаться'),
+                className('btn_enroll')
               )
-            ),
-            className('calculator__form calculator-form')
+            )
           ),
-          div(
-            '* организация экзамена в ГИБДД и свидетельство об окончании.',
-            className('calculator__descr')
-          )
+          className('section_calculator_form')
         ),
-        className('container')
+        divClass(
+          'calculator_desc',
+          '* организация экзамена в ГИБДД и свидетельство об окончании.'
+        )
       ),
-      className('calculator')
+      className('section_calculator')
     );
   };
-}
+};
