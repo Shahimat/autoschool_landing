@@ -82,10 +82,10 @@ module.exports = (lf, slf, project) => {
                 RightItems(),
                 className('info-card__clock info-card-list info-card-list--clock')
               ),
-              className('info-card__item info-card__item--clock')
+              className('info-card__item info-card__item--clock right_card')
             )
           ),
-          className('info-card')
+          className('info-card info_card')
         )
       ),
       $print(
@@ -177,7 +177,7 @@ module.exports = (lf, slf, project) => {
                         ' ДО ',
                         span('18:00', className('info-card-list__num')),
                       ),
-                      className('info-card-list__text')
+                      className('info-card-list__text card_time')
                     ),
                     className('info-card-list__item info-card-list__item--bottom')
                   )
