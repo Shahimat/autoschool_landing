@@ -297,15 +297,31 @@ module.exports = (lf, slf, project) => {
                       ),
                       className('contacts-card__address')
                     ),
-                    div(
+                    divClass(
+                      'widget_map',
+                      a(
+                        'Наро‑Фоминск',
+                        $print(
+                          className('widget_city'),
+                          href('https://yandex.ru/maps/10741/naro-fominsk/?utm_medium=mapframe&utm_source=maps')
+                        )
+                      ),
+                      a(
+                        'Московская улица, 9К — Яндекс Карты',
+                        $print(
+                          className('widget_street'),
+                          href('https://yandex.ru/maps/10741/naro-fominsk/house/moskovskaya_ulitsa_9k/Z08YcQJjQUcDQFtvfX95cH1nbA==/?ll=36.753825%2C55.381148&utm_medium=mapframe&utm_source=maps&z=17.1')
+                        )
+                      ),
                       iframe(
                         null,
                         $print(
-                          className('contacts-card__iframe'),
-                          src('https://yandex.ru/map-widget/v1/?um=constructor%3A2b197339cfc89dd20801261a00adb114059f19a2237b249757760ebaeb30809d&source=constructor')
+                          className('widget_frame'),
+                          src('https://yandex.ru/map-widget/v1/-/CCUBBTFXGC'),
+                          $attr('frameborder', '0'),
+                          $attr('allowfullscreen', 'true'),
                         )
-                      ),
-                      className('contacts-card__map')
+                      )
                     )
                   ),
                   className('contacts__card contacts-card contacts_container')

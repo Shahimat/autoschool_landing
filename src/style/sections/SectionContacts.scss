@@ -14,4 +14,32 @@
     }
 
   }
+
+  .widget_map {
+    width: 40%;
+    position: relative;
+    overflow: hidden;
+
+    .widget_city {
+      position: absolute;
+      color: #eee;
+      font-size: 12px;
+      top: 0px;
+    }
+
+    .widget_street {
+      position: absolute;
+      color: #eee;
+      font-size: 12px;
+      top:14px;
+    }
+
+    .widget_frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+
 }
