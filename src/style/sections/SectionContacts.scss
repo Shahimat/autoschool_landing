@@ -13,6 +13,30 @@
       font-weight: normal;
     }
 
+    .contacts_item {
+      background-color: rgba(210, 215, 215, 0.1);
+
+      .contact_info_block {
+        padding: 1px 6px;
+        border-radius: 2px;
+
+        &--main {
+          background-color: #4a90e2;
+        }
+
+        &--class {
+          background-color: #89919a;
+        }
+
+        .contact_info_block_text {
+          font-family: BlissPro;
+          font-size: 10px;
+          color: #fff;
+        }
+
+      }
+    }
+
   }
 
   .widget_map {

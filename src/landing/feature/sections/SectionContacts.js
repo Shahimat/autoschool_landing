@@ -15,21 +15,21 @@ module.exports = (lf, slf, project) => {
             working_hours: 'с 9:00 до 18:00',
             tel: '+7 (926) 534 16 22',
             telhref: 'tel:+79265341622',
-            isMain: true,
+            contactType: 'main',
           },
           {
-            title: 'ул. Московская 9К',
+            title: 'ул. Карла-Маркса-19',
             working_hours: 'с 9:00 до 18:00',
             tel: '+7 (926) 534 16 22',
             telhref: 'tel:+79265341622',
-            isMain: true,
+            contactType: 'class',
           },
           {
-            title: 'ул. Московская 9К',
+            title: 'ул. Шибанкова д. 71 ТЦ Весна 2 этаж',
             working_hours: 'с 9:00 до 18:00',
             tel: '+7 (926) 534 16 22',
             telhref: 'tel:+79265341622',
-            isMain: true,
+            contactType: 'class',
           }
         ]
       },
@@ -43,21 +43,21 @@ module.exports = (lf, slf, project) => {
             working_hours: 'с 9:00 до 18:00',
             tel: '+7 (926) 534 16 22',
             telhref: 'tel:+79265341622',
-            isMain: true,
+            contactType: 'main',
           },
           {
-            title: 'ул. Московская 9К',
+            title: 'ул. Карла-Маркса-19',
             working_hours: 'с 9:00 до 18:00',
             tel: '+7 (926) 534 16 22',
             telhref: 'tel:+79265341622',
-            isMain: true,
+            contactType: 'class',
           },
           {
-            title: 'ул. Московская 9К',
+            title: 'ул. Шибанкова д. 71 ТЦ Весна 2 этаж',
             working_hours: 'с 9:00 до 18:00',
             tel: '+7 (926) 534 16 22',
             telhref: 'tel:+79265341622',
-            isMain: true,
+            contactType: 'class',
           }
         ]
       },
@@ -71,21 +71,21 @@ module.exports = (lf, slf, project) => {
             working_hours: 'с 9:00 до 18:00',
             tel: '+7 (926) 534 16 22',
             telhref: 'tel:+79265341622',
-            isMain: true,
+            contactType: 'main',
           },
           {
-            title: 'ул. Московская 9К',
+            title: 'ул. Карла-Маркса-19',
             working_hours: 'с 9:00 до 18:00',
             tel: '+7 (926) 534 16 22',
             telhref: 'tel:+79265341622',
-            isMain: true,
+            contactType: 'class',
           },
           {
-            title: 'ул. Московская 9К',
+            title: 'ул. Шибанкова д. 71 ТЦ Весна 2 этаж',
             working_hours: 'с 9:00 до 18:00',
             tel: '+7 (926) 534 16 22',
             telhref: 'tel:+79265341622',
-            isMain: true,
+            contactType: 'class',
           }
         ]
       },
@@ -99,21 +99,21 @@ module.exports = (lf, slf, project) => {
             working_hours: 'с 9:00 до 18:00',
             tel: '+7 (926) 534 16 22',
             telhref: 'tel:+79265341622',
-            isMain: true,
+            contactType: 'main',
           },
           {
-            title: 'ул. Московская 9К',
+            title: 'ул. Карла-Маркса-19',
             working_hours: 'с 9:00 до 18:00',
             tel: '+7 (926) 534 16 22',
             telhref: 'tel:+79265341622',
-            isMain: true,
+            contactType: 'class',
           },
           {
-            title: 'ул. Московская 9К',
+            title: 'ул. Шибанкова д. 71 ТЦ Весна 2 этаж',
             working_hours: 'с 9:00 до 18:00',
             tel: '+7 (926) 534 16 22',
             telhref: 'tel:+79265341622',
-            isMain: true,
+            contactType: 'class',
           }
         ]
       }
@@ -146,6 +146,28 @@ module.exports = (lf, slf, project) => {
     className(sClass)
   );
 
+  const InfoBlock = (type) => {
+    switch (type) {
+      case 'main':
+        return spanClass(
+          'contact_info_block contact_info_block--main',
+          spanClass(
+            'contact_info_block_text',
+            'Главный офис',
+          ),
+        );
+      case 'class':
+        return spanClass(
+          'contact_info_block contact_info_block--class',
+          spanClass(
+            'contact_info_block_text',
+            'Учебный класс',
+          ),
+        );
+      default: return '';
+    }
+  }
+
   return () => {
 
     const ListItem = (oItem) => li(
@@ -168,13 +190,7 @@ module.exports = (lf, slf, project) => {
               ),
               className('contacts-card-list__info')
             ),
-            oItem.isMain? span(
-              span(
-                'Главный офис',
-                className('contacts-card-list__label')
-              ),
-              className('contacts-card-list__mark contacts-card-list__mark--main')
-            ): ''
+            InfoBlock(oItem.contactType)
           ),
           className('contacts-card-list__header')
         ),
@@ -219,7 +235,7 @@ module.exports = (lf, slf, project) => {
           className('contacts-card-list__footer')
         )
       ),
-      className('contacts-card-list__item')
+      className('contacts-card-list__item contacts_item')
     )
 
     const TabContent = (oTab) => div(
