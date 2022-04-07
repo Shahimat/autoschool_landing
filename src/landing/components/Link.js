@@ -1,7 +1,7 @@
 module.exports = (lf, slf, project) => {
   const { $print: $p, $attr: $a, a, href, className } = lf;
 
-  return (value, anyHref, anyTarget, classLink) => {
+  return (value, anyHref, anyTarget = '_blank', classLink = '') => {
     return a (
       value,
       $p(
