@@ -24,6 +24,7 @@ const Project = lfp.Project({
     Mail: 'components.Mail',
     Title: 'components.Title',
     ButtonGradient: 'components.ButtonGradient',
+    ButtonClose: 'components.ButtonClose',
     Header: 'feature.Header',
     Footer: 'feature.Footer',
     SectionHeader: 'feature.sections.SectionHeader',
