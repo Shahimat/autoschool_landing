@@ -23,6 +23,7 @@ const Project = lfp.Project({
     Link: 'components.Link',
     Mail: 'components.Mail',
     Title: 'components.Title',
+    ButtonGradient: 'components.ButtonGradient',
     Header: 'feature.Header',
     Footer: 'feature.Footer',
     SectionHeader: 'feature.sections.SectionHeader',
