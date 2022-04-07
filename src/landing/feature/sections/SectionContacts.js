@@ -128,6 +128,7 @@ module.exports = (lf, slf, project) => {
 
   const FieldSet = project.def('FieldSet');
   const Title = project.def('Title');
+  const ButtonGradient = project.def('ButtonGradient');
 
   const divClass = (sClass, ...args) => div(
     $print(...args),
@@ -359,13 +360,7 @@ module.exports = (lf, slf, project) => {
                       ),
                       className('contacts-form__descr')
                     ),
-                    button(
-                      span(
-                        'Отправить',
-                        className('button__label')
-                      ),
-                      className('button contacts-form__btn')
-                    )
+                    ButtonGradient('Отправить', 'button_send')
                   ),
                   className('contacts__form contacts-form')
                 ),
