@@ -198,6 +198,13 @@ module.exports = (lf, slf, project) => {
     ],
   };
 
+  const Title = project.def('Title');
+
+  const divClass = (sClass, ...args) => div(
+    $print(...args),
+    className(sClass)
+  );
+
   return () => {
 
     const TableCell = (aCells) => div(
@@ -290,6 +297,10 @@ module.exports = (lf, slf, project) => {
     return section(
       div(
         $print(
+          divClass(
+            'title_content',
+            Title('Идет набор в учебные группы автошколы'),
+          ),
           ul(
             $print(
               ...oData.tabs.map(oItem => li(
@@ -315,7 +326,7 @@ module.exports = (lf, slf, project) => {
         className('container')
       ),
       $print(
-        className('group'),
+        className('group section_group'),
         id('group')
       )
     );
