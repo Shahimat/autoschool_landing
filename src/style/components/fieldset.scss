@@ -24,9 +24,9 @@
       &_first {
         width: 10px;
         height: 100%;
-        border-top: solid 2px #89919a;
-        border-left: solid 2px #89919a;
-        border-bottom: solid 2px #89919a;
+        border-top: solid 1px #89919a;
+        border-left: solid 1px #89919a;
+        border-bottom: solid 1px #89919a;
         border-radius: 4px 0 0 4px;
         pointer-events: none;
         transition-duration: 0.2s;
@@ -37,8 +37,8 @@
         pointer-events: none;
         display: flex;
         align-items: center;
-        border-top: solid 2px #89919a;
-        border-bottom: solid 2px #89919a;
+        border-top: solid 1px #89919a;
+        border-bottom: solid 1px #89919a;
         transition-duration: 0.2s;
 
         &_filled {
@@ -72,9 +72,9 @@
       &_third {
         flex-grow: 1;
         height: 100%;
-        border-top: solid 2px #89919a;
-        border-right: solid 2px #89919a;
-        border-bottom: solid 2px #89919a;
+        border-top: solid 1px #89919a;
+        border-right: solid 1px #89919a;
+        border-bottom: solid 1px #89919a;
         border-radius: 0 4px 4px 0;
         pointer-events: none;
         transition-duration: 0.2s;
