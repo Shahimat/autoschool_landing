@@ -13,6 +13,7 @@ const Project = lfp.Project({
   output: path.join(__dirname, '..', 'dist'),
   dependencies: {
     Text: 'components.Text',
+    FieldSet: 'components.FieldSet',
     H1: 'components.H1',
     H2: 'components.H2',
     H3: 'components.H3',
