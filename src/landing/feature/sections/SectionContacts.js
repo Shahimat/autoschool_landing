@@ -127,6 +127,7 @@ module.exports = (lf, slf, project) => {
   };
 
   const FieldSet = project.def('FieldSet');
+  const Title = project.def('Title');
 
   const divClass = (sClass, ...args) => div(
     $print(...args),
@@ -254,13 +255,7 @@ module.exports = (lf, slf, project) => {
     return section(
       div(
         $print(
-          h2(
-            span(
-              'Контакты',
-              className('title__label')
-            ),
-            className('title')
-          ),
+          divClass('title_content', Title('Контакты')),
           div(
             $print(
               div(
