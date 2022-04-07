@@ -8,6 +8,7 @@
     "build:logic": "webpack --mode=production",
     "build:logic:dev": "webpack --mode=development",
     "build": "npm run build:layout && npm run build:logic",
+    "build:dev": "npm run build:layout && npm run build:logic:dev",
     "copy": "node ./tasks/copy",
     "scan:photos": "node ./tasks/getPhotoNames",
     "serve": "node ./server",
