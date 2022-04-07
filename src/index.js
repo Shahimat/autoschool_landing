@@ -15,6 +15,7 @@ const Project = lfp.Project({
     Text: 'components.Text',
     FieldSet: 'components.FieldSet',
     TextArea: 'components.TextArea',
+    Checkbox: 'components.Checkbox',
     H1: 'components.H1',
     H2: 'components.H2',
     H3: 'components.H3',
