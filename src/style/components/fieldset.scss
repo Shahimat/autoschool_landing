@@ -54,6 +54,7 @@
           letter-spacing: inherit;
           color: inherit;
           pointer-events: none;
+          user-select: none;
           transition-duration: 0.2s;
 
           &_filled {
