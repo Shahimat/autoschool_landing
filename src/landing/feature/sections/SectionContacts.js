@@ -126,6 +126,8 @@ module.exports = (lf, slf, project) => {
     ]
   };
 
+  const FieldSet = project.def('FieldSet');
+
   const divClass = (sClass, ...args) => div(
     $print(...args),
     className(sClass)
@@ -354,28 +356,7 @@ module.exports = (lf, slf, project) => {
                       ),
                       className('contacts-form__title')
                     ),
-                    ...oData.inputs.map(sItem => div(
-                      $print(
-                        input(
-                          null,
-                          $print(
-                            className('contacts-form__input'),
-                            type('text')
-                          )
-                        ),
-                        fieldset(
-                          legend(
-                            span(
-                              sItem,
-                              className('contacts-form__label')
-                            ),
-                            className('contacts-form__placeholder')
-                          ),
-                          className('contacts-form__border')
-                        )
-                      ),
-                      className('contacts-form__item')
-                    )),
+                    ...oData.inputs.map(sItem => FieldSet(sItem, '')),
                     span(
                       span(
                         '* Мы ценим вашу конфиденциальность и никогда не передадим вашу информацию кому-либо.',
