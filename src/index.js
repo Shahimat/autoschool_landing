@@ -14,6 +14,7 @@ const Project = lfp.Project({
   dependencies: {
     Text: 'components.Text',
     FieldSet: 'components.FieldSet',
+    TextArea: 'components.TextArea',
     H1: 'components.H1',
     H2: 'components.H2',
     H3: 'components.H3',
