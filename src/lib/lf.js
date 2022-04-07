@@ -165,6 +165,7 @@ module.exports = {
   legend   : ( content, attr ) => $tag('legend',   content, attr),
   select   : ( content, attr ) => $tag('select',   content, attr, false),
   option   : ( content, attr ) => $tag('option',   content, attr, false),
+  textarea : ( content, attr ) => $tag('textarea', content, attr, false),
 
 
   doctype: (...args) => $print('<!DOCTYPE html>', ...args),
