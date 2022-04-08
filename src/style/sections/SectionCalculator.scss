@@ -167,4 +167,117 @@
     font-weight: 300;
   }
 
+  .selection_calculator_modal_nodisplay {
+    display: none !important;
+  }
+
+  .selection_calculator_modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+
+    .modal_content {
+      width: 852px;
+      height: 659px;
+      border-radius: 20px;
+      box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+
+      .scm_close_field {
+        display: flex;
+        justify-content: end;
+        padding: 30px;
+      }
+
+      .scm_wrapper {
+        padding: 0 80px;
+
+        .scm_subtitle {
+          padding: 18px 0;
+
+          &_content {
+            margin: 0;
+            font-family: BlissPro;
+            font-size: 24px;
+            font-weight: 300;
+            color: #354a5f;
+          }
+        }
+
+        .scm_form {
+          display: flex;
+          padding-top: 25px;
+          font-family: BlissPro;
+          font-size: 14px;
+          color: #272f4a;
+
+          &_left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 342px;
+            width: 50%;
+            padding-right: 22px;
+
+            .scm_form_left_agreement {
+              display: flex;
+              padding-top: 18px;
+
+              .scm_form_check {
+                width: 18px;
+                height: 18px;
+                margin-right: 18px;
+              }
+
+              .scm_form_text {
+                flex-grow: 1;
+
+                .scm_form_info {
+                  margin: 0 0 14px 0;
+                }
+
+                .scm_form_link {
+                  text-decoration: underline;
+                  color: #658ef8;
+                  margin: 0;
+                }
+
+              }
+
+            }
+          }
+
+          &_right {
+            width: 50%;
+            padding-left: 22px;
+
+            .scm_message_field {
+              height: 204px;
+            }
+
+            &_text {
+              padding-top: 18px;
+              margin: 0;
+            }
+
+            &_button {
+              margin-top: 18px;
+              width: 100%;
+            }
+
+          }
+        }
+          
+      }
+
+    }
+  }
+
 }

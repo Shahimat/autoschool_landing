@@ -31,8 +31,17 @@ module.exports = (lf, slf, project) => {
     option,
   } = lf;
 
+  const Text = project.def('Text');
+  const Title = project.def('Title');
+  const Link = project.def('Link');
+  const ButtonGradient = project.def('ButtonGradient');
+  const FieldSet = project.def('FieldSet');
+  const TextArea = project.def('TextArea');
+  const ButtonClose = project.def('ButtonClose');
+  const Checkbox = project.def('Checkbox');
+
   const oData = {
-    transport: ['мотоцикл', 'легковое авто', 'переобучение с B на C'],
+    transport: ['мотоцикл', 'легковое авто', 'переобучение с B на C', 'переобучение с C на D'],
     transmission: ['Механическая', 'Автоматическая'],
     labels: [
       {
@@ -71,6 +80,61 @@ module.exports = (lf, slf, project) => {
   const liClass = (sClass, ...args) => li(
     $print(...args),
     className(sClass)
+  );
+
+  const Modal = () => divClass(
+    'selection_calculator_modal selection_calculator_modal_nodisplay',
+    divClass(
+      'modal_content',
+      divClass('scm_close_field', ButtonClose('scm_close_button')),
+      divClass(
+        'scm_wrapper',
+        Title('Записаться'),
+        divClass('scm_subtitle', Text('Мы свяжемся с Вами в самое ближайшее время для уточнения деталей', 
+          'scm_subtitle_content')),
+        divClass(
+          'scm_form',
+          divClass(
+            'scm_form_left',
+            FieldSet('Ваше имя'),
+            FieldSet('E-mail'),
+            FieldSet('Телефон'),
+            divClass(
+              'scm_form_left_agreement',
+              divClass(
+                'scm_form_check',
+                Checkbox('wf')
+              ),
+              divClass(
+                'scm_form_text',
+                Text(
+                  'Я соглашаюсь с условими политики конфеденциальности и обработки персональных данных в соответствии с',
+                  'scm_form_info'
+                ),
+                Link(
+                  'ФЗ РФ №152 - ФЗ "О персональных данных"',
+                  'http://www.consultant.ru/document/cons_doc_LAW_61801/',
+                  '_blank',
+                  'scm_form_link'
+                ),
+              ),
+            )
+          ),
+          divClass(
+            'scm_form_right',
+            TextArea('Сообщение', '', 'scm_message_field'),
+            Text(
+              '* Мы ценим вашу конфиденциальность и никогда не передадим вашу информацию кому-либо.',
+              'scm_form_right_text'
+            ),
+            ButtonGradient(
+              'Отправить',
+              'scm_form_right_button'
+            ),
+          ),
+        )
+      )
+    )
   );
 
   const Selection = (title, select, arr) => divClass(
@@ -142,7 +206,8 @@ module.exports = (lf, slf, project) => {
                 spanClass('btn_enroll_text', 'Записаться'),
                 className('btn_enroll')
               )
-            )
+            ),
+            Modal()
           ),
           className('section_calculator_form')
         ),
