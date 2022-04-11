@@ -205,6 +205,17 @@ module.exports = (lf, slf, project) => {
     className(sClass)
   );
 
+  const Decor = (imagePath) => divClass(
+    'decor_container',
+    img(
+      null,
+      $print(
+        src(imagePath),
+        alt('decor')
+      )
+    ),
+  )
+
   return () => {
 
     const TableCell = (aCells) => div(
@@ -266,25 +277,14 @@ module.exports = (lf, slf, project) => {
           ),
           className('tabs-content__bg')
         ),
-        div(
-          $print(
-            div(
-              img(
-                null,
-                $print(
-                  src(oTab.decor),
-                  alt('decor')
-                )
-              ),
-              className('group-card__decor')
-            ),
-            h3(
-              oTab.text,
-              className('group-card__title')
-            ),
-            TableContent(oTab.table)
+        divClass(
+          'group-card',
+          Decor(oTab.decor),
+          h3(
+            oTab.text,
+            className('group-card__title')
           ),
-          className('group-card')
+          TableContent(oTab.table)
         )
       ),
       $print(

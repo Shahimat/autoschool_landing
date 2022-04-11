@@ -4,4 +4,22 @@
     margin-bottom: 49px;
   }
 
+  .group-card {
+    position: relative;
+
+    .decor_container {
+      position: absolute;
+      z-index: -1;
+      width: 178px;
+      height: 294px;
+      left: -178px;
+      top: -88px;
+  
+      & > img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
 }
