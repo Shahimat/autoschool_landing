@@ -55,7 +55,7 @@ module.exports = (lf, slf, project) => {
                   SectionContacts()
                 ),
                 $print(
-                  className('index'),
+                  className('index homepage'),
                   $attr('role', 'main')
                 ),
               ),
