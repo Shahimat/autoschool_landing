@@ -313,27 +313,12 @@ module.exports = (lf, slf, project) => {
                     ),
                     divClass(
                       'widget_map',
-                      a(
-                        'Наро‑Фоминск',
-                        $print(
-                          className('widget_city'),
-                          href('https://yandex.ru/maps/10741/naro-fominsk/?utm_medium=mapframe&utm_source=maps')
-                        )
-                      ),
-                      a(
-                        'Московская улица, 9К — Яндекс Карты',
-                        $print(
-                          className('widget_street'),
-                          href('https://yandex.ru/maps/10741/naro-fominsk/house/moskovskaya_ulitsa_9k/Z08YcQJjQUcDQFtvfX95cH1nbA==/?ll=36.753604%2C55.381279&utm_medium=mapframe&utm_source=maps&z=17.1')
-                        )
-                      ),
                       iframe(
                         null,
                         $print(
                           className('widget_frame'),
-                          src('https://yandex.ru/map-widget/v1/-/CCUFI8dp8A'),
+                          src('https://yandex.ru/map-widget/v1/?um=constructor%3A0d9db955c0c89e32e5b28d60d48794a73edad6fbab23ddee965af01a28374b88&amp;source=constructor'),
                           $attr('frameborder', '0'),
-                          $attr('allowfullscreen', 'true'),
                         )
                       )
                     )
