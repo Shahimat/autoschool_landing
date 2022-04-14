@@ -324,14 +324,14 @@ module.exports = (lf, slf, project) => {
                         'Московская улица, 9К — Яндекс Карты',
                         $print(
                           className('widget_street'),
-                          href('https://yandex.ru/maps/10741/naro-fominsk/house/moskovskaya_ulitsa_9k/Z08YcQJjQUcDQFtvfX95cH1nbA==/?ll=36.753825%2C55.381148&utm_medium=mapframe&utm_source=maps&z=17.1')
+                          href('https://yandex.ru/maps/10741/naro-fominsk/house/moskovskaya_ulitsa_9k/Z08YcQJjQUcDQFtvfX95cH1nbA==/?ll=36.753604%2C55.381279&utm_medium=mapframe&utm_source=maps&z=17.1')
                         )
                       ),
                       iframe(
                         null,
                         $print(
                           className('widget_frame'),
-                          src('https://yandex.ru/map-widget/v1/-/CCUBBTFXGC'),
+                          src('https://yandex.ru/map-widget/v1/-/CCUFI8dp8A'),
                           $attr('frameborder', '0'),
                           $attr('allowfullscreen', 'true'),
                         )
