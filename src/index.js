@@ -12,6 +12,10 @@ const Project = lfp.Project({
   },
   output: path.join(__dirname, '..', 'dist'),
   dependencies: {
+    Div: 'components.Div',
+    Span: 'components.Span',
+    Section: 'components.Section',
+    Video: 'components.Video',
     Text: 'components.Text',
     FieldSet: 'components.FieldSet',
     TextArea: 'components.TextArea',
