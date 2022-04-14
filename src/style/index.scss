@@ -1,8 +1,9 @@
 @import './index_old.scss';
-@import './about.scss';
-@import './pdd.scss';
-@import './gallery.scss';
 @import './Footer.scss';
+
+@import './pages/about.scss';
+@import './pages/pdd.scss';
+@import './pages/gallery.scss';
 
 @import './components/buttons.scss';
 @import './components/text.scss';
