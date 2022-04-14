@@ -18,6 +18,7 @@
   "author": "Gevorg Nakhapetyan <ngs22071993@gmail.com> (https://github.com/shahimat)",
   "license": "MIT",
   "devDependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.3",
     "node-sass": "^7.0.1",
     "open": "^8.4.0",
