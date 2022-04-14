@@ -189,7 +189,7 @@ module.exports = (lf, slf, project) => {
                 ),
                 span(
                   oItem.title,
-                  className('contacts-card-list__label')
+                  className('contacts_card_title')
                 )
               ),
               className('contacts-card-list__info')

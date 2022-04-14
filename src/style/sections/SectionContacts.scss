@@ -21,6 +21,13 @@
     .contacts_item {
       background-color: rgba(210, 215, 215, 0.1);
 
+      .contacts_card_title {
+        font-family: BlissPro;
+        font-size: 16px;
+        font-weight: 500;
+        color: #0a6ed1;
+      }
+
       .contact_info_block {
         padding: 1px 6px;
         border-radius: 2px;
