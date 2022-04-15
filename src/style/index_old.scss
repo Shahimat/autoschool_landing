@@ -1219,6 +1219,7 @@ textarea {
   letter-spacing: 0.5px;
   color: #0a6ed1;
   white-space: nowrap;
+  user-select: none;
 }
 
 .button[disabled] {
@@ -3128,7 +3129,7 @@ textarea {
     padding: 5em 1.25em 3.125em 7.5em;
     z-index: 1;
     transform: translateX(-120%);
-    transition: transform .2s ease
+    transition: transform .2s ease;
   }
 
   .navigation-list.is-active {
@@ -3142,6 +3143,10 @@ textarea {
   }
 }
 
+.navigation-list__item {
+  user-select: none;
+}
+
 @media only screen and (max-width:1279px) {
   .navigation-list__item:not(:first-child) {
     margin-top: 2.5em
@@ -3150,7 +3155,7 @@ textarea {
 
 @media only screen and (min-width:1280px) {
   .navigation-list__item:not(:first-child) {
-    margin-left: 72px
+    margin-left: 72px;
   }
 }
 
