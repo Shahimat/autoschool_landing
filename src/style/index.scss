@@ -1,20 +1,22 @@
 @import './normalize.scss';
 @import './fonts.scss';
 @import './variables.scss';
-@import './Footer.scss';
-
-@import './pages/home.scss';
-@import './pages/about.scss';
-@import './pages/pdd.scss';
-@import './pages/gallery.scss';
 
 @import './components/buttons.scss';
 @import './components/text.scss';
 @import './components/fieldset.scss';
 @import './components/textarea.scss';
 
+@import './Footer.scss';
+@import './Header.scss';
+
 @import './sections/SectionHeader.scss';
 @import './sections/SectionCalculator.scss';
 @import './sections/SectionSchool.scss';
 @import './sections/SectionGroup.scss';
 @import './sections/SectionContacts.scss';
+
+@import './pages/home.scss';
+@import './pages/about.scss';
+@import './pages/pdd.scss';
+@import './pages/gallery.scss';
