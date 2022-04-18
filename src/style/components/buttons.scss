@@ -5,8 +5,15 @@
   border-width: 1px;
   border-image-source: linear-gradient(to bottom, #0080ff, #00b7ff);
   border-image-slice: 1;
+  background-color: rgba(0, 0, 0, 0);
+  text-decoration: none;
+
+  &:hover, &:active {
+    text-decoration: none;
+  }
 
   &_text {
+    font-family: BlissPro;
     font-size: 18px;
     color: #0b6bcb;
     text-transform: uppercase;

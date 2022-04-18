@@ -1,10 +1,14 @@
 module.exports = (lf, slf, project) => {
-  const { $print: $p, button, span, className } = lf;
+  const { $print: $p, $attr, a, span, className, href } = lf;
 
-  return (text, classButtonGradient) => {
-    return button (
+  return (text, classButtonGradient = '', sHref = '', sTarget = '') => {
+    return a (
       span(text, className('base_button_gradient_text')),
-      className($p('base_button_gradient ', classButtonGradient))
+      $p(
+        className($p('base_button_gradient ', classButtonGradient)),
+        href(sHref),
+        $attr('target', sTarget)
+      )
     );
   };
 }
