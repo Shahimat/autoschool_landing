@@ -12,7 +12,7 @@ module.exports = (lf, slf, project) => {
     return Section(
       'section_header',
       Video(
-        'assets/video-bg/video.mp4',
+        'assets/bg/video.mp4',
         'video/mp4',
         'autoplay muted loop playsinline',
         'sh_video'
@@ -25,7 +25,7 @@ module.exports = (lf, slf, project) => {
             'sh_logo_container',
             a(
               img( null, $p(
-                $attr('src', 'assets/images/logo.webp'),
+                $attr('src', 'assets/images/logo.png'),
                 alt('logo'),
                 className('sh_logo_container_img')
               )),

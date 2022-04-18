@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   height: 534px;
-  background-image: linear-gradient(145deg, #340750 10%, #27063b 52%);
+  background-image: url('assets/bg/bg.png');
   margin-top: 80px;
   @include breakpoint (xs) {
     height: 242px;
