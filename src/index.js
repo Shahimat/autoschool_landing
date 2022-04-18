@@ -14,6 +14,7 @@ const Project = lfp.Project({
   dependencies: {
     Div: 'components.Div',
     Span: 'components.Span',
+    Box: 'components.Box',
     Section: 'components.Section',
     Video: 'components.Video',
     Text: 'components.Text',
