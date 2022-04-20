@@ -1,5 +1,5 @@
 module.exports = (lf, slf, project) => {
-  const { $print, $attr, header, div, span, button, ul, li, a, className } = lf;
+  const { $print: $p, $attr, header, div, span, button, label, input, ul, li, a, className, type } = lf;
 
   const aData = [
     {
@@ -26,50 +26,73 @@ module.exports = (lf, slf, project) => {
       name: 'Контакты',
       link: '/#contacts',
     },
-  ]
+  ];
+
+  const Div = project.def('Div');
+  const Span = project.def('Span');
+  const Box = project.def('Box');
+  const ButtonGradient = project.def('ButtonGradient');
+
+  const Menu = () => Div(
+    'hamburger-menu',
+    input(
+      null,
+      $p(
+        $attr('id', 'menu__toggle'),
+        type('checkbox')
+      )
+    ),
+    label(
+      $p(
+        Span('bb_top'),
+        Span('bb_center'),
+        Span('bb_bottom'),
+      ),
+      $p(
+        className('menu__btn'),
+        $attr('for', 'menu__toggle')
+      )
+    ),
+    Box(
+      'menu__box',
+      ul(
+        $p(
+          ...aData.map(oItem => li(
+            a(
+              oItem.name,
+              $p(
+                className('menu__item'),
+                $attr('href', oItem.link)
+              )
+            )
+          )),
+        ),
+        className('menu__list')
+      )
+    )
+  );
 
   return () => {
     return header (
-      div(
-        $print(
-          div(
-            $print(
-              button(
-                $print(
-                  span(null, className('burger__item burger__item--top')),
-                  span(null, className('burger__item burger__item--middle')),
-                  span(null, className('burger__item burger__item--bottom')),
-                ),
-                className('navigation__burger burger')
-              ),
-              ul(
-                $print(
-                  ...aData.map(oItem => li(
-                    a(
-                      oItem.name,
-                      $print(
-                        className('navigation-list__link'),
-                        $attr('href', oItem.link)
-                      )
-                    ),
-                    className('navigation-list__item')
-                  ))
-                ),
-                className('navigation__list navigation-list')
-              ),
-            ),
-            className('navigation')
-          ),
-          a(
-            span('Личный кабинет', className('button__label')),
-            $print(
-              className('button'),
-              $attr('href', 'https://avto-online.pro/kabinet/'),
-              $attr('target', '_blank')
+      Box(
+        'header_container',
+        Box(
+          'nav_container',
+          Menu(),
+          ...aData.map(oItem => a(
+            oItem.name,
+            $p(
+              className('nav_button'),
+              $attr('href', oItem.link)
             )
+          )),
+          ButtonGradient(
+            'личный кабинет',
+            'personal_area_button',
+            'https://avto-online.pro/kabinet/',
+            '_blank'
           )
-        ),
-        className('container container--sm container container--flex')
+        )
       ),
       className('header')
     )
