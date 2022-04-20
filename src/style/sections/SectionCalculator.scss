@@ -168,7 +168,7 @@
   }
 
   .selection_calculator_modal {
-    display: flex;
+    display: none;
     position: fixed;
     top: 0;
     right: 0;
@@ -179,8 +179,8 @@
     align-items: center;
     justify-content: center;
 
-    &[data-state-is_open_modal="false"] {
-      display: none;
+    &[data-state-is_open_modal="true"] {
+      display: flex;
     }
 
     .modal_content {
