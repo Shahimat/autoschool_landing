@@ -2,6 +2,7 @@ module.exports = (lf, slf, project) => {
   const { $print: $p, $attr, section, div, span, button, img, svg, video, source, use, ul, li, a, br, className, alt, src, 
     href, type, picture, h1, h2 } = lf;
 
+  const Box = project.def('Box');
   const Div = project.def('Div');
   const Span = project.def('Span');
   const Section = project.def('Section');
