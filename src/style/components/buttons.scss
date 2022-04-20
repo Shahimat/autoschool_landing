@@ -1,6 +1,5 @@
 .base_button_gradient {
   padding: 10px 21px 9px;
-  border-radius: 2px;
   border-style: solid;
   border-width: 1px;
   border-image-source: linear-gradient(to bottom, #0080ff, #00b7ff);
@@ -17,6 +16,7 @@
     font-size: 18px;
     color: #0b6bcb;
     text-transform: uppercase;
+    white-space: nowrap;
   }
 }
 
