@@ -1,7 +1,7 @@
 module.exports = (lf, slf, project) => {
   const { $print: $p, button, div, className } = lf;
 
-  return (classButtonClose) => {
+  return (classButtonClose, ...attrs) => {
     return button (
       div(
         $p(
@@ -10,7 +10,10 @@ module.exports = (lf, slf, project) => {
         ),
         className('base_button_close_img')
       ),
-      className($p('base_button_close ', classButtonClose))
+      $p(
+        className($p('base_button_close ', classButtonClose)),
+        ...attrs
+      )
     );
   };
 }

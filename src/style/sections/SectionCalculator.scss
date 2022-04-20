@@ -167,10 +167,6 @@
     font-weight: 300;
   }
 
-  .selection_calculator_modal_nodisplay {
-    display: none !important;
-  }
-
   .selection_calculator_modal {
     display: flex;
     position: fixed;
@@ -182,6 +178,10 @@
     z-index: 1000;
     align-items: center;
     justify-content: center;
+
+    &[data-state-is_open_modal="false"] {
+      display: none;
+    }
 
     .modal_content {
       width: 852px;

@@ -82,11 +82,16 @@ module.exports = (lf, slf, project) => {
     className(sClass)
   );
 
-  const Modal = () => divClass(
-    'selection_calculator_modal selection_calculator_modal_nodisplay',
+  const Modal = () => div(
     divClass(
       'modal_content',
-      divClass('scm_close_field', ButtonClose('scm_close_button')),
+      divClass(
+        'scm_close_field',
+        ButtonClose(
+          'scm_close_button',
+          $attr('data-action', 'close_modal')
+        )
+      ),
       divClass(
         'scm_wrapper',
         Title('Записаться'),
@@ -134,6 +139,10 @@ module.exports = (lf, slf, project) => {
           ),
         )
       )
+    ),
+    $print(
+      className('selection_calculator_modal'),
+      $attr('data-state', 'is_open_modal')
     )
   );
 
@@ -203,7 +212,13 @@ module.exports = (lf, slf, project) => {
                 ),
               ),
               button(
-                spanClass('btn_enroll_text', 'Записаться'),
+                span(
+                  'Записаться',
+                  $print(
+                    className('btn_enroll_text'),
+                    $attr('data-action', 'open_modal'),
+                  )
+                ),
                 className('btn_enroll')
               )
             ),
