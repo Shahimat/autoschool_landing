@@ -24,12 +24,6 @@
     height: 100%;
     margin: 0 auto;
     z-index: 1;
-    // @include breakpoint (xxl) {
-    //   width: 1100px;
-    // }
-    // @include breakpoint (xl) {
-    //   width: 900px;
-    // }
     @include breakpoint (lg) {
       max-width: 706px;
     }
