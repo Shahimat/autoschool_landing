@@ -11,6 +11,7 @@ const Project = lfp.Project({
     gallery: 'pages.Gallery',
   },
   output: path.join(__dirname, '..', 'dist'),
+  styleOutput: path.join(__dirname, 'style'),
   dependencies: {
     Div: 'components.Div',
     Span: 'components.Span',

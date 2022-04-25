@@ -116,6 +116,28 @@ const $tag = (name, content, attr, simplify = true, onlyAttrNames = false) => {
   }
 }
 
+const $props = (oProps) => {
+  if (typeof(oProps) !== 'object') {
+    throw new Error(`invalid style object "${oProps}"`);
+  }
+  return () => {
+    let sRes = '';
+    for (let key in oProps) {
+      sRes += `${key}: ${$put(oProps[key])};`;
+    }
+    return sRes;
+  }
+}
+
+const $style = (sClassName, oProps, customProps = undefined) => {
+  return $print(
+    `.${$put(sClassName)} {`,
+    $props(oProps),
+    $put(customProps),
+    '}'
+  );
+}
+
 module.exports = {
   $put,
   $putCheck,
@@ -178,4 +200,7 @@ module.exports = {
   charset   : (value) => $attr('charset', value),
   value     : (value) => $attr('value',   value),
   id        : (value) => $attr('id',      value),
+
+  $props,
+  $style,
 };
