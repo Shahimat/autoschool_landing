@@ -173,6 +173,7 @@ module.exports = {
   label    : ( content, attr ) => $tag('label',    content, attr),
   header   : ( content, attr ) => $tag('header',   content, attr, false),
   main     : ( content, attr ) => $tag('main',     content, attr, false),
+  menu     : ( content, attr ) => $tag('menu',     content, attr, false),
   footer   : ( content, attr ) => $tag('footer',   content, attr, false),
   section  : ( content, attr ) => $tag('section',  content, attr, false),
   script   : ( content, attr ) => $tag('script',   content, attr, false),
