@@ -30,7 +30,7 @@ module.exports = (lf, slf, project) => {
 
   const Div = project.def('Div');
   const Span = project.def('Span');
-  const Box = project.def('Box');
+  const FlexHContainer = project.def('FlexHContainer');
   const ButtonGradient = project.def('ButtonGradient');
 
   const Menu = () => Div(
@@ -53,7 +53,7 @@ module.exports = (lf, slf, project) => {
         $attr('for', 'menu__toggle')
       )
     ),
-    Box(
+    FlexHContainer(
       'menu__box',
       ul(
         $p(
@@ -74,9 +74,9 @@ module.exports = (lf, slf, project) => {
 
   return () => {
     return header (
-      Box(
+      FlexHContainer(
         'header_container',
-        Box(
+        FlexHContainer(
           'nav_container',
           Menu(),
           ...aData.map(oItem => a(

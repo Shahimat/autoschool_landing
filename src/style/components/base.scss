@@ -1,4 +1,19 @@
 .box_base {
+  display: block;
+  width: 100%;
+}
+
+.flex_horizontal_container_base {
   display: flex;
   width: 100%;
+}
+
+.flex_vertical_container_base {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.flex_item_base {
+
 }
