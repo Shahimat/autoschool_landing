@@ -43,7 +43,7 @@
 
         &_filled {
           align-items: flex-start;
-          border-top: none;
+          border-top: solid 1px #ffffff;
         }
 
         .custom_fieldset_legend_content {
@@ -85,13 +85,19 @@
 
     .custom_fieldset_input {
       width: 100%;
-      // padding: 16px 10px 9px 10px;
       padding: 15px 15px;
+      background-color: transparent;
       font-family: inherit;
       font-size: inherit;
       line-height: inherit;
       letter-spacing: inherit;
       color: inherit;
+      border-style: none;
+
+      &:focus, &:focus-visible {
+        border-style: none;
+        outline-style: none;
+      }
 
       &:focus+.custom_fieldset_border_top {
         .custom_fieldset_border_top_first {
@@ -103,7 +109,7 @@
         .custom_fieldset_border_top_second {
           align-items: flex-start;
           border-bottom: solid 2px #0170d8;
-          border-top: none;
+          border-top: solid 2px #ffffff;
 
           .custom_fieldset_legend_content {
             font-family: Roboto;
