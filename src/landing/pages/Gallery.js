@@ -78,7 +78,6 @@ module.exports = (lf, slf, project) => {
                 ))
               ),
               Footer(),
-              script(null, $p( src('assets/scripts/app.min.js'), charset('utf-8') )),
               script(null, src('https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js'))
             ),
           )

@@ -140,8 +140,7 @@ module.exports = (lf, slf, project) => {
                 H3('Международное сотрудничество'),
                 Text(Model.get().international)
               ),
-              Footer(),
-              script(null, $p( src('assets/scripts/app.min.js'), charset('utf-8') ))
+              Footer()
             ),
           )
         )

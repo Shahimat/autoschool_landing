@@ -59,8 +59,7 @@ module.exports = (lf, slf, project) => {
                   $attr('role', 'main')
                 ),
               ),
-              Footer(),
-              script(null, $print( src('assets/scripts/app.min.js'), charset('utf-8') ))
+              Footer()
             )
           )
         )
