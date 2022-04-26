@@ -61,9 +61,9 @@ const Project = ({
       if (typeof(sModelName) !== 'string' || sModelName === '') {
         throw new Error(`expected model name <string>, but found "${sModelName}"`);
       }
-      return (oProps, customProps) => () => {
+      return (oProps, ...customProps) => () => {
         let id = `${sModelName}_${slf.guid()}`;
-        outputStyleContent += lf.$put( lf.$style(id, oProps, customProps) ) + ' ';
+        outputStyleContent += lf.$put( lf.$style(id, oProps, ...customProps) ) + ' ';
         return id;
       };
     },

@@ -129,11 +129,11 @@ const $props = (oProps) => {
   }
 }
 
-const $style = (sClassName, oProps, customProps = undefined) => {
+const $style = (sClassName, oProps, ...customProps) => {
   return $print(
     `.${$put(sClassName)} {`,
     $props(oProps),
-    $put(customProps),
+    ...customProps.map(customProp => $put(customProp)),
     '}'
   );
 }
