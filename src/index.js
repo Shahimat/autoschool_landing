@@ -13,6 +13,8 @@ const Project = lfp.Project({
   output: path.join(__dirname, '..', 'dist'),
   styleOutput: path.join(__dirname, 'style'),
   dependencies: {
+    scssInclude: 'functions.scssInclude',
+
     Div: 'components.Div',
     Span: 'components.Span',
     Box: 'components.Box',
