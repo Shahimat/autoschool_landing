@@ -1,12 +1,9 @@
 module.exports = (lf, slf, project) => {
-  const { $print, $attr, section, div, span, button, img, svg, video, source, use, ul, li, a, br, className, alt, src, 
-    href, type, picture, h1, h2, h3, form, label, value, input, id, p } = lf;
+  const { $print: $p, $attr,img, className, alt, src } = lf;
 
   const oData = {
     tabs: [
       {
-        class: 'is-active',
-        target: '0-group',
         text: 'Категория A',
         src: 'assets/images/group-bg.jpg',
         decor: 'assets/images/decor/2.png',
@@ -36,8 +33,6 @@ module.exports = (lf, slf, project) => {
         }
       },
       {
-        class: '',
-        target: '1-group',
         text: 'Категория B',
         src: 'assets/images/group-bg.jpg',
         decor: 'assets/images/decor/2.png',
@@ -134,8 +129,6 @@ module.exports = (lf, slf, project) => {
         }
       },
       {
-        class: '',
-        target: '2-group',
         text: 'Категория C',
         src: 'assets/images/group-bg.jpg',
         decor: 'assets/images/decor/2.png',
@@ -165,8 +158,6 @@ module.exports = (lf, slf, project) => {
         }
       },
       {
-        class: '',
-        target: '3-group',
         text: 'Категория D',
         src: 'assets/images/group-bg.jpg',
         decor: 'assets/images/decor/2.png',
@@ -198,136 +189,105 @@ module.exports = (lf, slf, project) => {
     ],
   };
 
+  const Style = project.style('group');
+
   const Title = project.def('Title');
+  const Div = project.def('Div');
+  const Span = project.def('Span');
+  const Box = project.def('Box');
+  const Section = project.def('Section');
+  const FlexHContainer = project.def('FlexHContainer');
+  const FlexVContainer = project.def('FlexVContainer');
+  const FlexItem = project.def('FlexItem');
+  const TabContainer = project.def('TabContainer');
 
-  const divClass = (sClass, ...args) => div(
-    $print(...args),
-    className(sClass)
-  );
-
-  const Decor = (imagePath) => divClass(
+  const Decor = (imagePath) => Div(
     'decor_container',
     img(
       null,
-      $print(
+      $p(
         src(imagePath),
         alt('decor')
       )
     ),
   )
 
+  const TableCell = (cell) => Box(
+    'group_table_cell',
+    cell.title? Box('', Span('group_table_cell--title', cell.title)) : '',
+    cell.description? Box('', Span('group_table_cell--description', cell.description)) : '',
+    cell.date? Box('', Span('group_table_cell--date', cell.date)) : '',
+  )
+
+  const TableLine = (line) => FlexHContainer(
+    'group_table_line',
+    ...line.map(cell => FlexItem(
+      $p(
+        'group_table_line--item ',
+        Style({
+          width: `${Math.round( 100 / line.length * 100 ) / 100}%`,
+        })
+      ),
+      TableCell(cell)
+    ))
+  )
+
+  const Table = (header, cells) => FlexVContainer(
+    'group_table',
+    FlexItem(
+      'group_table--item_first',
+      TableLine(header)
+    ),
+    ...cells.map(cell => FlexItem(
+      'group_table--item',
+      TableLine(cell)
+    ))
+  )
+
   return () => {
 
-    const TableCell = (aCells) => div(
-      $print(
-        ...aCells.map(oCell => div(
-          $print(
-            oCell.title? span(
-              oCell.title,
-              className('group-card-table__title')
-            ): '',
-            oCell.description? span(
-              oCell.description,
-              className('group-card-table__descr')
-            ): '',
-            oCell.date? span(
-              oCell.date,
-              className('group-card-table__date')
-            ): '',
-          ),
-          className('group-card-table__cell')
-        ))
-      ),
-      className('group-card-table__row')
-    );
-
-    const TableHeader = (aHeader) => div(
-      $print(
-        ...aHeader.map(oHeader => div(
-          $print(
-            span(
-              oHeader.title,
-              className('group-card-table__title')
+    return Section(
+      'section_group',
+      FlexHContainer(
+        '',
+        FlexItem(
+          Style({
+            width: '1300px',
+            margin: '0 auto',
+          }),
+          FlexVContainer(
+            '',
+            FlexItem(
+              'title_content',
+              Title('Идет набор в учебные группы автошколы')
             ),
-            span(
-              oHeader.description,
-              className('group-card-table__descr')
-            )
-          ),
-          className('group-card-table__cell')
-        ))
-      ),
-      className('group-card-table__row group-card-table__row--header')
-    );
-
-    const TableContent = (oTable) => div(
-      $print(
-        TableHeader(oTable.columns),
-        ...oTable.cells.map(aCells => TableCell(aCells))
-      ),
-      className('group-card__table group-card-table')
-    );
-
-    const TabContent = (oTab) => div(
-      $print(
-        div(
-          div(
-            img(null, $print( className('tabs-content__image'), src(oTab.src), alt('group-bg') )),
-            className('tabs-content__picture')
-          ),
-          className('tabs-content__bg')
-        ),
-        divClass(
-          'group-card',
-          Decor(oTab.decor),
-          h3(
-            oTab.text,
-            className('group-card__title')
-          ),
-          TableContent(oTab.table)
-        )
-      ),
-      $print(
-        className(`tabs-content__wrapper ${oTab.class}`),
-        $attr('data-tab', oTab.target),
-        $attr('data-tab-group', 'group')
-      )
-    );
-
-    return section(
-      div(
-        $print(
-          divClass(
-            'title_content',
-            Title('Идет набор в учебные группы автошколы'),
-          ),
-          ul(
-            $print(
-              ...oData.tabs.map(oItem => li(
-                span(
-                  oItem.text,
-                  className('tabs__label')
+            FlexItem(
+              '',
+              TabContainer({
+                tabs: oData.tabs.map(tab => tab.text),
+                tabStyle: 'tab_header',
+              }, (text, index) => Box(
+                '',
+                Box(
+                  'section_group_picture',
+                  img(null, $p( className('section_group_picture_img'), src(oData.tabs[index].src), alt('group-bg') )),
                 ),
-                $print(
-                  className(`tabs__tab ${oItem.class}`),
-                  $attr('data-tab-target', oItem.target)
+                Box(
+                  'section_group_content',
+                  Decor(oData.tabs[index].decor),
+                  Box(
+                    'section_group_content--title',
+                    Span('category_tab_title', text)
+                  ),
+                  Box(
+                    'section_group_content--table',
+                    Table(oData.tabs[index].table.columns, oData.tabs[index].table.cells)
+                  )
                 )
-              )),
-            ),
-            className('tabs')
-          ),
-          div(
-            $print(
-              ...oData.tabs.map(oItem => TabContent(oItem))
-            ),
-            className('tabs-content')
+              ))
+            )
           )
-        ),
-        className('container')
-      ),
-      $print(
-        className('group section_group'),
-        id('group')
+        )
       )
     );
   };
