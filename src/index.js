@@ -15,6 +15,8 @@ const Project = lfp.Project({
   dependencies: {
     scssInclude: 'functions.scssInclude',
 
+    TabContainer: 'components.containers.TabContainer',
+
     Div: 'components.Div',
     Span: 'components.Span',
     Box: 'components.Box',
