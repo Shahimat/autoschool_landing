@@ -1,6 +1,65 @@
 .section_contacts {
   margin-top: 210px;
 
+  .contacts_icon {
+    width: 15px;
+    height: 15px;
+    fill: #89919a;
+    margin-right: 10px;
+  }
+
+  .contacts_card {
+
+    &_title {
+      font-family: BlissPro;
+      font-size: 16px;
+      font-weight: 500;
+      color: #0a6ed1;
+    }
+
+    &_type {
+      padding: 1px 6px;
+      border-radius: 2px;
+
+      &--main {
+        background-color: #4a90e2;
+      }
+
+      &--class {
+        background-color: #89919a;
+      }
+
+      .contacts_card_type_text {
+        font-family: BlissPro;
+        font-size: 10px;
+        color: #fff;
+      }
+
+    }
+
+    &_text {
+      font-family: BlissPro;
+      font-size: 14px;
+      color: #89919a;
+      text-decoration: none;
+    }
+
+  }
+
+  .contacts_email {
+    font-family: BlissPro;
+    font-size: 14px;
+    text-decoration: none;
+
+    &_first {
+      color: #89919a;
+    }
+
+    &_second {
+      color: #0a6ed1;
+    }
+  }
+
   .title_content {
     margin-bottom: 41px;
   }
@@ -18,41 +77,11 @@
       font-weight: normal;
     }
 
-    .contacts_item {
-      background-color: rgba(210, 215, 215, 0.1);
-
-      .contacts_card_title {
-        font-family: BlissPro;
-        font-size: 16px;
-        font-weight: 500;
-        color: #0a6ed1;
-      }
-
-      .contact_info_block {
-        padding: 1px 6px;
-        border-radius: 2px;
-
-        &--main {
-          background-color: #4a90e2;
-        }
-
-        &--class {
-          background-color: #89919a;
-        }
-
-        .contact_info_block_text {
-          font-family: BlissPro;
-          font-size: 10px;
-          color: #fff;
-        }
-
-      }
-    }
-
   }
 
   .widget_map {
-    width: 40%;
+    width: 100%;
+    height: 100%;
     position: relative;
     overflow: hidden;
 
@@ -78,8 +107,25 @@
 
   }
 
-  .button_send {
-    width: 140px;
+  .contact_form {
+
+    &_title {
+      font-family: BlissPro;
+      font-size: 24px;
+      font-weight: 300;
+      color: #354a5f;
+    }
+
+    &_info {
+      font-family: BlissPro;
+      font-size: 14px;
+      color: #272f4a;
+    }
+
+    &_button_send {
+      width: 140px;
+    }
+
   }
 
 }
