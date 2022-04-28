@@ -1,12 +1,9 @@
 module.exports = (lf, slf, project) => {
-  const { $print, $attr, section, div, span, button, img, svg, video, source, use, ul, li, a, br, className, alt, src, 
-    href, type, picture, h1, h2, h3, form, label, value, input, id, p } = lf;
+  const { $print: $p, $attr, img, className, alt, src } = lf;
 
   const oData = {
     tabs: [
       {
-        class: 'is-active',
-        target: '0-info',
         text: 'Теоретические занятия',
         src: 'assets/images/info-bg.jpg',
         lessons_number: '25',
@@ -21,8 +18,6 @@ module.exports = (lf, slf, project) => {
         ],
       },
       {
-        class: '',
-        target: '1-info',
         text: 'Практические занятия',
         src: 'assets/images/info-bg.jpg',
         lessons_number: '25',
@@ -35,8 +30,6 @@ module.exports = (lf, slf, project) => {
         ],
       },
       {
-        class: '',
-        target: '2-info',
         text: 'Организация экзамена в ГИБДД',
         src: 'assets/images/info-bg.jpg',
         lessons_number: '25',
@@ -44,156 +37,100 @@ module.exports = (lf, slf, project) => {
         center_content: [
           '- подготовка пакета документов, необходимых для ГИБДД',
           '- регистрация на экзамен с назначением даты',
-
         ],
       }
     ],
   };
 
+  const Style = project.style('group');
+
+  const Div = project.def('Div');
+  const Span = project.def('Span');
+  const Box = project.def('Box');
+  const Section = project.def('Section');
+  const FlexHContainer = project.def('FlexHContainer');
+  const FlexVContainer = project.def('FlexVContainer');
+  const FlexItem = project.def('FlexItem');
+  const TabContainer = project.def('TabContainer');
+
+  const InfoBox = (title, before_num, num, after_num) => Box(
+    'info_box',
+    FlexVContainer(
+      'info_box_container',
+      FlexItem(
+        'info_box_title',
+        Span('info_box_title--text', title)
+      ),
+      FlexItem(
+        'info_box_description',
+        Span('info_box_description--before', before_num),
+        Span('info_box_description--num', num),
+        Span('info_box_description--after', after_num)
+      )
+    )
+  )
+
   return () => {
 
-    const TabContent = (oTab, LeftItems, CenterItems, RightItems) => div(
-      $print(
-        div(
-          div(
-            img(null, $print( className('tabs-content__image'), src(oTab.src), alt('info-bg') )),
-            className('tabs-content__picture')
-          ),
-          className('tabs-content__bg')
-        ),
-        div(
-          $print(
-            div(
-              ul(
-                LeftItems(),
-                className('info-card__practical info-card-list info-card-list--practical')
-              ),
-              className('info-card__item info-card__item--practical')
+    return Section(
+      'section_school',
+      FlexHContainer(
+        '',
+        FlexItem(
+          'section_school_container',
+          TabContainer({
+            tabs: oData.tabs.map(tab => tab.text),
+            tabStyle: 'tab_header',
+          }, (title, index) => Box(
+            '',
+            Box(
+              'section_school_picture',
+              img(null, $p( className('section_school_picture--img'), src(oData.tabs[index].src), alt('info-bg') ))
             ),
-            div(
-              ul(
-                CenterItems(),
-                className('info-card__descr info-card-list info-card-list--descr')
-              ),
-              className('info-card__item info-card__item--descr')
-            ),
-            div(
-              ul(
-                RightItems(),
-                className('info-card__clock info-card-list info-card-list--clock')
-              ),
-              className('info-card__item info-card__item--clock right_card')
-            )
-          ),
-          className('info-card info_card')
-        )
-      ),
-      $print(
-        className(`tabs-content__wrapper ${oTab.class}`),
-        $attr('data-tab', oTab.target),
-        $attr('data-tab-group', 'info')
-      )
-    );
-
-    return section(
-      div(
-        $print(
-          ul(
-            $print(
-              ...oData.tabs.map(oItem => li(
-                span(
-                  oItem.text,
-                  className('tabs__label')
+            Box(
+              'tab_content',
+              FlexHContainer(
+                'tab_content_container',
+                FlexItem(
+                  'tab_content--left',
+                  InfoBox('Практика', '', oData.tabs[index].lessons_number, ' занятий'),
+                  InfoBox(' ', 'по ', oData.tabs[index].lessons_hour, ' часа'),
                 ),
-                $print(
-                  className(`tabs__tab ${oItem.class}`),
-                  $attr('data-tab-target', oItem.target)
-                )
-              )),
-            ),
-            className('tabs')
-          ),
-          div(
-            $print(
-              ...oData.tabs.map(oItem => TabContent(oItem,
-                () => $print(
-                  li(
-                    $print(
-                      h3(
-                        span(
-                          'Практика',
-                          className('info-card-list__label')
-                        ),
-                        className('info-card-list__title')
-                      ),
-                      p(
-                        $print(
-                          span(
-                            oItem.lessons_number,
-                            className('info-card-list__num')
-                          ),
-                          ' занятий'
-                        ),
-                        className('info-card-list__text')
-                      )
+                FlexItem(
+                  'tab_content--center',
+                  ...oData.tabs[index].center_content.map(text => $p(
+                    Box(
+                      'tab_content--center_text',
+                      text
                     ),
-                    className('info-card-list__item')
-                  ),
-                  li(
-                    p(
-                      $print(
-                        'по ',
-                        span(
-                          oItem.lessons_hour,
-                          className('info-card-list__num')
-                        ),
-                        ' часа'
-                      ),
-                      className('info-card-list__text')
-                    ),
-                    className('info-card-list__item')
-                  )
-                ), () => $print(
-                  ...oItem.center_content.map(sItem => li(
-                    span(
-                      sItem,
-                      className('info-card-list__label')
-                    ),
-                    className('info-card-list__item')
                   ))
-                ), () => $print(
-                  li(
-                    span(
-                      'Практические занятия проводятся индивидуально с каждым в любой день по записи',
-                      className('info-card-list__label')
+                ),
+                FlexItem(
+                  'tab_content--right',
+                  FlexVContainer(
+                    'tab_content--right_container',
+                    FlexItem(
+                      'tab_content--right_top',
+                      Span('right_top--text', 'Практические занятия проводятся индивидуально с каждым в любой день по записи')
                     ),
-                    className('info-card-list__item')
-                  ),
-                  li(
-                    p(
-                      $print(
-                        'С ',
-                        span('10:00', className('info-card-list__num')),
-                        ' ДО ',
-                        span('18:00', className('info-card-list__num')),
-                      ),
-                      className('info-card-list__text card_time')
-                    ),
-                    className('info-card-list__item info-card-list__item--bottom')
+                    FlexItem(
+                      'tab_content--right_bottom',
+                      Span('tab_content_text--small', 'с '),
+                      Span('tab_content_text--big', '10:00'),
+                      Span('tab_content_text--small', ' по'),
+                      Span('tab_content_text--big', '18:00'),
+                    )
                   )
-                ))
+                )
               )
             ),
-            className('tabs-content school_tabs')
-          ),
-          span('* с личным инструктором', className('section_school_desc')),
-        ),
-        className('container')
-      ),
-      $print(
-        className('info section_school'),
-        id('info')
+            Box(
+              'section_school_desc',
+              Span('section_school_desc--text', '* с личным инструктором')
+            )
+          ))
+        )
       )
-    );
+    )
   };
 }

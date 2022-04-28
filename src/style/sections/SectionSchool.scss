@@ -1,20 +1,154 @@
 .section_school {
+  margin-top: 91px;
 
-  .info_card {
-    .right_card {
-      .card_time {
-        color: #354a5f;
-      }
+  &_container {
+    width: 1300px;
+    margin: 0 auto;
+  }
+
+  .tab_header {
+    width: 100%;
+    padding: 0 0 11px 0;
+
+    & > .tab_container_link_text {
+      font-family: BlissPro;
+      font-size: 14px;
+      font-weight: bold;
+      color: #95a0ac;
+    }
+
+    &.active > .tab_container_link_text {
+      color: #354a5f;
     }
   }
 
-  .school_tabs {
-    margin-bottom: 15px;
+  &_picture {
+    position: relative;
+    height: 345px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 25px;
+
+    &--img {
+      position: absolute;
+      top: -152px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 1344px;
+    }
+
   }
 
-  .section_school_desc {
-    font-family: BlissPro;
-    font-size: 16px;
-    font-weight: 300;
+  .info_box {
+    box-sizing: border-box;
+    width: 200px;
+    height: 100px;
+    padding: 18px 25px;
+
+    &_container {
+      justify-content: space-between;
+    }
+
+    &_title {
+
+      &--text {
+        font-family: BlissPro;
+        font-size: 14px;
+        color: #0a6ed1;
+      }
+
+    }
+
+    &_description {
+
+      &--before {
+        font-family: BebasNeue;
+        font-size: 18px;
+        color: #89919a;
+      }
+
+      &--num {
+        font-family: BebasNeue;
+        font-size: 36px;
+        color: #354a5f;
+      }
+
+      &--after {
+        font-family: BebasNeue;
+        font-size: 18px;
+        color: #89919a;
+      }
+    }
+
+  }
+
+  .tab_content {
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-top: 25px;
+
+    &--center {
+      box-sizing: border-box;
+      flex-grow: 1;
+      padding: 18px 25px;
+
+      &_text {
+        font-family: BlissPro;
+        font-size: 16px;
+        font-weight: 300;
+        color: #354a5f;
+        padding-bottom: 2px;
+      }
+    }
+
+    &--right {
+      box-sizing: border-box;
+      flex: 0 0 310px;
+      background-image: linear-gradient(to bottom, #f7f8f9, #edeff0);
+      padding: 18px 25px;
+
+      &_container {
+        justify-content: space-between;
+      }
+
+      &_top {
+
+        .right_top--text {
+          font-family: BlissPro;
+          font-size: 16px;
+          font-weight: 300;
+          color: #354a5f;
+        }
+
+      }
+
+      &_bottom {
+
+      }
+    }
+
+    &_text {
+      font-family: BebasNeue;
+      color: #354a5f;
+
+      &--small {
+        font-size: 18px;
+      }
+
+      &--big {
+        font-size: 36px;
+      }
+
+    }
+  }
+
+  &_desc {
+    margin-top: 15px;
+
+    &--text {
+      font-family: BlissPro;
+      font-size: 16px;
+      font-weight: 300;
+    }
   }
 }
