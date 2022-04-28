@@ -40,6 +40,7 @@ const Project = lfp.Project({
     Title: 'components.Title',
     ButtonGradient: 'components.ButtonGradient',
     ButtonClose: 'components.ButtonClose',
+    Select: 'components.Select',
     Header: 'feature.Header',
     Footer: 'feature.Footer',
     SectionHeader: 'feature.sections.SectionHeader',
