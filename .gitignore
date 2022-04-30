@@ -5,3 +5,4 @@ photos/
 *.pdf
 
 *.gen.*
+.env
