@@ -324,6 +324,7 @@ module.exports = (lf, slf, project) => {
                       Style({
                         'min-width': 'calc(510px - 2 * 40px)',
                         'padding': '35px 40px',
+                        'height': '600px',
                       }),
                       FlexVContainer(
                         '',
