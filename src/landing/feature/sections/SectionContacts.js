@@ -144,19 +144,19 @@ module.exports = (lf, slf, project) => {
   const InfoBlock = (type) => {
     switch (type) {
       case 'main':
-        return Span(
+        return Div(
           'contacts_card_type contacts_card_type--main',
           Span(
             'contacts_card_type_text',
-            'Главный офис',
+            'главный офис',
           ),
         );
       case 'class':
-        return Span(
+        return Div(
           'contacts_card_type contacts_card_type--class',
           Span(
             'contacts_card_type_text',
-            'Учебный класс',
+            'учебный класс',
           ),
         );
       default: return '';
