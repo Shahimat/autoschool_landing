@@ -1,35 +1,5 @@
 module.exports = (lf, slf, project) => {
-  const {
-    $print: $p,
-    $attr,
-    section,
-    div,
-    span,
-    button,
-    img,
-    svg,
-    video,
-    source,
-    use,
-    ul,
-    li,
-    a,
-    br,
-    className,
-    alt,
-    src,
-    href,
-    type,
-    picture,
-    h1,
-    h2,
-    form,
-    label,
-    value,
-    input,
-    select,
-    option,
-  } = lf;
+  const { $print: $p, $attr, section, div, span, button, img, className, alt, src } = lf;
 
   const oData = {
     transport: ['мотоцикл', 'легковое авто', 'переобучение с B на C', 'переобучение с C на D'],
