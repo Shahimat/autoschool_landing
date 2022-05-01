@@ -90,7 +90,6 @@ module.exports = (lf, slf, project) => {
             'личный кабинет',
             'personal_area_button',
             'https://avto-online.pro/kabinet/',
-            '_blank'
           )
         )
       ),
