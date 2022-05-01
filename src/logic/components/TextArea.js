@@ -1,3 +1,5 @@
+import { byClass, byClassSimple, from } from "../lib/slfp";
+
 const handleTextAreaChange = (input, legend, legendContainer) => {
   const setClassByValue = (value) => {
     if (value === '') {
@@ -16,12 +18,9 @@ const handleTextAreaChange = (input, legend, legendContainer) => {
   }
 }
 
-setTimeout(() => {
-  const textareas = document.querySelectorAll('.custom_textarea');
-  textareas.forEach(textarea => {
-    const input = textarea.querySelector('.custom_textarea_input');
-    const legend = textarea.querySelector('.custom_textarea_legend_content');
-    const legendContainer = textarea.querySelector('.custom_textarea_border_top_second');
-    input.addEventListener('keydown', handleTextAreaChange(input, legend, legendContainer));
-  });
-}, 100);
+from(byClass('custom_textarea'), textarea => {
+  const input = byClassSimple('custom_textarea_input', textarea);
+  const legend = byClassSimple('custom_textarea_legend_content', textarea);
+  const legendContainer = byClassSimple('custom_textarea_border_top_second', textarea);
+  input.addEventListener('keydown', handleTextAreaChange(input, legend, legendContainer));
+});

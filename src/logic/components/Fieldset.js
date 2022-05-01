@@ -1,3 +1,5 @@
+import { byClass, byClassSimple, from } from "../lib/slfp";
+
 const handleFieldSetChange = (input, legend, legendContainer) => {
   const setClassByValue = (value) => {
     if (value === '') {
@@ -16,12 +18,9 @@ const handleFieldSetChange = (input, legend, legendContainer) => {
   }
 }
 
-setTimeout(() => {
-  const fieldsets = document.querySelectorAll('.custom_fieldset');
-  fieldsets.forEach(fieldset => {
-    const input = fieldset.querySelector('.custom_fieldset_input');
-    const legend = fieldset.querySelector('.custom_fieldset_legend_content');
-    const legendContainer = fieldset.querySelector('.custom_fieldset_border_top_second');
-    input.addEventListener('keydown', handleFieldSetChange(input, legend, legendContainer));
-  });
-}, 100);
+from(byClass('custom_fieldset'), fieldset => {
+  const input = byClassSimple('custom_fieldset_input', fieldset);
+  const legend = byClassSimple('custom_fieldset_legend_content', fieldset);
+  const legendContainer = byClassSimple('custom_fieldset_border_top_second', fieldset);
+  input.addEventListener('keydown', handleFieldSetChange(input, legend, legendContainer));
+});

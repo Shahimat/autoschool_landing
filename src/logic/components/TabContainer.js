@@ -1,3 +1,5 @@
+import { byClass, byClassSimple, from } from "../lib/slfp";
+
 const className = 'active';
 
 const handleTabClick = (buttons, tabs, current) => {
@@ -15,15 +17,12 @@ const handleTabClick = (buttons, tabs, current) => {
   }
 }
 
-setTimeout(() => {
-  const tabContainers = document.querySelectorAll('.tab_container');
-  tabContainers.forEach(tabContainer => {
-    const buttons = tabContainer.querySelectorAll('.tab_container_link');
-    const tabs = tabContainer.querySelectorAll('.tab_container_item');
-    buttons.forEach((button, index) => {
-      button.addEventListener('click', handleTabClick(buttons, tabs, index));
-    });
-    buttons[0].classList.add(className);
-    tabs[0].classList.add(className);
+from(byClass('tab_container'), tabContainer => {
+  const buttons = byClassSimple('tab_container_link', tabContainer);
+  const tabs = byClassSimple('tab_container_item', tabContainer);
+  buttons.forEach((button, index) => {
+    button.addEventListener('click', handleTabClick(buttons, tabs, index));
   });
-}, 100);
+  buttons[0].classList.add(className);
+  tabs[0].classList.add(className);
+});
