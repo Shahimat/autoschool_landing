@@ -25,6 +25,7 @@
       pointer-events: none;
 
       &_first {
+        box-sizing: border-box;
         width: 10px;
         height: 100%;
         border-top: solid 1px #89919a;
@@ -36,6 +37,7 @@
       }
 
       &_second {
+        box-sizing: border-box;
         height: 100%;
         pointer-events: none;
         display: flex;
@@ -47,7 +49,7 @@
         &_filled {
           align-items: flex-start;
           padding: 0;
-          border-top: none;
+          border-top: solid 1px #ffffff;
         }
 
         .custom_textarea_legend_content {
@@ -67,7 +69,7 @@
             line-height: 1.33;
             letter-spacing: 0.4px;
             padding: 0px 2px;
-            transform: translateY(-5px);
+            transform: translateY(-8px);
           }
 
         }
@@ -75,6 +77,7 @@
       }
 
       &_third {
+        box-sizing: border-box;
         flex-grow: 1;
         height: 100%;
         border-top: solid 1px #89919a;
@@ -90,11 +93,18 @@
     .custom_textarea_input {
       flex-grow: 1;
       margin: 15px;
+      background-color: transparent;
       font-family: inherit;
       font-size: inherit;
       line-height: inherit;
       letter-spacing: inherit;
       color: inherit;
+      border-style: none;
+
+      &:focus, &:focus-visible {
+        border-style: none;
+        outline-style: none;
+      }
 
       &:focus+.custom_textarea_border_top {
         .custom_textarea_border_top_first {
@@ -107,7 +117,7 @@
           align-items: flex-start;
           border-bottom: solid 2px #0170d8;
           padding: 0;
-          border-top: none;
+          border-top: solid 2px #ffffff;
 
           .custom_textarea_legend_content {
             font-family: Roboto;
@@ -116,7 +126,7 @@
             letter-spacing: 0.4px;
             color: #0a6ed1;
             padding: 0px 2px;
-            transform: translateY(-5px);
+            transform: translateY(-8px);
           }
         }
 
