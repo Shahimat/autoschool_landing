@@ -1,5 +1,5 @@
 module.exports = (lf, slf, project) => {
-  const { $print: $p, $attr, svg, use, a, className, src, href, iframe } = lf;
+  const { $print: $p, $attr, svg, img, use, a, className, src, alt, href, iframe } = lf;
 
   const oData = {
     decor: 'assets/images/decor/3.png',
@@ -305,9 +305,11 @@ module.exports = (lf, slf, project) => {
               Title('Контакты')
             ),
             FlexItem(
-              Style({
-                'padding-top': '41px'
-              }),
+              'section_contacts--content',
+              Box(
+                'contacts_decor',
+                img(null, $p( className('contacts_decor--img'), src(oData.decor), alt('decor'))),
+              ),
               FlexHContainer(
                 '',
                 FlexItem(

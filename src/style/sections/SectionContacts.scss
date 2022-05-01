@@ -8,6 +8,26 @@
     margin-right: 10px;
   }
 
+  &--content {
+    position: relative;
+    margin-top: 41px;
+    
+    .contacts_decor {
+      position: absolute;
+      width: 140px;
+      top: -130px;
+      left: 65%;
+      z-index: 10;
+
+      &--img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  
+
   .contacts_card {
 
     &_title {
