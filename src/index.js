@@ -16,6 +16,7 @@ const Project = lfp.Project({
     scssInclude: 'functions.scssInclude',
 
     TabContainer: 'components.containers.TabContainer',
+    Slider: 'components.containers.Slider',
 
     Div: 'components.Div',
     Span: 'components.Span',
