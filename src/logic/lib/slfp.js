@@ -64,24 +64,23 @@ const from = async (any, cb) => {
     return;
   } else if (Array.isArray(any)) {
     for (let elem of any) {
-      from(elem, cb);
+      await from(elem, cb);
     }
   } else if (typeof(any) === 'function') {
     if (any.constructor.name === 'AsyncFunction') {
       let res = await any();
-      from(res, cb);
+      await from(res, cb);
     } else {
-      from(any(), cb);
+      await from(any(), cb);
     }
   } else if (typeof(any) === 'object') {
     if (any.constructor) {
       if (any.constructor.name === 'Promise') {
-        any.then(res => {
-          from(res, cb);
-        });
+        let res = await any;
+        await from(res, cb);
       } else if (any.constructor.name === 'NodeList') {
         for (let elem of any) {
-          from(elem, cb);
+          await from(elem, cb);
         }
       } else {
         cb(any);
