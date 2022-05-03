@@ -57,15 +57,25 @@ const Project = ({
       }
       return slf.State(models[sModelName]);
     },
-    style: (sModelName) => {
+    style: (sModelName, isNumeric = false) => {
       if (typeof(sModelName) !== 'string' || sModelName === '') {
         throw new Error(`expected model name <string>, but found "${sModelName}"`);
       }
-      return (oProps, ...customProps) => () => {
-        let id = `${sModelName}_${slf.guid()}`;
-        outputStyleContent += lf.$put( lf.$style(id, oProps, ...customProps) ) + ' ';
-        return id;
-      };
+      if (isNumeric) {
+        let num = 0;
+        return (oProps, ...customProps) => () => {
+          let id = `${sModelName}_${num}`;
+          outputStyleContent += lf.$put( lf.$style(id, oProps, ...customProps) ) + ' ';
+          num++;
+          return id;
+        };
+      } else {
+        return (oProps, ...customProps) => () => {
+          let id = `${sModelName}_${slf.guid()}`;
+          outputStyleContent += lf.$put( lf.$style(id, oProps, ...customProps) ) + ' ';
+          return id;
+        };
+      }
     },
     build: () => {
       for (let key in inputs) {
