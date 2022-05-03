@@ -4,4 +4,5 @@ import "./components/TabContainer";
 import "./components/TextArea";
 import "./components/Select";
 import "./components/Slider";
+import "./pages/HomePage";
 import "./PageScroll";

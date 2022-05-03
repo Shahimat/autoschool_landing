@@ -1,5 +1,5 @@
 module.exports = (lf, slf, project) => {
-  const { $print, $attr, section, div, span, button, img, svg, video, source, use, ul, li, a, br, className, alt, src, 
+  const { $print: $p, $attr, section, div, span, button, img, svg, video, source, use, ul, li, a, br, className, alt, src, 
     href, type, picture, h1, h2 } = lf;
 
   const oData = {
@@ -42,83 +42,87 @@ module.exports = (lf, slf, project) => {
     ]
   };
 
-  
+  const Style = project.style('category');
+
+  const Div = project.def('Div');
+  const Span = project.def('Span');
+  const Section = project.def('Section');
+  const FlexHContainer = project.def('FlexHContainer');
+  const FlexVContainer = project.def('FlexVContainer');
+  const FlexItem = project.def('FlexItem');
+  const Slider = project.def('Slider');
+
+  const Button = (direction) => button(
+    img(
+      null,
+      $p(
+        src(`assets/images/arrow/slider_arrow_${direction}.svg`),
+        alt(`slider_arrow_${direction}`),
+        className('section_category_nav_arrow_button--img')
+      )
+    ),
+    className(`section_category_nav_arrow_button section_category_nav_arrow_button--${direction}`)
+  );
+
+  const getCategoryByIndex = (index) => {
+    switch (index) {
+      case 0: return 'a';
+      case 1: return 'b';
+      case 2: return 'c';
+      case 3: return 'd';
+      default: return 'a';
+    }
+  }
 
   return () => {
 
-    const CategoryDecor = () => ul(
-      $print(
-        ...oData.dataDepth.map(oItem => li(
-          span( null, className(`category-decor__circle ${oItem.class}`)),
-          $print(
-            className('category-decor__item'),
-            $attr('data-depth', oItem.depth)
-          )
-        ))
-      ),
-      className('category__decor category-decor')
-    );
-
-    const CategoryLetter = () => div(
-      div(
-        div(
-          $print(
-            ...oData.category.map(sCategory => div(
-              div(
-                span(sCategory, className('category-letter-slider__label')),
-                className('category-letter-slider__slide')
-              ),
-              className('swiper-slide')
-            ))
+    return Section(
+      'section_category',
+      Div(
+        'section_category_first_slider',
+        Slider({
+          sliderStyle: 'section_category_first_slider--content',
+          contentWidth: '100%',
+          elementWidth: '960px',
+          elementsTotal: 4,
+          elementStart: 3,
+          content: (index) => img(
+            null,
+            $p(
+              src(`assets/images/slider/${getCategoryByIndex(index)}.png`),
+              alt(`slider_category_${getCategoryByIndex(index)}`),
+              className(`section_category_first_slider--img section_category_first_slider--${
+                getCategoryByIndex(index)
+              }`)
+            )
           ),
-          className('swiper-wrapper')
-        ),
-        className('swiper category-letter-slider js-slider-letters')
+        }),
       ),
-      className('category__letter category-letter')
-    );
-
-    const CarSlider = () => div(
-      div(
-        $print(
-          ...oData.slider.map(oItem => div(
-            div(
-              div(
-                div(
-                  img(null, $print( className('category-car__image'), src(oItem.src) )),
-                  className('category-car__picture')
-                ),
-                className(`category-car-slider__car category-car ${oItem.class}`)
-              ),
-              className('category-car-slider__slide')
-            ),
-            className('swiper-slide')
-          ))
-        ),
-        className('swiper-wrapper')
-      ),
-      className('swiper category-car-slider js-slider-cars')
-    )
-
-    return section(
-      $print(
-        div(
-          $print(
-            CategoryDecor(),
-            CategoryLetter(),
-            CarSlider(),
-          ),
-          className('container container--flex container--center')
-        ),
-        div(
-          $print(
-            div(null, className('swiper-button-prev slider-btn')),
-            div(null, className('swiper-button-next slider-btn')),
-          ),
-          className('container slider-btn-wrap')
+      FlexHContainer(
+        'section_category_second_slider',
+        FlexItem(
+          'section_category_second_slider--item',
+          Slider({
+            sliderStyle: 'section_category_second_slider--content',
+            contentWidth: '240px',
+            elementWidth: '240px',
+            elementsTotal: 4,
+            elementStart: 0,
+            content: (index) => Span('section_category_second_slider--text', getCategoryByIndex(index)),
+          }),
         )
       ),
-      className('category')
-    );
+      FlexHContainer(
+        'section_category_nav',
+        FlexItem(
+          'section_category_nav--item',
+          Div(
+            'section_category_nav_arrow',
+            Button('left'),
+            Button('right'),
+          )
+        )
+      )
+    )
   };
 }
