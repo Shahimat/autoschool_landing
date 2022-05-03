@@ -138,6 +138,31 @@ const $style = (sClassName, oProps, ...customProps) => {
   );
 }
 
+const $by = (length, cb, start = 0) => {
+  if (start === 0) {
+    return () => {
+      let res = '';
+      for (let i = 0; i < length; i++) {
+        res += $put(cb(i));
+      }
+      return res;
+    }
+  } else if (start > 0 && start < length) {
+    return () => {
+      let res = '';
+      for (let i = start; i < length; i++) {
+        res += $put(cb(i));
+      }
+      for (let i = 0; i < start; i++) {
+        res += $put(cb(i));
+      }
+      return res;
+    }
+  } else {
+    throw new Error(`$by.start: founded "${start}" but length "${length}"`)
+  }
+};
+
 module.exports = {
   $put,
   $putCheck,
@@ -149,6 +174,7 @@ module.exports = {
   $printCheck,
   $attr,
   $tag,
+  $by,
  
   div      : ( content, attr ) => $tag('div',      content, attr, false),
   span     : ( content, attr ) => $tag('span',     content, attr, false),
