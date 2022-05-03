@@ -52,7 +52,7 @@ module.exports = (lf, slf, project) => {
                   SectionCalculator(),
                   SectionSchool(),
                   SectionGroup(),
-                  SectionContacts()
+                  SectionContacts(),
                 ),
                 $print(
                   className('index homepage'),
