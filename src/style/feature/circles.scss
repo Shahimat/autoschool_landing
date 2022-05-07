@@ -1,0 +1,93 @@
+.circles_base {
+  position: relative;
+  width: 200px;
+  height: 200px;
+
+  & &--item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.7s ease;
+  }
+
+  & &--gradient {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-color: #f7f8fa;
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      left: -1px;
+      z-index: -1;
+      border-radius: 100%;
+      background: linear-gradient(180deg, #e9c1fb, #a39efe 40%, #bfeffb);
+      animation: rotate_animation 3s linear infinite;
+    }
+
+    &--circle_0::before {
+      top: -4px;
+      right: -4px;
+      bottom: -4px;
+      left: -4px;
+    }
+
+    &--circle_1::before {
+      top: -3px;
+      right: -3px;
+      bottom: -3px;
+      left: -3px;
+    }
+
+    &--circle_2::before {
+      top: -2px;
+      right: -2px;
+      bottom: -2px;
+      left: -2px;
+    }
+
+    &--circle_3::before {
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      left: -1px;
+    }
+  }
+
+  & &--circle_0 {
+    width: 200px;
+    height: 200px;
+    z-index: 4;
+  }
+  
+  & &--circle_1 {
+    width: 300px;
+    height: 300px;
+    z-index: 3;
+  }
+  
+  & &--circle_2 {
+    width: 400px;
+    height: 400px;
+    z-index: 2;
+  }
+  
+  & &--circle_3 {
+    width: 520px;
+    height: 520px;
+    z-index: 1;
+  }
+}
+
+@keyframes rotate_animation {
+  to {
+    transform: rotate(1turn)
+  }
+}

@@ -44,6 +44,7 @@ const Project = lfp.Project({
     Select: 'components.Select',
     Header: 'feature.Header',
     Footer: 'feature.Footer',
+    Circles: 'feature.Circles',
     SectionHeader: 'feature.sections.SectionHeader',
     SectionCategory: 'feature.sections.SectionCategory',
     SectionCalculator: 'feature.sections.SectionCalculator',

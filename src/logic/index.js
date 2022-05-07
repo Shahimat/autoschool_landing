@@ -1,4 +1,5 @@
 import "./model/index";
+import "./components/Circles";
 import "./components/Fieldset";
 import "./components/TabContainer";
 import "./components/TextArea";
