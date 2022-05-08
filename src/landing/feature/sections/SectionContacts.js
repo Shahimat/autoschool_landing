@@ -337,11 +337,7 @@ module.exports = (lf, slf, project) => {
                           '',
                           TabContainer({
                             tabs: oData.tabs.map(tab => tab.title),
-                            tabStyle: Style({
-                              'min-width': 'auto !important',
-                              width: 'auto',
-                              padding: '0 15px 14px 15px !important',
-                            })
+                            tabStyle: 'custom_tab_style',
                           }, (title, index) => Box(
                             Style({
                               'padding-top': '53px',
