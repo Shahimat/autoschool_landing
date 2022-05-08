@@ -3,6 +3,7 @@
   background-position: bottom;
   background-color: #f7f8fa;
   background-size: 100%;
+  overflow: hidden;
   @include breakpoint (hd) {
     background-size: auto;
   }
