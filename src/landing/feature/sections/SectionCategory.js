@@ -51,6 +51,7 @@ module.exports = (lf, slf, project) => {
   const FlexVContainer = project.def('FlexVContainer');
   const FlexItem = project.def('FlexItem');
   const Slider = project.def('Slider');
+  const Circles = project.def('Circles');
 
   const Button = (direction) => button(
     img(
@@ -78,6 +79,13 @@ module.exports = (lf, slf, project) => {
 
     return Section(
       'section_category',
+      FlexHContainer(
+        'section_category_circles',
+        FlexItem(
+          'section_category_circles--item',
+          Circles()
+        )
+      ),
       Div(
         'section_category_first_slider',
         Slider({

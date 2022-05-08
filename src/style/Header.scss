@@ -10,7 +10,7 @@ html[data-scroll='true'] .header {
   height: 80px;
   background-color: #20062d;
   border-bottom: 1px solid #4d1283;
-  z-index: 10;
+  z-index: 1000;
   transition: transform .3s linear;
 
   &_container {
