@@ -11,9 +11,9 @@ module.exports = (lf, slf, project) => {
       $p(
         ...args
       ),
-      className('pdd_wrapper')
+      className('pdd_page--content_wrapper')
     ),
-    className('pdd_page')
+    className('pdd_page--content')
   );
 
   return () => {
@@ -67,6 +67,7 @@ module.exports = (lf, slf, project) => {
               ),
               Footer()
             ),
+            className('pdd_page')
           )
         )
       )
