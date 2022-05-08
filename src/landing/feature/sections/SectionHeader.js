@@ -28,7 +28,7 @@ module.exports = (lf, slf, project) => {
               img( null, $p(
                 $attr('src', 'assets/images/logo.png'),
                 alt('logo'),
-                className('sh_logo_container_img')
+                className('sh_logo_container_img image_quality')
               )),
               $p(
                 className('sh_logo_container_href'),

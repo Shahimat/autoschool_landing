@@ -101,7 +101,7 @@ module.exports = (lf, slf, project) => {
               alt(`slider_category_${getCategoryByIndex(index)}`),
               className(`section_category_first_slider--img section_category_first_slider--${
                 getCategoryByIndex(index)
-              }`)
+              } image_quality`)
             )
           ),
         }),

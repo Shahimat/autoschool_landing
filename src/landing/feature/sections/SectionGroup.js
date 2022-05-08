@@ -207,7 +207,8 @@ module.exports = (lf, slf, project) => {
       null,
       $p(
         src(imagePath),
-        alt('decor')
+        alt('decor'),
+        className('image_quality')
       )
     ),
   )
@@ -270,7 +271,11 @@ module.exports = (lf, slf, project) => {
                 '',
                 Box(
                   'section_group_picture',
-                  img(null, $p( className('section_group_picture_img'), src(oData.tabs[index].src), alt('group-bg') )),
+                  img(null, $p( 
+                    className('section_group_picture_img image_quality'),
+                    src(oData.tabs[index].src),
+                    alt('group-bg')
+                  )),
                 ),
                 Box(
                   'section_group_content',

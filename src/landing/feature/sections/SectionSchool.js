@@ -85,7 +85,11 @@ module.exports = (lf, slf, project) => {
             '',
             Box(
               'section_school_picture',
-              img(null, $p( className('section_school_picture--img'), src(oData.tabs[index].src), alt('info-bg') ))
+              img(null, $p(
+                className('section_school_picture--img image_quality'),
+                src(oData.tabs[index].src),
+                alt('info-bg')
+              ))
             ),
             Box(
               'tab_content',

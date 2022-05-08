@@ -162,7 +162,7 @@ module.exports = (lf, slf, project) => {
                         img(
                           null,
                           $p(
-                            className('decor_container_img'),
+                            className('decor_container_img image_quality'),
                             src('./assets/images/decor/4.png'),
                             alt('decor')
                           )

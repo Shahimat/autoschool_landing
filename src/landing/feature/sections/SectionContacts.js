@@ -308,7 +308,7 @@ module.exports = (lf, slf, project) => {
               'section_contacts--content',
               Box(
                 'contacts_decor',
-                img(null, $p( className('contacts_decor--img'), src(oData.decor), alt('decor'))),
+                img(null, $p( className('contacts_decor--img image_quality'), src(oData.decor), alt('decor'))),
               ),
               FlexHContainer(
                 '',

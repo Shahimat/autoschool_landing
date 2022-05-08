@@ -205,7 +205,7 @@ module.exports = (lf, slf, project) => {
                     'decor_part',
                     img(
                       null,
-                      $p(src('assets/images/decor/1.png'), alt('decor'), className('decor_part--img'))
+                      $p(src('assets/images/decor/1.png'), alt('decor'), className('decor_part--img image_quality'))
                     ),
                   ),
                   button(
