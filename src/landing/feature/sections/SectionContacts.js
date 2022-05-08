@@ -290,7 +290,10 @@ module.exports = (lf, slf, project) => {
   return () => {
 
     return Section(
-      'section_contacts',
+      {
+        sClass: 'section_contacts',
+        id: 'contacts',
+      },
       FlexHContainer(
         '',
         FlexItem(

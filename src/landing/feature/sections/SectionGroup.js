@@ -248,7 +248,10 @@ module.exports = (lf, slf, project) => {
   return () => {
 
     return Section(
-      'section_group',
+      {
+        sClass: 'section_group',
+        id: 'group',
+      },
       FlexHContainer(
         '',
         FlexItem(
