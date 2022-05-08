@@ -204,7 +204,7 @@ module.exports = (lf, slf, project) => {
             FlexItem(
               '',
               FlexHContainer(
-                '',
+                'section_calculator_panel',
                 FlexItem(
                   '',
                   FlexHContainer(

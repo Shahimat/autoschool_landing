@@ -324,6 +324,7 @@ module.exports = (lf, slf, project) => {
                       'border-radius': '10px',
                       'background-color': '#ffffff',
                       'overflow': 'hidden',
+                      'box-shadow': '0 2px 40px 0 #f1f2f4',
                     }),
                     FlexItem(
                       Style({
