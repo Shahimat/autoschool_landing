@@ -1,9 +1,41 @@
 @font-face {
+  font-family: BebasNeueBook;
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url(./assets/fonts/BebasNeueBook.woff2) format("woff2"), url(./assets/fonts/BebasNeueBook.woff) format("woff")
+}
+
+@font-face {
   font-family: BebasNeue;
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   font-display: swap;
   src: url(./assets/fonts/BebasNeueRegular.woff2) format("woff2"), url(./assets/fonts/BebasNeueRegular.woff) format("woff")
+}
+
+@font-face {
+  font-family: BebasNeue;
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url(./assets/fonts/BebasNeueBold.woff2) format("woff2"), url(./assets/fonts/BebasNeueBold.woff) format("woff")
+}
+
+@font-face {
+  font-family: BebasNeue;
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(./assets/fonts/BebasNeueLight.woff2) format("woff2"), url(./assets/fonts/BebasNeueLight.woff) format("woff")
+}
+
+@font-face {
+  font-family: BebasNeue;
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(./assets/fonts/BebasNeue-Thin.woff2) format("woff2"), url(./assets/fonts/BebasNeue-Thin.woff) format("woff")
 }
 
 @font-face {
