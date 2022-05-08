@@ -122,10 +122,10 @@ module.exports = (lf, slf, project) => {
                     ),
                     FlexItem(
                       'tab_content--right_bottom',
-                      Span('tab_content_text--small', 'с '),
-                      Span('tab_content_text--big', '10:00'),
-                      Span('tab_content_text--small', ' по'),
-                      Span('tab_content_text--big', '18:00'),
+                      Span('tab_content--right_bottom_text tab_content--right_bottom_text--small', 'с&nbsp;'),
+                      Span('tab_content--right_bottom_text tab_content--right_bottom_text--big',   '10:00'),
+                      Span('tab_content--right_bottom_text tab_content--right_bottom_text--small', '&nbsp;по&nbsp;'),
+                      Span('tab_content--right_bottom_text tab_content--right_bottom_text--big',   '18:00'),
                     )
                   )
                 )

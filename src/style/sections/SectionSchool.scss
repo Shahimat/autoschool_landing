@@ -124,21 +124,21 @@
 
       &_bottom {
 
+        &_text {
+          font-family: BebasNeue;
+          color: #354a5f;
+    
+          &--small {
+            font-size: 18px;
+          }
+    
+          &--big {
+            font-size: 36px;
+          }
+    
+        }
+        
       }
-    }
-
-    &_text {
-      font-family: BebasNeue;
-      color: #354a5f;
-
-      &--small {
-        font-size: 18px;
-      }
-
-      &--big {
-        font-size: 36px;
-      }
-
     }
   }
 
