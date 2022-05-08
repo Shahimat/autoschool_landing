@@ -74,11 +74,12 @@
     }
 
     &--text {
-      font-family: BlissPro;
+      font-family: BebasNeue;
       font-size: 124px;
-      font-weight: 400;
+      font-weight: bold;
       color: #ffffff;
       text-transform: uppercase;
+      user-select: none;
     }
   }
 
