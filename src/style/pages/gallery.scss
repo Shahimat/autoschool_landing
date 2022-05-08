@@ -1,17 +1,20 @@
 .gallery_page {
-  margin-top: 82px;
-  padding-bottom: 100px;
-  background: url('assets/images/bg.webp') no-repeat;
-  background-position: bottom;
-  background-color: #f7f8fa;
-  background-size: 100%;
-  @include breakpoint (hd) {
-    background-size: auto;
-  }
 
-  .gallery_wrapper {
-    width: 1170px;
-    margin: 0 auto;
+  & &--content {
+    margin-top: 82px;
+    padding-bottom: 100px;
+    background: url('assets/images/bg.webp') no-repeat;
+    background-position: bottom;
+    background-color: #f7f8fa;
+    background-size: 100%;
+    @include breakpoint (hd) {
+      background-size: auto;
+    }
+
+    &_wrapper {
+      width: 1170px;
+      margin: 0 auto;
+    }
   }
 
   .gallery_photo {

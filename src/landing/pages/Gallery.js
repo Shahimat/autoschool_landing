@@ -12,9 +12,9 @@ module.exports = (lf, slf, project) => {
       $p(
         ...args
       ),
-      className('gallery_wrapper')
+      className('gallery_page--content_wrapper')
     ),
-    className('gallery_page')
+    className('gallery_page--content')
   );
 
   return () => {
@@ -80,6 +80,7 @@ module.exports = (lf, slf, project) => {
               Footer(),
               script(null, src('https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js'))
             ),
+            className('gallery_page')
           )
         )
       )
