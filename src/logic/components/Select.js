@@ -10,8 +10,10 @@ const handleSwitchList = (input, list) => (event) => {
   }
 }
 
-const handleSetValue = (inputText, value, onSwitch) => (event) => {
+const handleSetValue = (inputText, value, index, onSwitch) => (event) => {
   inputText.innerHTML = value;
+  inputText.setAttribute('data-key', index);
+  onSwitch();
 }
 
 from(byClass('select_base'), select => {
@@ -20,9 +22,10 @@ from(byClass('select_base'), select => {
   const list = byClassSimple('select_list', select);
   const items = byClassSimple('select_list--item', select);
   const onSwitch = handleSwitchList(input, list);
+  inputText.setAttribute('data-key', 0);
   input.addEventListener('click', onSwitch);
-  items.forEach(item => {
-    item.addEventListener('click', handleSetValue(inputText, item.innerHTML, onSwitch));
+  items.forEach((item, index) => {
+    item.addEventListener('click', handleSetValue(inputText, item.innerHTML, index, onSwitch));
   });
   document.addEventListener('click', (event) => {
     if (input.classList.contains('active')) {
