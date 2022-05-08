@@ -26,7 +26,7 @@ module.exports = (lf, slf, project) => {
                 description: 'ул. Московская д. 9к'
               },
               {
-                date: 'март-апрель 2022'
+                date: '17 мая 2022'
               }
             ]
           ]
@@ -56,22 +56,10 @@ module.exports = (lf, slf, project) => {
             [
               {
                 title: 'г. Наро-Фоминск',
-                description: 'ул. Карла Маркса'
-              },
-              {
-                date: ''
-              },
-              {
-                date: '5 октября 2021'
-              }
-            ],
-            [
-              {
-                title: 'г. Наро-Фоминск',
                 description: 'ул. Шибанкова'
               },
               {
-                date: '10 октября 2021'
+                date: '1 мая 2022'
               },
               {
                 date: ''
@@ -80,37 +68,37 @@ module.exports = (lf, slf, project) => {
             [
               {
                 title: 'г. Наро-Фоминск',
-                description: 'ул. Московская д. 9к'
+                description: 'ул. Московская'
               },
               {
-                date: '23 октября 2021'
+                date: '14 мая 2022'
               },
               {
-                date: ''
+                date: '6 июня 2022'
               }
             ],
             [
               {
                 title: 'г. Апрелевка',
-                description: 'ул. Августовская д. 1'
+                description: ''
               },
               {
-                date: '18 сентября 2021'
+                date: '16 июля 2022'
               },
               {
-                date: '9 ноября 2021'
+                date: '24 мая 2022'
               }
             ],
             [
               {
                 title: 'п. Селятино',
-                description: 'ул. Промышленная д. 81'
+                description: ''
               },
               {
-                date: '19 сентября 2021'
+                date: '3 июля 2022'
               },
               {
-                date: '15 ноября 2021'
+                date: '30 мая 2022'
               }
             ],
             [
@@ -119,10 +107,10 @@ module.exports = (lf, slf, project) => {
                 description: 'пл. Советская, д. 1'
               },
               {
-                date: '4 декабря 2021'
+                date: ''
               },
               {
-                date: ''
+                date: '11 июня 2022'
               }
             ]
           ]
@@ -151,7 +139,7 @@ module.exports = (lf, slf, project) => {
                 description: 'ул. Московская д. 9к'
               },
               {
-                date: '11 октября 2021'
+                date: '20 июня 2022'
               },
             ]
           ]
@@ -180,7 +168,7 @@ module.exports = (lf, slf, project) => {
                 description: 'ул. Московская д. 9к'
               },
               {
-                date: '28 сентября 2021'
+                date: '17 мая 2022'
               },
             ]
           ]
@@ -216,7 +204,7 @@ module.exports = (lf, slf, project) => {
   const TableCell = (cell) => Box(
     'group_table_cell',
     cell.title? Box('', Span('group_table_cell--title', cell.title)) : '',
-    cell.description? Box('', Span('group_table_cell--description', cell.description)) : '',
+    cell.description? Box('', Span('group_table_cell--description', cell.description)) : Box('', '&nbsp;'),
     cell.date? Box('', Span('group_table_cell--date', cell.date)) : '',
   )
 
