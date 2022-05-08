@@ -2,7 +2,46 @@ module.exports = (lf, slf, project) => {
   const { $print: $p, $attr, section, div, span, button, img, className, alt, src } = lf;
 
   const oData = {
-    transport: ['мотоцикл', 'легковое авто', 'переобучение с B на C', 'переобучение с C на D'],
+    transport: [
+      'мотоцикл',
+      'легковое авто',
+      [
+        {
+          type: 'small',
+          text: 'переобучение&nbsp;с&nbsp;',
+        },
+        {
+          type: 'big',
+          text: 'B',
+        },
+        {
+          type: 'small',
+          text: '&nbsp;на&nbsp;',
+        },
+        {
+          type: 'big',
+          text: 'C',
+        }
+      ],
+      [
+        {
+          type: 'small',
+          text: 'переобучение&nbsp;с&nbsp;',
+        },
+        {
+          type: 'big',
+          text: 'C',
+        },
+        {
+          type: 'small',
+          text: '&nbsp;на&nbsp;',
+        },
+        {
+          type: 'big',
+          text: 'D',
+        }
+      ]
+    ],
     transmission: ['Механическая', 'Автоматическая'],
     labels: [
       {
@@ -41,6 +80,28 @@ module.exports = (lf, slf, project) => {
   const FlexVContainer = project.def('FlexVContainer');
   const FlexItem = project.def('FlexItem');
   const Select = project.def('Select');
+
+  const getTextByTypes = (input) => {
+    if (typeof(input) === 'string' || typeof(input) === 'function') {
+      return Div(
+        'text_by_types',
+        Div(
+          'text_by_types--text text_by_types--big',
+          input
+        )
+      );
+    } else if (Array.isArray(input)) {
+      return Div(
+        'text_by_types',
+        ...input.map(item => Div(
+          `text_by_types--text text_by_types--${item.type}`,
+          item.text
+        ))
+      )
+    } else {
+      throw new Error(`getTextByTypes: expected <string> | <array> but found "${input}"`);
+    }
+  }
 
   const Modal = () => div(
     Div(
@@ -152,7 +213,7 @@ module.exports = (lf, slf, project) => {
                       '',
                       InfoBox({
                         title: 'Транспорт',
-                        content: Select(oData.transport),
+                        content: Select(oData.transport.map(item => getTextByTypes(item))),
                         sClass: 'info_box_select--first noselect',
                       })
                     ),
@@ -160,7 +221,7 @@ module.exports = (lf, slf, project) => {
                       '',
                       InfoBox({
                         title: 'Коробка передач',
-                        content: Select(oData.transmission),
+                        content: Select(oData.transmission.map(item => getTextByTypes(item))),
                         sClass: 'info_box_select--second noselect',
                       })
                     )

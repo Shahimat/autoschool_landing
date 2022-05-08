@@ -7,6 +7,32 @@
     z-index: 100;
   }
 
+  .text_by_types {
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+    pointer-events: none;
+
+    &--text {
+      display: block;
+      width: fit-content;
+      font-family: BebasNeue;
+      font-weight: normal;
+      color: #89919a;
+      pointer-events: none;
+    }
+
+    &--small {
+      font-size: 18px;
+      padding-bottom: 3px;
+    }
+
+    &--big {
+      font-size: 36px;
+    }
+
+  }
+
   .info_box {
     box-sizing: border-box;
     width: 132px;
@@ -24,6 +50,8 @@
       &--text {
         font-family: BlissPro;
         font-size: 14px;
+        font-weight: normal;
+        text-transform: uppercase;
         color: #0a6ed1;
       }
 
@@ -51,11 +79,12 @@
     }
 
     &_select--first {
-      width: 340px;
+      width: 300px;
+      font-weight: normal;
     }
 
     &_select--second {
-      width: 284px;
+      width: 300px;
     }
 
   }

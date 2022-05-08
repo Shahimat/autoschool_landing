@@ -28,7 +28,7 @@ module.exports = (lf, slf, project) => {
       Div(
         'select_list',
         ...aList.map(item => button(
-          item,
+          $p( item ),
           className('select_list--item')
         ))
       )
