@@ -1,29 +1,33 @@
 module.exports = (lf, slf, project) => {
 
   const { $print: $p, $attr, doctype, html, head, body, main, meta, title, link, script, src, charset, className, 
-    div, a, href } = lf;
+    div, a, href, br } = lf;
   const Header = project.def('Header');
   const Footer = project.def('Footer');
+  const Div = project.def('Div');
+  const Box = project.def('Box');
   const Text = project.def('Text');
   const H1 = project.def('H1');
   const H2 = project.def('H2');
   const H3 = project.def('H3');
-  const H4 = project.def('H4');
   const KV = project.def('KV');
   const List = project.def('List');
   const Link = project.def('Link');
   const Mail = project.def('Mail');
   const Model = project.model('aboutModel');
 
-  const Container = (...args) => div(
-    div(
-      $p(
-        ...args
-      ),
-      className('about_wrapper')
-    ),
-    className('about_page')
+  const Container = (...args) => Div(
+    'about_page--content',
+    Div(
+      'about_page--content_wrapper',
+      ...args
+    )
   );
+
+  const InfoBlock = (...args) => Box(
+    'about_page--info_block',
+    ...args
+  )
 
   return () => {
   
@@ -62,86 +66,121 @@ module.exports = (lf, slf, project) => {
               Header(),
               Container(
                 H1('Сведения об образовательной органицации'),
-                H3('Основные сведения'),
-                Text(Model.get().main.info),
-                KV(Model.get().main.founder.key, Model.get().main.founder.value),
-                KV(Model.get().main.legalAdress.key, Model.get().main.legalAdress.value),
-                KV(Model.get().main.schedule.key, $p(
-                  Model.get().main.schedule.value,
-                  ', ',
-                  Mail(Model.get().main.mail)
-                )),
-                H3('Структура и органы управления'),
-                KV(Model.get().main.ceo.key, $p(
-                  Model.get().main.ceo.value,
-                  ', ',
-                  Mail(Model.get().main.mail)
-                )),
-                H2('Структурные подразделения'),
-                List(Model.get().structural.map(({key, value}) => KV(
-                  key,
-                  value,
-                  'comma'
-                ))),
-                H3('Документы'),
-                List(Model.get().documents.map(({href: sHref, value}) => Link(
-                  value,
-                  sHref,
-                  '_blank'
-                ))),
-                H2('Образование'),
-                ...Model.get().education.map(elem => $p(
-                  H4(elem.title),
-                  elem.content.length > 0? List(elem.content.map(({href: sHref, value}) => Link(
-                    value,
-                    sHref,
-                    '_blank'
-                  )), ): ''
-                )),
-                H3('Финансово-хозяйственная деятельность'),
-                Link(
-                  Model.get().financial.value,
-                  Model.get().financial.href,
-                  '_blank'
-                ),
-                H3('Сроки обучения на категории:'),
-                List(Model.get().training_period),
-                H3('Платные образовательные услуги'),
-                List(Model.get().paid.map(({href: sHref, value}) => Link(
-                  value,
-                  sHref,
-                  '_blank'
-                ))),
-                H3('Информация о численности обучающихся'),
-                List(Model.get().studentInfo, 'list_decimal'),
-                H3('Материально-техническое обеспечение учебного процесса'),
-                H4('Оборудованные объекты для проведения занятий:'),
-                List(Model.get().schools.map(elem => {
-                  let aElem = elem.split('ПДД онлайн');
-                  if (aElem.length === 1) {
-                    return elem;
-                  } else {
-                    let render = [];
-                    for (let i = 0; i < aElem.length; i++) {
-                      render.push(aElem[i]);
-                      if (i < aElem.length - 1) {
-                        render.push(Link(
-                          'ПДД онлайн',
-                          '/pdd-onlajn',
-                          '_blank'
-                        ))
+                Div(
+                  'about_page--document',
+                  H2('Основные сведения'),
+                  InfoBlock(
+                    Text(Model.get().main.info),
+                    br(),
+                    KV(Model.get().main.founder.key, Model.get().main.founder.value),
+                    KV(Model.get().main.legalAdress.key, Model.get().main.legalAdress.value),
+                    KV(Model.get().main.schedule.key, $p(
+                      Model.get().main.schedule.value,
+                      ', ',
+                      Mail(Model.get().main.mail)
+                    )),
+                  ),
+                  H2('Структура и органы управления'),
+                  InfoBlock(
+                    KV(Model.get().main.ceo.key, $p(
+                      Model.get().main.ceo.value,
+                      ', ',
+                      Mail(Model.get().main.mail)
+                    )),
+                  ),
+                  H2('Структурные подразделения'),
+                  InfoBlock(
+                    List(Model.get().structural.map(({key, value}) => KV(
+                      key,
+                      value,
+                      'comma'
+                    ))),
+                  ),
+                  H2('Документы'),
+                  InfoBlock(
+                    List(Model.get().documents.map(({href: sHref, value}) => Link(
+                      value,
+                      sHref,
+                      '_blank'
+                    ))),
+                  ),
+                  H2('Образование'),
+                  InfoBlock(
+                    ...Model.get().education.map(elem => $p(
+                      H3(elem.title),
+                      br(),
+                      elem.content.length > 0? List(elem.content.map(({href: sHref, value}) => Link(
+                        value,
+                        sHref,
+                        '_blank'
+                      )), ): '',
+                      br(),
+                    )),
+                  ),
+                  H2('Финансово-хозяйственная деятельность'),
+                  InfoBlock(
+                    Link(
+                      Model.get().financial.value,
+                      Model.get().financial.href,
+                      '_blank'
+                    ),
+                  ),
+                  H2('Сроки обучения на категории:'),
+                  InfoBlock(
+                    List(Model.get().training_period),
+                  ),
+                  H2('Платные образовательные услуги'),
+                  InfoBlock(
+                    List(Model.get().paid.map(({href: sHref, value}) => Link(
+                      value,
+                      sHref,
+                      '_blank'
+                    ))),
+                  ),
+                  H2('Информация о численности обучающихся'),
+                  InfoBlock(
+                    List(Model.get().studentInfo),
+                  ),
+                  H2('Материально-техническое обеспечение учебного процесса'),
+                  InfoBlock(
+                    H3('Оборудованные объекты для проведения занятий:'),
+                    br(),
+                    List(Model.get().schools.map(elem => {
+                      if (elem === 'br') {
+                        return br();
                       }
-                    }
-                    return $p(...render);
-                  }
-                })),
-                H3('Доступная среда'),
-                Text(Model.get().description),
-                H3('Международное сотрудничество'),
-                Text(Model.get().international)
+                      let aElem = elem.split('ПДД онлайн');
+                      if (aElem.length === 1) {
+                        return elem;
+                      } else {
+                        let render = [];
+                        for (let i = 0; i < aElem.length; i++) {
+                          render.push(aElem[i]);
+                          if (i < aElem.length - 1) {
+                            render.push(Link(
+                              'ПДД онлайн',
+                              '/pdd-onlajn',
+                              '_blank'
+                            ))
+                          }
+                        }
+                        return $p(...render);
+                      }
+                    })),
+                  ),
+                  H2('Доступная среда'),
+                  InfoBlock(
+                    Text(Model.get().description),
+                  ),
+                  H2('Международное сотрудничество'),
+                  InfoBlock(
+                    Text(Model.get().international)
+                  ),
+                ),
               ),
               Footer()
             ),
+            className('about_page')
           )
         )
       )

@@ -1,20 +1,39 @@
 .about_page {
-  margin-top: 82px;
-  padding-bottom: 100px;
-  background: url('assets/images/bg.webp') no-repeat;
-  background-position: bottom;
-  background-color: #f7f8fa;
-  background-size: 100%;
-  @include breakpoint (hd) {
-    background-size: auto;
+
+  & &--content {
+    margin-top: 82px;
+    padding-bottom: 100px;
+    background: url('assets/images/bg.webp') no-repeat;
+    background-position: bottom;
+    background-color: #f7f8fa;
+    background-size: 100%;
+    @include breakpoint (hd) {
+      background-size: auto;
+    }
+
+    &_wrapper {
+      width: 1170px;
+      margin: 0 auto;
+    }
   }
 
-  .about_wrapper {
-    width: 1170px;
-    margin: 0 auto;
+  & &--info_block {
+    box-sizing: border-box;
+    padding: 38px 40px;
+  }
+
+  & &--document {
+    border-radius: 10px;
+    box-shadow: 0 2px 40px 0 #f1f2f4;
+    background-color: #fff;
+    padding: 50px 56px;
   }
 
   .list_decimal {
     list-style-type: decimal;
+  }
+
+  & .footer .decor_field_container {
+    display: none;
   }
 }
