@@ -42,6 +42,7 @@ const Project = lfp.Project({
     ButtonGradient: 'components.ButtonGradient',
     ButtonClose: 'components.ButtonClose',
     Select: 'components.Select',
+    ComplexText: 'components.ComplexText',
     Header: 'feature.Header',
     Footer: 'feature.Footer',
     Circles: 'feature.Circles',

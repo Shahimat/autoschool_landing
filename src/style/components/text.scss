@@ -125,3 +125,29 @@
   font-weight: 300;
   user-select: none;
 }
+
+.complex_text {
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  pointer-events: none;
+
+  &--text {
+    display: block;
+    width: fit-content;
+    font-family: BebasNeue;
+    font-weight: normal;
+    color: #89919a;
+    pointer-events: none;
+  }
+
+  &--small {
+    font-size: 18px;
+    padding-bottom: 3px;
+  }
+
+  &--big {
+    font-size: 36px;
+  }
+
+}
