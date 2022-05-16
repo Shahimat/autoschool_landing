@@ -28,8 +28,8 @@
 
   .custom_tab_style {
     min-width: auto !important;
-    width: auto;
     padding: 0 15px 14px 15px !important;
+    flex: 1 0 content;
 
     & > .tab_container_link_text {
       text-transform: none;

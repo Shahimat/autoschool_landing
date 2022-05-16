@@ -168,7 +168,7 @@ module.exports = (lf, slf, project) => {
       $p(
         'contacts_card ',
         Style({
-          'padding': '10px 30px',
+          'padding': '10px 0',
         })
       ),
       FlexItem(
