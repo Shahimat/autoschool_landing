@@ -3,12 +3,12 @@ module.exports = (lf, slf, project) => {
 
   const oData = {
     transport: [
-      'мотоцикл',
-      'легковое авто',
+      'Мотоцикл',
+      'Легковое авто',
       [
         {
           type: 'small',
-          text: 'переобучение&nbsp;с&nbsp;',
+          text: 'Переобучение&nbsp;с&nbsp;',
         },
         {
           type: 'big',
@@ -26,7 +26,7 @@ module.exports = (lf, slf, project) => {
       [
         {
           type: 'small',
-          text: 'переобучение&nbsp;с&nbsp;',
+          text: 'Переобучение&nbsp;с&nbsp;',
         },
         {
           type: 'big',

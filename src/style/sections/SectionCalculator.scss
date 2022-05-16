@@ -37,6 +37,30 @@
 
   }
 
+  .select_list {
+    width: calc(100% + 2 * 25px);
+    transform: translate(-50%, calc(100% + 18px + 1px));
+  }
+
+  .select_list--item {
+    padding: 12px 40px;
+
+    .text_by_types {
+      &--big, &--small {
+        font-family: BlissPro;
+        text-transform: none;
+        font-size: 16px;
+        padding-bottom: 0;
+      }
+    }
+
+    &:hover .text_by_types {
+      &--big, &--small {
+        color: #fff;
+      }
+    }
+  }
+
   .info_box {
     box-sizing: border-box;
     width: 132px;

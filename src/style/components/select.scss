@@ -37,11 +37,10 @@
     width: 100%;
     bottom: 0;
     left: 50%;
-    transform: translate(-42%, 100%);
+    transform: translate(-50%, 100%);
     background-color: #ffffff;
-    border-radius: 6px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0.3125em 0.3125em 1.875em 0.3125em #55555533;
     z-index: 2;
 
     &--item {
