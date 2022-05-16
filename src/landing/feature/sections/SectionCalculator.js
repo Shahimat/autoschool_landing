@@ -80,28 +80,7 @@ module.exports = (lf, slf, project) => {
   const FlexVContainer = project.def('FlexVContainer');
   const FlexItem = project.def('FlexItem');
   const Select = project.def('Select');
-
-  const getTextByTypes = (input) => {
-    if (typeof(input) === 'string' || typeof(input) === 'function') {
-      return Div(
-        'text_by_types',
-        Div(
-          'text_by_types--text text_by_types--big',
-          input
-        )
-      );
-    } else if (Array.isArray(input)) {
-      return Div(
-        'text_by_types',
-        ...input.map(item => Div(
-          `text_by_types--text text_by_types--${item.type}`,
-          item.text
-        ))
-      )
-    } else {
-      throw new Error(`getTextByTypes: expected <string> | <array> but found "${input}"`);
-    }
-  }
+  const ComplexText = project.def('ComplexText');
 
   const Modal = () => div(
     Div(
@@ -213,7 +192,7 @@ module.exports = (lf, slf, project) => {
                       '',
                       InfoBox({
                         title: 'Транспорт',
-                        content: Select(oData.transport.map(item => getTextByTypes(item))),
+                        content: Select(oData.transport.map(item => ComplexText(item))),
                         sClass: 'info_box_select--first noselect',
                       })
                     ),
@@ -221,7 +200,7 @@ module.exports = (lf, slf, project) => {
                       '',
                       InfoBox({
                         title: 'Коробка передач',
-                        content: Select(oData.transmission.map(item => getTextByTypes(item))),
+                        content: Select(oData.transmission.map(item => ComplexText(item))),
                         sClass: 'info_box_select--second noselect',
                       })
                     )

@@ -11,32 +11,6 @@
     box-shadow: 0 2px 14px 0 #f1f2f4;
   }
 
-  .text_by_types {
-    display: flex;
-    width: 100%;
-    align-items: flex-end;
-    pointer-events: none;
-
-    &--text {
-      display: block;
-      width: fit-content;
-      font-family: BebasNeue;
-      font-weight: normal;
-      color: #89919a;
-      pointer-events: none;
-    }
-
-    &--small {
-      font-size: 18px;
-      padding-bottom: 3px;
-    }
-
-    &--big {
-      font-size: 36px;
-    }
-
-  }
-
   .select_list {
     width: calc(100% + 2 * 25px);
     transform: translate(-50%, calc(100% + 18px + 1px));
@@ -45,7 +19,7 @@
   .select_list--item {
     padding: 12px 40px;
 
-    .text_by_types {
+    .complex_text {
       &--big, &--small {
         font-family: BlissPro;
         text-transform: none;
@@ -54,7 +28,7 @@
       }
     }
 
-    &:hover .text_by_types {
+    &:hover .complex_text {
       &--big, &--small {
         color: #fff;
       }
