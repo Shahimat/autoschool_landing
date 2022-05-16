@@ -6,8 +6,8 @@ module.exports = (lf, slf, project) => {
       {
         title: 'Теоретические занятия',
         src: 'assets/images/info-bg.jpg',
-        left_content: {
-          infoboxUp: {
+        left_content: [
+          {
             title: 'Практика',
             text: [
               {
@@ -20,7 +20,7 @@ module.exports = (lf, slf, project) => {
               },
             ]
           },
-          infoboxDown: {
+          {
             title: '',
             text: [
               {
@@ -37,7 +37,7 @@ module.exports = (lf, slf, project) => {
               },
             ]
           },
-        },
+        ],
         center_content: [
           '- изучение Правил дорожного движения (ПДД)',
           '- юридическая ответственность водителя за нарушение ПДД',
@@ -73,8 +73,8 @@ module.exports = (lf, slf, project) => {
       {
         title: 'Практические занятия',
         src: 'assets/images/info-bg.jpg',
-        left_content: {
-          infoboxUp: {
+        left_content: [
+          {
             title: 'Практика',
             text: [
               {
@@ -87,7 +87,7 @@ module.exports = (lf, slf, project) => {
               },
             ]
           },
-          infoboxDown: {
+          {
             title: '',
             text: [
               {
@@ -104,7 +104,7 @@ module.exports = (lf, slf, project) => {
               },
             ]
           },
-        },
+        ],
         center_content: [
           '- тренировка и практическое выполнение упражнений на автодроме',
           '- учебная езда по городу',
@@ -138,8 +138,8 @@ module.exports = (lf, slf, project) => {
       {
         title: 'Организация экзамена в ГИБДД',
         src: 'assets/images/info-bg.jpg',
-        left_content: {
-          infoboxUp: {
+        left_content: [
+          {
             title: 'Практика',
             text: [
               {
@@ -152,7 +152,7 @@ module.exports = (lf, slf, project) => {
               },
             ]
           },
-          infoboxDown: {
+          {
             title: '',
             text: [
               {
@@ -169,7 +169,7 @@ module.exports = (lf, slf, project) => {
               },
             ]
           },
-        },
+        ],
         center_content: [
           '- подготовка пакета документов, необходимых для ГИБДД',
           '- регистрация на экзамен с назначением даты',
@@ -273,8 +273,13 @@ module.exports = (lf, slf, project) => {
                 'tab_content_container',
                 FlexItem(
                   'tab_content--left',
-                  InfoBoxLeft(oData.tabs[index].left_content.infoboxUp.title, oData.tabs[index].left_content.infoboxUp.text),
-                  InfoBoxLeft(oData.tabs[index].left_content.infoboxDown.title, oData.tabs[index].left_content.infoboxDown.text),
+                  FlexVContainer(
+                    'tab_content--left_content',
+                    ...oData.tabs[index].left_content.map(info => FlexItem(
+                      'tab_content--left_content--item',
+                      InfoBoxLeft(info.title, info.text)
+                    ))
+                  )
                 ),
                 FlexItem(
                   'tab_content--center',
@@ -294,7 +299,6 @@ module.exports = (lf, slf, project) => {
                       InfoBoxRight(info.title, info.text)
                     ))
                   )
-                  
                 )
               )
             ),
