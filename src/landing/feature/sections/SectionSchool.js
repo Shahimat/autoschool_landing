@@ -4,10 +4,40 @@ module.exports = (lf, slf, project) => {
   const oData = {
     tabs: [
       {
-        text: 'Теоретические занятия',
+        title: 'Теоретические занятия',
         src: 'assets/images/info-bg.jpg',
-        lessons_number: '25',
-        lessons_hour: '2',
+        left_content: {
+          infoboxUp: {
+            title: 'Практика',
+            text: [
+              {
+                type: 'big',
+                text: '25',
+              },
+              {
+                type: 'small',
+                text: '&nbsp;занятий',
+              },
+            ]
+          },
+          infoboxDown: {
+            title: '',
+            text: [
+              {
+                type: 'small',
+                text: 'по&nbsp;',
+              },
+              {
+                type: 'big',
+                text: '2',
+              },
+              {
+                type: 'small',
+                text: '&nbsp;часа',
+              },
+            ]
+          },
+        },
         center_content: [
           '- изучение Правил дорожного движения (ПДД)',
           '- юридическая ответственность водителя за нарушение ПДД',
@@ -16,28 +46,157 @@ module.exports = (lf, slf, project) => {
           '- основы безопасного вождения',
           '- практическая тренировка по решению экзаменационных задач',
         ],
+        right_content: [
+          {
+            title: 'Практические занятия проводятся индивидуально с каждым в любой день по записи',
+            text: [
+              {
+                type: 'small',
+                text: 'с&nbsp;',
+              },
+              {
+                type: 'big',
+                text: '10:00',
+              },
+              {
+                type: 'small',
+                text: '&nbsp;по&nbsp;',
+              },
+              {
+                type: 'big',
+                text: '18:00',
+              },
+            ]
+          }
+        ]
       },
       {
-        text: 'Практические занятия',
+        title: 'Практические занятия',
         src: 'assets/images/info-bg.jpg',
-        lessons_number: '25',
-        lessons_hour: '2',
+        left_content: {
+          infoboxUp: {
+            title: 'Практика',
+            text: [
+              {
+                type: 'big',
+                text: '25',
+              },
+              {
+                type: 'small',
+                text: '&nbsp;занятий',
+              },
+            ]
+          },
+          infoboxDown: {
+            title: '',
+            text: [
+              {
+                type: 'small',
+                text: 'по&nbsp;',
+              },
+              {
+                type: 'big',
+                text: '2',
+              },
+              {
+                type: 'small',
+                text: '&nbsp;часа',
+              },
+            ]
+          },
+        },
         center_content: [
           '- тренировка и практическое выполнение упражнений на автодроме',
           '- учебная езда по городу',
           '- действия водителя в нестандартных ситуациях',
           '- изучение особенностей экзаменационного маршрута',
         ],
+        right_content: [
+          {
+            title: 'Практические занятия проводятся индивидуально с каждым в любой день по записи',
+            text: [
+              {
+                type: 'small',
+                text: 'с&nbsp;',
+              },
+              {
+                type: 'big',
+                text: '10:00',
+              },
+              {
+                type: 'small',
+                text: '&nbsp;по&nbsp;',
+              },
+              {
+                type: 'big',
+                text: '18:00',
+              },
+            ]
+          }
+        ]
       },
       {
-        text: 'Организация экзамена в ГИБДД',
+        title: 'Организация экзамена в ГИБДД',
         src: 'assets/images/info-bg.jpg',
-        lessons_number: '25',
-        lessons_hour: '2',
+        left_content: {
+          infoboxUp: {
+            title: 'Практика',
+            text: [
+              {
+                type: 'big',
+                text: '25',
+              },
+              {
+                type: 'small',
+                text: '&nbsp;занятий',
+              },
+            ]
+          },
+          infoboxDown: {
+            title: '',
+            text: [
+              {
+                type: 'small',
+                text: 'по&nbsp;',
+              },
+              {
+                type: 'big',
+                text: '2',
+              },
+              {
+                type: 'small',
+                text: '&nbsp;часа',
+              },
+            ]
+          },
+        },
         center_content: [
           '- подготовка пакета документов, необходимых для ГИБДД',
           '- регистрация на экзамен с назначением даты',
         ],
+        right_content: [
+          {
+            title: 'Практические занятия проводятся индивидуально с каждым в любой день по записи',
+            text: [
+              {
+                type: 'small',
+                text: 'с&nbsp;',
+              },
+              {
+                type: 'big',
+                text: '10:00',
+              },
+              {
+                type: 'small',
+                text: '&nbsp;по&nbsp;',
+              },
+              {
+                type: 'big',
+                text: '18:00',
+              },
+            ]
+          }
+        ]
       }
     ],
   };
@@ -52,23 +211,37 @@ module.exports = (lf, slf, project) => {
   const FlexVContainer = project.def('FlexVContainer');
   const FlexItem = project.def('FlexItem');
   const TabContainer = project.def('TabContainer');
+  const ComplexText = project.def('ComplexText');
 
-  const InfoBox = (title, before_num, num, after_num) => Box(
-    'info_box',
+  const InfoBoxLeft = (title, text) => Box(
+    'info_box_left',
     FlexVContainer(
-      'info_box_container',
+      'info_box_left_container',
       FlexItem(
-        'info_box_title',
-        Span('info_box_title--text', title)
+        'info_box_left_title',
+        Span('info_box_left_title--text', title)
       ),
       FlexItem(
-        'info_box_description',
-        Span('info_box_description--before', before_num),
-        Span('info_box_description--num', num),
-        Span('info_box_description--after', after_num)
+        'info_box_left_description',
+        ComplexText(text)
       )
     )
-  )
+  );
+
+  const InfoBoxRight = (title, text) => Box(
+    'info_box_right',
+    FlexVContainer(
+      'info_box_right_container',
+      FlexItem(
+        'info_box_right_title',
+        Span('info_box_right_title--text', title)
+      ),
+      FlexItem(
+        'info_box_right_description',
+        ComplexText(text)
+      )
+    )
+  );
 
   return () => {
 
@@ -82,7 +255,7 @@ module.exports = (lf, slf, project) => {
         FlexItem(
           'section_school_container',
           TabContainer({
-            tabs: oData.tabs.map(tab => tab.text),
+            tabs: oData.tabs.map(tab => tab.title),
             tabStyle: 'tab_header',
           }, (title, index) => Box(
             '',
@@ -100,8 +273,8 @@ module.exports = (lf, slf, project) => {
                 'tab_content_container',
                 FlexItem(
                   'tab_content--left',
-                  InfoBox('Практика', '', oData.tabs[index].lessons_number, ' занятий'),
-                  InfoBox(' ', 'по ', oData.tabs[index].lessons_hour, ' часа'),
+                  InfoBoxLeft(oData.tabs[index].left_content.infoboxUp.title, oData.tabs[index].left_content.infoboxUp.text),
+                  InfoBoxLeft(oData.tabs[index].left_content.infoboxDown.title, oData.tabs[index].left_content.infoboxDown.text),
                 ),
                 FlexItem(
                   'tab_content--center',
@@ -115,19 +288,13 @@ module.exports = (lf, slf, project) => {
                 FlexItem(
                   'tab_content--right',
                   FlexVContainer(
-                    'tab_content--right_container',
-                    FlexItem(
-                      'tab_content--right_top',
-                      Span('right_top--text', 'Практические занятия проводятся индивидуально с каждым в любой день по записи')
-                    ),
-                    FlexItem(
-                      'tab_content--right_bottom',
-                      Span('tab_content--right_bottom_text tab_content--right_bottom_text--small', 'с&nbsp;'),
-                      Span('tab_content--right_bottom_text tab_content--right_bottom_text--big',   '10:00'),
-                      Span('tab_content--right_bottom_text tab_content--right_bottom_text--small', '&nbsp;по&nbsp;'),
-                      Span('tab_content--right_bottom_text tab_content--right_bottom_text--big',   '18:00'),
-                    )
+                    'tab_content--right_content',
+                    ...oData.tabs[index].right_content.map(info => FlexItem(
+                      'tab_content--right_content--item',
+                      InfoBoxRight(info.title, info.text)
+                    ))
                   )
+                  
                 )
               )
             ),
