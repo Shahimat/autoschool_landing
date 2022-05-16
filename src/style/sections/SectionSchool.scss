@@ -122,6 +122,10 @@
     border-radius: 10px;
     margin-top: 25px;
 
+    &_container {
+      min-height: 100px;
+    }
+
     &--left {
       box-sizing: border-box;
       flex: 0 0 200px;
