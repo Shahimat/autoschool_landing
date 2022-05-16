@@ -8,7 +8,7 @@ module.exports = (lf, slf, project) => {
       [
         {
           type: 'small',
-          text: 'Переобучение&nbsp;с&nbsp;',
+          text: 'Переобучение с',
         },
         {
           type: 'big',
@@ -16,7 +16,7 @@ module.exports = (lf, slf, project) => {
         },
         {
           type: 'small',
-          text: '&nbsp;на&nbsp;',
+          text: 'на',
         },
         {
           type: 'big',
@@ -26,7 +26,7 @@ module.exports = (lf, slf, project) => {
       [
         {
           type: 'small',
-          text: 'Переобучение&nbsp;с&nbsp;',
+          text: 'Переобучение с',
         },
         {
           type: 'big',
@@ -34,7 +34,7 @@ module.exports = (lf, slf, project) => {
         },
         {
           type: 'small',
-          text: '&nbsp;на&nbsp;',
+          text: 'на',
         },
         {
           type: 'big',

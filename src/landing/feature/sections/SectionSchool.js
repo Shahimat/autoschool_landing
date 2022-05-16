@@ -16,7 +16,7 @@ module.exports = (lf, slf, project) => {
               },
               {
                 type: 'small',
-                text: '&nbsp;занятий',
+                text: 'занятий',
               },
             ]
           },
@@ -25,7 +25,7 @@ module.exports = (lf, slf, project) => {
             text: [
               {
                 type: 'small',
-                text: 'по&nbsp;',
+                text: 'по',
               },
               {
                 type: 'big',
@@ -33,7 +33,7 @@ module.exports = (lf, slf, project) => {
               },
               {
                 type: 'small',
-                text: '&nbsp;часа',
+                text: 'часа',
               },
             ]
           },
@@ -52,7 +52,7 @@ module.exports = (lf, slf, project) => {
             text: [
               {
                 type: 'small',
-                text: 'с&nbsp;',
+                text: 'с',
               },
               {
                 type: 'big',
@@ -60,7 +60,7 @@ module.exports = (lf, slf, project) => {
               },
               {
                 type: 'small',
-                text: '&nbsp;по&nbsp;',
+                text: 'по',
               },
               {
                 type: 'big',
@@ -83,7 +83,7 @@ module.exports = (lf, slf, project) => {
               },
               {
                 type: 'small',
-                text: '&nbsp;занятий',
+                text: 'занятий',
               },
             ]
           },
@@ -92,7 +92,7 @@ module.exports = (lf, slf, project) => {
             text: [
               {
                 type: 'small',
-                text: 'по&nbsp;',
+                text: 'по',
               },
               {
                 type: 'big',
@@ -100,7 +100,7 @@ module.exports = (lf, slf, project) => {
               },
               {
                 type: 'small',
-                text: '&nbsp;часа',
+                text: 'часа',
               },
             ]
           },
@@ -117,7 +117,7 @@ module.exports = (lf, slf, project) => {
             text: [
               {
                 type: 'small',
-                text: 'с&nbsp;',
+                text: 'с',
               },
               {
                 type: 'big',
@@ -125,7 +125,7 @@ module.exports = (lf, slf, project) => {
               },
               {
                 type: 'small',
-                text: '&nbsp;по&nbsp;',
+                text: 'по',
               },
               {
                 type: 'big',
@@ -148,7 +148,7 @@ module.exports = (lf, slf, project) => {
               },
               {
                 type: 'small',
-                text: '&nbsp;занятий',
+                text: 'занятий',
               },
             ]
           },
@@ -157,7 +157,7 @@ module.exports = (lf, slf, project) => {
             text: [
               {
                 type: 'small',
-                text: 'по&nbsp;',
+                text: 'по',
               },
               {
                 type: 'big',
@@ -165,7 +165,7 @@ module.exports = (lf, slf, project) => {
               },
               {
                 type: 'small',
-                text: '&nbsp;часа',
+                text: 'часа',
               },
             ]
           },
@@ -180,7 +180,7 @@ module.exports = (lf, slf, project) => {
             text: [
               {
                 type: 'small',
-                text: 'с&nbsp;',
+                text: 'с',
               },
               {
                 type: 'big',
@@ -188,7 +188,7 @@ module.exports = (lf, slf, project) => {
               },
               {
                 type: 'small',
-                text: '&nbsp;по&nbsp;',
+                text: 'по',
               },
               {
                 type: 'big',
