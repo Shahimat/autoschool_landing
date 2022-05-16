@@ -8,7 +8,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: transform 0.7s ease;
+    transition: transform 0.3s ease;
   }
 
   & &--gradient {
@@ -33,31 +33,35 @@
     }
 
     &--circle_0::before {
-      top: -4px;
-      right: -4px;
-      bottom: -4px;
-      left: -4px;
-    }
-
-    &--circle_1::before {
-      top: -3px;
-      right: -3px;
-      bottom: -3px;
-      left: -3px;
-    }
-
-    &--circle_2::before {
       top: -2px;
       right: -2px;
       bottom: -2px;
       left: -2px;
+      opacity: 1;
     }
 
-    &--circle_3::before {
+    &--circle_1::before {
+      top: -1.5px;
+      right: -1.5px;
+      bottom: -1.5px;
+      left: -1.5px;
+      opacity: 0.75;
+    }
+
+    &--circle_2::before {
       top: -1px;
       right: -1px;
       bottom: -1px;
       left: -1px;
+      opacity: 0.5;
+    }
+
+    &--circle_3::before {
+      top: -0.5px;
+      right: -0.5px;
+      bottom: -0.5px;
+      left: -0.5px;
+      opacity: 0.25;
     }
   }
 
