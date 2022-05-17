@@ -8,34 +8,33 @@ module.exports = (lf, slf, project) => {
         src: 'assets/images/info-bg.jpg',
         left_content: [
           {
-            title: 'Практика',
+            title: 'Теория',
             text: [
               {
+                type: 'small',
+                text: 'от',
+              },
+              {
                 type: 'big',
-                text: '25',
+                text: '1,5',
               },
               {
                 type: 'small',
-                text: 'занятий',
+                text: 'до',
+              },
+              {
+                type: 'big',
+                text: '3',
+              },
+              {
+                type: 'small',
+                text: 'месяцев',
               },
             ]
           },
           {
             title: '',
-            text: [
-              {
-                type: 'small',
-                text: 'по',
-              },
-              {
-                type: 'big',
-                text: '2',
-              },
-              {
-                type: 'small',
-                text: 'часа',
-              },
-            ]
+            text: []
           },
         ],
         center_content: [
@@ -48,7 +47,7 @@ module.exports = (lf, slf, project) => {
         ],
         right_content: [
           {
-            title: 'Практические занятия проводятся индивидуально с каждым в любой день по записи',
+            title: 'Занятия проходят в вечерних группах по будням',
             text: [
               {
                 type: 'small',
@@ -56,15 +55,56 @@ module.exports = (lf, slf, project) => {
               },
               {
                 type: 'big',
-                text: '10:00',
+                text: '18',
               },
               {
                 type: 'small',
-                text: 'по',
+                text: 'до',
               },
               {
                 type: 'big',
-                text: '18:00',
+                text: '21:15',
+              },
+            ]
+          },
+          {
+            title: 'И в группах выходного дня с перерывами',
+            text: [
+              {
+                type: 'small',
+                text: 'с',
+              },
+              {
+                type: 'big',
+                text: '10',
+              },
+              {
+                type: 'small',
+                text: 'до',
+              },
+              {
+                type: 'big',
+                text: '13:15',
+              },
+              {
+                type: 'padding',
+                length: 3,
+              },
+              {
+                type: 'small',
+                text: 'и с',
+              },
+              {
+                type: 'big',
+                text: '14',
+              },
+              {
+                type: 'small',
+                text: 'до',
+              },
+              {
+                type: 'big',
+                text: '17:15',
               },
             ]
           }
@@ -79,7 +119,7 @@ module.exports = (lf, slf, project) => {
             text: [
               {
                 type: 'big',
-                text: '25',
+                text: '28',
               },
               {
                 type: 'small',
@@ -138,65 +178,12 @@ module.exports = (lf, slf, project) => {
       {
         title: 'Организация экзамена в ГИБДД',
         src: 'assets/images/info-bg.jpg',
-        left_content: [
-          {
-            title: 'Практика',
-            text: [
-              {
-                type: 'big',
-                text: '25',
-              },
-              {
-                type: 'small',
-                text: 'занятий',
-              },
-            ]
-          },
-          {
-            title: '',
-            text: [
-              {
-                type: 'small',
-                text: 'по',
-              },
-              {
-                type: 'big',
-                text: '2',
-              },
-              {
-                type: 'small',
-                text: 'часа',
-              },
-            ]
-          },
-        ],
+        left_content: [],
         center_content: [
           '- подготовка пакета документов, необходимых для ГИБДД',
           '- регистрация на экзамен с назначением даты',
         ],
-        right_content: [
-          {
-            title: 'Практические занятия проводятся индивидуально с каждым в любой день по записи',
-            text: [
-              {
-                type: 'small',
-                text: 'с',
-              },
-              {
-                type: 'big',
-                text: '10:00',
-              },
-              {
-                type: 'small',
-                text: 'по',
-              },
-              {
-                type: 'big',
-                text: '18:00',
-              },
-            ]
-          }
-        ]
+        right_content: []
       }
     ],
   };
