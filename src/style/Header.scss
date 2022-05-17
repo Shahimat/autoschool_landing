@@ -13,6 +13,16 @@ html[data-scroll='true'] .header {
   z-index: 1000;
   transition: transform .3s linear;
 
+  .base_button_gradient {
+    padding: 11px 16px 10px;
+
+    &_text {
+      font-size: 16px;
+      font-weight: normal;
+      color: #0a6ed1;
+    }
+  }
+
   &_container {
     height: 100%;
     justify-content: center;
@@ -33,8 +43,8 @@ html[data-scroll='true'] .header {
 
       .nav_button {
         font-family: BlissPro;
-        font-size: 18px;
-        font-weight: 500;
+        font-size: 16px;
+        font-weight: normal;
         color: #fff;
         text-decoration: none;
         text-transform: uppercase;
@@ -44,11 +54,6 @@ html[data-scroll='true'] .header {
         }
       }
 
-    }
-
-    .personal_area_button {
-      border-width: 2px;
-      padding: 10px 16px 9px;
     }
 
   }

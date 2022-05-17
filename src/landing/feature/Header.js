@@ -88,7 +88,7 @@ module.exports = (lf, slf, project) => {
           )),
           ButtonGradient(
             'личный кабинет',
-            'personal_area_button',
+            '',
             'https://avto-online.pro/kabinet/',
           )
         )
