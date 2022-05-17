@@ -23,20 +23,6 @@ module.exports = (lf, slf, project) => {
         Div(
           'sh_left_container',
           Div(
-            'sh_logo_container',
-            a(
-              img( null, $p(
-                $attr('src', 'assets/images/logo.png'),
-                alt('logo'),
-                className('sh_logo_container_img image_quality')
-              )),
-              $p(
-                className('sh_logo_container_href'),
-                href('/')
-              )
-            ),
-          ),
-          Div(
             'sh_place_container',
             Div(
               'sh_place_container_left',

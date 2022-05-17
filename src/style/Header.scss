@@ -13,6 +13,18 @@ html[data-scroll='true'] .header {
   z-index: 1000;
   transition: transform .3s linear;
 
+  .logo_container {
+    &_img {
+      width: 125px;
+      height: 36px;
+    }
+
+    &_href {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
   .base_button_gradient {
     padding: 11px 16px 10px;
 
@@ -23,45 +35,83 @@ html[data-scroll='true'] .header {
     }
   }
 
-  &_container {
-    height: 100%;
-    justify-content: center;
-    align-items: center;
+  .nav_button {
+    font-family: BlissPro;
+    font-size: 16px;
+    font-weight: normal;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
 
-    .nav_container {
-      margin-left: 82px;
-      width: 1200px;
-      justify-content: space-between;
-      align-items: center;
-      padding-right: 82px;
+  .nav_panel {
+    &--hd {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
       @include breakpoint (xl) {
-        padding-right: 66px;
-      }
-      @include breakpoint (sm) {
-        padding-right: 20px;
+        display: none;
       }
 
-      .nav_button {
-        font-family: BlissPro;
-        font-size: 16px;
-        font-weight: normal;
-        color: #fff;
-        text-decoration: none;
-        text-transform: uppercase;
-        white-space: nowrap;
-        @include breakpoint (xl) {
-          display: none;
+      .nav_li {
+        margin-left: 60px;
+        @include breakpoint (xxl) {
+          margin-left: 40px;
         }
       }
 
+      .nav_li:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  & &_container {
+    align-items: stretch;
+    height: 100%;
+
+    &--item {
+      box-sizing: border-box;
+      flex: 0 0 1200px;
+      margin: 0 auto;
+      @include breakpoint (xxl) {
+        flex: 0 0 1100px;
+      }
+      @include breakpoint (xl) {
+        flex: 1 0 100%;
+        margin: 0;
+        padding-left: 168px;
+        padding-right: 66px;
+      }
+      @include breakpoint (sm) {
+        padding-left: 0;
+        padding-right: 47px;
+      }
+    }
+
+    .header_content {
+      align-items: center;
+      height: 100%;
+      justify-content: space-between;
+      @include breakpoint (sm) {
+        justify-content: flex-end;
+      }
+
+      .login_button_field {
+        @include breakpoint (sm) {
+          display: none;
+        }
+      }
     }
 
   }
 
   .hamburger-menu {
-    visibility: hidden;
+    display: none;
     @include breakpoint (xl) {
-      visibility: visible;
+      display: block;
     }
 
     /* скрываем чекбокс */
@@ -120,18 +170,22 @@ html[data-scroll='true'] .header {
 
     /* контейнер навигационного меню */
     .menu__box {
+      box-sizing: border-box;
       position: fixed;
       top: 0;
       left: 0;
       width: 70%;
       height: 100%;
-      margin: 0;
-      padding: 80px 0;
+      margin-top: 80px;
+      padding: 0;
       justify-content: center;
-      background-color: #0b6bcb;
-      box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+      background-color: #fff;
+      box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.1);
       transform: translateX(-100%);
       transition: transform 0.3s linear;
+      @include breakpoint (sm) {
+        width: 100%;
+      }
     }
 
     .menu__list {
@@ -142,41 +196,43 @@ html[data-scroll='true'] .header {
       .menu__item {
         display: block;
         padding: 12px 24px;
-        color: #fff;
-        font-family: 'Roboto', sans-serif;
-        font-size: 20px;
-        font-weight: 600;
+        color: #354a5f;
+        font-family: BlissPro;
+        font-size: 16px;
+        font-weight: normal;
         text-decoration: none;
-        text-transform: uppercase;
         white-space: nowrap;
-        @include breakpoint (sm) {
-          font-size: 10px;
-        }
-        @include breakpoint (xs) {
-          font-size: 8px;
-        }
 
         &:hover {
-          background-color: #074b90;
+          background-color: #dcdcdc;
+        }
+      }
+
+      .menu__login {
+        display: none;
+        padding: 6px 24px;
+        @include breakpoint (sm) {
+          display: block;
         }
       }
 
     }
 
-    /* открыть / закрыть меню */
-    #menu__toggle:checked ~ .menu__btn > .bb_center {
-      display: none;
-    }
-    #menu__toggle:checked ~ .menu__btn > .bb_top {
-      top: 50%;
-      transform: translateY(-50%) rotate(45deg);
-    }
-    #menu__toggle:checked ~ .menu__btn > .bb_bottom {
-      bottom: 50%;
-      transform: translateY(50%) rotate(-45deg);
-    }
-    #menu__toggle:checked ~ .menu__box {
-      transform: translateX(0);
-    }
   }
+}
+
+/* открыть / закрыть меню */
+html[data-scroll='false'] #menu__toggle:checked ~ .menu__btn > .bb_center {
+  display: none;
+}
+html[data-scroll='false'] #menu__toggle:checked ~ .menu__btn > .bb_top {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+html[data-scroll='false'] #menu__toggle:checked ~ .menu__btn > .bb_bottom {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+}
+html[data-scroll='false'] #menu__toggle:checked ~ .menu__box {
+  transform: translateX(0);
 }
