@@ -3,20 +3,23 @@ module.exports = (lf, slf, project) => {
 
   const Div = project.def('Div');
 
-  const getText = (text, type, typeprev, index, length) => {
-    if (type === 'small') {
+  const getText = (current, prev, index, length) => {
+    let text = current.text;
+    if (current.type === 'small') {
       if (index === 0 && length > 1) {
         text = text + '&nbsp;';
       } else if (index === length - 1 && length > 1) {
-        if (typeprev === 'big') {
+        if (prev.type === 'big') {
           text = '&nbsp;' + text;
         }
       } else if (index > 0 && index < length - 1) {
-        if (typeprev === 'big') {
+        if (prev.type === 'big') {
           text = '&nbsp;' + text;
         }
         text = text + '&nbsp;';
       }
+    } else if (current.type === 'padding') {
+      text = '&nbsp;'.repeat(current.length);
     }
     return text;
   }
@@ -35,7 +38,7 @@ module.exports = (lf, slf, project) => {
         'complex_text',
         ...input.map((item, index) => Div(
           `complex_text--text complex_text--${item.type}`,
-          getText(item.text, item.type, index > 0? input[index - 1].type: 'none', index, input.length)
+          getText(item, index > 0? input[index - 1]: {}, index, input.length)
         ))
       )
     } else {
