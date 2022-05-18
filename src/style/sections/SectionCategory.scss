@@ -1,10 +1,18 @@
 .section_category {
   position: relative;
   height: 511px;
+  @include breakpoint (sm) {
+    transform-origin: top;
+    height: 327px;
+  }
 
   & &_circles {
     position: absolute;
     top: 0;
+    @include breakpoint (sm) {
+      transform-origin: top;
+      transform: scale(0.5);
+    }
 
     &--item {
       margin: 0 auto;
@@ -22,6 +30,10 @@
     width: 2880px;
     height: 415px;
     z-index: 9;
+    @include breakpoint (sm) {
+      transform-origin: top;
+      transform: translateX(-50%) scale(0.5);
+    }
 
     &--content {
       height: 100%;
@@ -57,17 +69,24 @@
     left: 0;
     height: 100%;
     z-index: 8;
+    @include breakpoint (sm) {
+      transform-origin: top;
+      transform: scale(0.5);
+    }
 
     &--item {
+      position: relative;
       width: 1300px;
       margin: 0 auto;
     }
 
     &--content {
+      position: absolute;
       width: 240px;
       height: 240px;
-      margin-top: 160px;
-      margin-left: 740px;
+      top: 160px;
+      left: 50%;
+      transform: translateX(calc(-50% + 210px));
       object-fit: contain;
       border-radius: 4px;
       background-image: linear-gradient(to bottom, #f90, #f7f8fa);
@@ -95,6 +114,16 @@
     &--item {
       width: 1300px;
       margin: 0 auto;
+      @include breakpoint (xxl) {
+        width: 1200px;
+        margin: 0 66px;
+      }
+      @include breakpoint (xl) {
+        flex: 1 0 200px;
+      }
+      @include breakpoint (sm) {
+        margin: 0 20px;
+      }
     }
 
     &_arrow {
@@ -102,6 +131,9 @@
       width: auto;
       height: auto;
       margin-bottom: 96px;
+      @include breakpoint (sm) {
+        margin-bottom: 53px;
+      }
   
       &_button {
         z-index: 10;
