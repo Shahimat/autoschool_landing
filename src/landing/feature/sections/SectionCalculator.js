@@ -185,11 +185,11 @@ module.exports = (lf, slf, project) => {
               FlexHContainer(
                 'section_calculator_panel',
                 FlexItem(
-                  '',
+                  'section_calculator_panel--item',
                   FlexHContainer(
-                    '',
+                    'select_block',
                     FlexItem(
-                      '',
+                      'select_block--item',
                       InfoBox({
                         title: 'Транспорт',
                         content: Select(oData.transport.map(item => ComplexText(item))),
@@ -197,7 +197,7 @@ module.exports = (lf, slf, project) => {
                       })
                     ),
                     FlexItem(
-                      '',
+                      'select_block--item',
                       InfoBox({
                         title: 'Коробка передач',
                         content: Select(oData.transmission.map(item => ComplexText(item))),
@@ -207,11 +207,11 @@ module.exports = (lf, slf, project) => {
                   )
                 ),
                 FlexItem(
-                  '',
+                  'section_calculator_panel--item',
                   FlexHContainer(
-                    '',
+                    'info_block',
                     FlexItem(
-                      '',
+                      'info_block--item',
                       InfoBox({
                         title: 'Практика',
                         num: '25',
@@ -220,7 +220,7 @@ module.exports = (lf, slf, project) => {
                       })
                     ),
                     FlexItem(
-                      '',
+                      'info_block--item',
                       InfoBox({
                         title: 'Теория',
                         num: '3',
@@ -229,7 +229,7 @@ module.exports = (lf, slf, project) => {
                       })
                     ),
                     FlexItem(
-                      '',
+                      'info_block--item',
                       InfoBox({
                         title: 'Стоимость',
                         num: '38',
@@ -240,7 +240,7 @@ module.exports = (lf, slf, project) => {
                   )
                 ),
                 FlexItem(
-                  'btn_part',
+                  'section_calculator_panel--item btn_part',
                   Div(
                     'decor_part',
                     img(
