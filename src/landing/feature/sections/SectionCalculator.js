@@ -64,6 +64,7 @@ module.exports = (lf, slf, project) => {
 
   const Style = project.style('group');
 
+  const Wrapper = project.def('Wrapper');
   const Div = project.def('Div');
   const Span = project.def('Span');
   const Box = project.def('Box');
@@ -174,93 +175,89 @@ module.exports = (lf, slf, project) => {
     return Section(
       'section_calculator',
       Modal(),
-      FlexHContainer(
-        '',
-        FlexItem(
-          'section_calculator_content',
-          FlexVContainer(
+      Wrapper(
+        FlexVContainer(
+          '',
+          FlexItem(
             '',
-            FlexItem(
-              '',
-              FlexHContainer(
-                'section_calculator_panel',
-                FlexItem(
-                  'section_calculator_panel--item',
-                  FlexHContainer(
-                    'select_block',
-                    FlexItem(
-                      'select_block--item',
-                      InfoBox({
-                        title: 'Транспорт',
-                        content: Select(oData.transport.map(item => ComplexText(item))),
-                        sClass: 'info_box_select--first noselect',
-                      })
-                    ),
-                    FlexItem(
-                      'select_block--item',
-                      InfoBox({
-                        title: 'Коробка передач',
-                        content: Select(oData.transmission.map(item => ComplexText(item))),
-                        sClass: 'info_box_select--second noselect',
-                      })
-                    )
-                  )
-                ),
-                FlexItem(
-                  'section_calculator_panel--item',
-                  FlexHContainer(
-                    'info_block',
-                    FlexItem(
-                      'info_block--item',
-                      InfoBox({
-                        title: 'Практика',
-                        num: '25',
-                        after_num: ' занятий',
-                        sClass: 'noselect',
-                      })
-                    ),
-                    FlexItem(
-                      'info_block--item',
-                      InfoBox({
-                        title: 'Теория',
-                        num: '3',
-                        after_num: ' месяца',
-                        sClass: 'noselect',
-                      })
-                    ),
-                    FlexItem(
-                      'info_block--item',
-                      InfoBox({
-                        title: 'Стоимость',
-                        num: '38',
-                        after_num: ' тыс.руб.',
-                        sClass: 'noselect',
-                      })
-                    )
-                  )
-                ),
-                FlexItem(
-                  'section_calculator_panel--item btn_part',
-                  Div(
-                    'decor_part',
-                    img(
-                      null,
-                      $p(src('assets/images/decor/1.png'), alt('decor'), className('decor_part--img image_quality'))
-                    ),
+            FlexHContainer(
+              'section_calculator_panel',
+              FlexItem(
+                'section_calculator_panel--item',
+                FlexHContainer(
+                  'select_block',
+                  FlexItem(
+                    'select_block--item',
+                    InfoBox({
+                      title: 'Транспорт',
+                      content: Select(oData.transport.map(item => ComplexText(item))),
+                      sClass: 'info_box_select--first noselect',
+                    })
                   ),
-                  button(
-                    Span('btn_enroll--text noselect', 'Записаться'),
-                    $p(
-                      className('btn_enroll'),
-                      $attr('data-action', 'open_modal'),
-                    )
+                  FlexItem(
+                    'select_block--item',
+                    InfoBox({
+                      title: 'Коробка передач',
+                      content: Select(oData.transmission.map(item => ComplexText(item))),
+                      sClass: 'info_box_select--second noselect',
+                    })
                   )
-                ),
+                )
               ),
               FlexItem(
-                'calculator_desc',
-                Span('calculator_desc--text', '* организация экзамена в ГИБДД и свидетельство об окончании.')
-              )
+                'section_calculator_panel--item',
+                FlexHContainer(
+                  'info_block',
+                  FlexItem(
+                    'info_block--item',
+                    InfoBox({
+                      title: 'Практика',
+                      num: '25',
+                      after_num: ' занятий',
+                      sClass: 'noselect',
+                    })
+                  ),
+                  FlexItem(
+                    'info_block--item',
+                    InfoBox({
+                      title: 'Теория',
+                      num: '3',
+                      after_num: ' месяца',
+                      sClass: 'noselect',
+                    })
+                  ),
+                  FlexItem(
+                    'info_block--item',
+                    InfoBox({
+                      title: 'Стоимость',
+                      num: '38',
+                      after_num: ' тыс.руб.',
+                      sClass: 'noselect',
+                    })
+                  )
+                )
+              ),
+              FlexItem(
+                'section_calculator_panel--item btn_part',
+                Div(
+                  'decor_part',
+                  img(
+                    null,
+                    $p(src('assets/images/decor/1.png'), alt('decor'), className('decor_part--img image_quality'))
+                  ),
+                ),
+                button(
+                  Span('btn_enroll--text noselect', 'Записаться'),
+                  $p(
+                    className('btn_enroll'),
+                    $attr('data-action', 'open_modal'),
+                  )
+                )
+              ),
+            ),
+            FlexItem(
+              'calculator_desc',
+              Span('calculator_desc--text', '* организация экзамена в ГИБДД и свидетельство об окончании.')
             )
           )
         )
