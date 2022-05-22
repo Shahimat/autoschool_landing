@@ -2,6 +2,22 @@
   display: block;
   background-color: #efecf0;
 
+  .wrapper_item {
+    position: relative;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+
+    &--item {
+      flex: 0 1 content;
+      padding-right: 40px;
+      padding-bottom: 3px;
+      padding-top: 3px;
+    }
+
+  }
+
   .footer_copyright_text {
     font-family: BlissPro;
     font-size: 14px;
@@ -48,23 +64,71 @@
     }
   }
 
-  .decor_field_container {
-    position: relative;
-    flex-basis: 100%;
+  .decor_container {
+    position: absolute;
+    overflow: hidden;
+    width: fit-content;
+    height: 243px;
+    z-index: 100;
+    bottom: 0;
+    right: -86px;
+    @include breakpoint(xl) {
+      right: -54px;
+    }
+    @include breakpoint(sm) {
+      right: -20px;
+    }
 
-    .decor_container {
-      position: absolute;
-      overflow: hidden;
-      width: fit-content;
-      height: 243px;
-      z-index: 100;
-      bottom: 0;
-      left: 0;
+    &_img {
+      width: 150px;
+      min-width: 100%;
+      min-height: 100%;
+    }
 
-      &_img {
-        width: 150px;
-        min-width: 100%;
-        min-height: 100%;
+  }
+
+  .footer_container {
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px 0;
+
+    &--copyright {
+      flex: 0 0 content;
+      padding-right: 133px;
+      @include breakpoint (xxl) {
+        flex: 0 1 100%;
+        margin-bottom: 10px;
+        padding-right: 0;
+      }
+    }
+
+    &--navbar {
+      flex: 1 1 content;
+
+      &_container {
+        box-sizing: border-box;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding-right: 96px;
+        @include breakpoint (xl) {
+          padding-right: 116px;
+        }
+        @include breakpoint (sm) {
+          padding-right: 92px;
+        }
+
+        &--item {
+          padding: 10px 0;
+          @include breakpoint (md) {
+            flex: 0 1 100%;
+          }
+        }
+
+        &--vk {
+
+        }
+
       }
 
     }
