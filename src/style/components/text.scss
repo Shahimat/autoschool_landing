@@ -131,6 +131,7 @@
   width: 100%;
   align-items: flex-end;
   pointer-events: none;
+  flex-wrap: wrap;
 
   &--text {
     display: block;
