@@ -32,10 +32,6 @@ module.exports = (lf, slf, project) => {
               },
             ]
           },
-          {
-            title: '',
-            text: []
-          },
         ],
         center_content: [
           '- изучение Правил дорожного движения (ПДД)',

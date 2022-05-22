@@ -1,9 +1,21 @@
 .section_school {
   margin-top: 91px;
+  @include breakpoint (sm) {
+    margin-top: 157px;
+  }
 
   &_container {
-    width: 1300px;
+    flex: 0 1 1300px;
     margin: 0 auto;
+    @include breakpoint (xxl) {
+      flex: 0 1 1100px;
+    }
+    @include breakpoint (xl) {
+      margin: 0 66px;
+    }
+    @include breakpoint (sm) {
+      margin: 0 20px;
+    }
   }
 
   .tab_header {
@@ -124,6 +136,7 @@
 
     &_container {
       min-height: 100px;
+      flex-wrap: wrap;
     }
 
     &--left {
@@ -132,15 +145,18 @@
 
       &_content {
         &--item {
-          flex: 1 0 100px;
+          flex: 0 0 100px;
         }
       }
     }
 
     &--center {
       box-sizing: border-box;
-      flex-grow: 1;
+      flex: 1 0 200px;
       padding: 18px 25px;
+      @include breakpoint (md) {
+        flex: 0 1 100%;
+      }
 
       &_text {
         font-family: BlissPro;
@@ -155,6 +171,9 @@
       box-sizing: border-box;
       flex: 0 0 310px;
       background-image: linear-gradient(to bottom, #f7f8f9, #edeff0);
+      @include breakpoint (xl) {
+        flex: 0 1 100%;
+      }
 
       &_content {
         &--item {
