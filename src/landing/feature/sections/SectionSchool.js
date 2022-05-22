@@ -186,6 +186,7 @@ module.exports = (lf, slf, project) => {
 
   const Style = project.style('group');
 
+  const Wrapper = project.def('Wrapper');
   const Div = project.def('Div');
   const Span = project.def('Span');
   const Box = project.def('Box');
@@ -233,64 +234,60 @@ module.exports = (lf, slf, project) => {
         sClass: 'section_school',
         id: 'info',
       },
-      FlexHContainer(
-        '',
-        FlexItem(
-          'section_school_container',
-          TabContainer({
-            tabs: oData.tabs.map(tab => tab.title),
-            tabStyle: 'tab_header',
-          }, (title, index) => Box(
-            '',
-            Box(
-              'section_school_picture',
-              img(null, $p(
-                className('section_school_picture--img image_quality'),
-                src(oData.tabs[index].src),
-                alt('info-bg')
-              ))
-            ),
-            Box(
-              'tab_content',
-              FlexHContainer(
-                'tab_content_container',
-                FlexItem(
-                  'tab_content--left',
-                  FlexVContainer(
-                    'tab_content--left_content',
-                    ...oData.tabs[index].left_content.map(info => FlexItem(
-                      'tab_content--left_content--item',
-                      InfoBoxLeft(info.title, info.text)
-                    ))
-                  )
-                ),
-                FlexItem(
-                  'tab_content--center',
-                  ...oData.tabs[index].center_content.map(text => $p(
-                    Box(
-                      'tab_content--center_text',
-                      text
-                    ),
+      Wrapper(
+        TabContainer({
+          tabs: oData.tabs.map(tab => tab.title),
+          tabStyle: 'tab_header',
+        }, (title, index) => Box(
+          '',
+          Box(
+            'section_school_picture',
+            img(null, $p(
+              className('section_school_picture--img image_quality'),
+              src(oData.tabs[index].src),
+              alt('info-bg')
+            ))
+          ),
+          Box(
+            'tab_content',
+            FlexHContainer(
+              'tab_content_container',
+              FlexItem(
+                'tab_content--left',
+                FlexVContainer(
+                  'tab_content--left_content',
+                  ...oData.tabs[index].left_content.map(info => FlexItem(
+                    'tab_content--left_content--item',
+                    InfoBoxLeft(info.title, info.text)
                   ))
-                ),
-                FlexItem(
-                  'tab_content--right',
-                  FlexVContainer(
-                    'tab_content--right_content',
-                    ...oData.tabs[index].right_content.map(info => FlexItem(
-                      'tab_content--right_content--item',
-                      InfoBoxRight(info.title, info.text)
-                    ))
-                  )
+                )
+              ),
+              FlexItem(
+                'tab_content--center',
+                ...oData.tabs[index].center_content.map(text => $p(
+                  Box(
+                    'tab_content--center_text',
+                    text
+                  ),
+                ))
+              ),
+              FlexItem(
+                'tab_content--right',
+                FlexVContainer(
+                  'tab_content--right_content',
+                  ...oData.tabs[index].right_content.map(info => FlexItem(
+                    'tab_content--right_content--item',
+                    InfoBoxRight(info.title, info.text)
+                  ))
                 )
               )
-            ),
-            Box(
-              'section_school_desc',
-              Span('section_school_desc--text', '* с личным инструктором')
             )
-          ))
-        )
+          ),
+          Box(
+            'section_school_desc',
+            Span('section_school_desc--text', '* с личным инструктором')
+          )
+        ))
       )
     )
   };

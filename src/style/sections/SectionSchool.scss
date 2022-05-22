@@ -4,20 +4,6 @@
     margin-top: 157px;
   }
 
-  &_container {
-    flex: 0 1 1300px;
-    margin: 0 auto;
-    @include breakpoint (xxl) {
-      flex: 0 1 1100px;
-    }
-    @include breakpoint (xl) {
-      margin: 0 66px;
-    }
-    @include breakpoint (sm) {
-      margin: 0 20px;
-    }
-  }
-
   .tab_header {
     width: 100%;
     padding: 0 0 11px 0;
