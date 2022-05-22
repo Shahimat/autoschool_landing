@@ -117,6 +117,7 @@ module.exports = (lf, slf, project) => {
     ]
   };
 
+  const Wrapper = project.def('Wrapper');
   const FieldSet = project.def('FieldSet');
   const Title = project.def('Title');
   const TabContainer = project.def('TabContainer');
@@ -188,7 +189,7 @@ module.exports = (lf, slf, project) => {
           ),
           FlexItem(
             Style({
-              'flex': '1 0 content',
+              'flex': '1 1 content',
               'padding-bottom': '3px'
             }),
             Span('contacts_card_title', info.title)
@@ -259,7 +260,10 @@ module.exports = (lf, slf, project) => {
       Style({
         'justify-content': 'space-between',
         'padding-left': '41px',
-      })
+      },
+      `@include breakpoint (xxl) {
+        padding-left: 0,
+      }`)
     ),
     FlexItem(
       'contact_form_title',
@@ -294,110 +298,89 @@ module.exports = (lf, slf, project) => {
         sClass: 'section_contacts',
         id: 'contacts',
       },
-      FlexHContainer(
-        '',
-        FlexItem(
-          Style({
-            flex: '0 0 1300px',
-            margin: '0 auto',
-          }),
-          FlexVContainer(
+      Wrapper(
+        FlexVContainer(
+          '',
+          FlexItem(
             '',
-            FlexItem(
-              '',
-              Title('Контакты')
+            Title('Контакты')
+          ),
+          FlexItem(
+            'section_contacts--content',
+            Box(
+              'contacts_decor',
+              img(null, $p( className('contacts_decor--img image_quality'), src(oData.decor), alt('decor'))),
             ),
-            FlexItem(
-              'section_contacts--content',
-              Box(
-                'contacts_decor',
-                img(null, $p( className('contacts_decor--img image_quality'), src(oData.decor), alt('decor'))),
-              ),
-              FlexHContainer(
-                '',
-                FlexItem(
-                  Style({
-                    'max-width': '935px'
-                  }),
-                  FlexHContainer(
-                    Style({
-                      'border-radius': '10px',
-                      'background-color': '#ffffff',
-                      'overflow': 'hidden',
-                      'box-shadow': '0 2px 40px 0 #f1f2f4',
-                    }),
-                    FlexItem(
-                      Style({
-                        'min-width': 'calc(510px - 2 * 40px)',
-                        'padding': '35px 40px',
-                        'height': '600px',
-                      }),
-                      FlexVContainer(
+            FlexHContainer(
+              'section_contacts_block',
+              FlexItem(
+                'section_contacts_block--first',
+                FlexHContainer(
+                  'section_contacts_block--first_content',
+                  FlexItem(
+                    'section_contacts_block--first_content--left',
+                    FlexVContainer(
+                      '',
+                      FlexItem(
                         '',
-                        FlexItem(
-                          '',
-                          TabContainer({
-                            tabs: oData.tabs.map(tab => tab.title),
-                            tabStyle: 'custom_tab_style',
-                          }, (title, index) => Box(
-                            Style({
-                              'padding-top': '53px',
-                            }),
-                            ...oData.tabs[index].list.map(info => CardInfo(info))
-                          ))
-                        ),
-                        FlexItem(
-                          '',
-                          FlexHContainer(
-                            Style({
-                              'justify-content': 'end',
-                              'padding-top': '21px'
-                            }),
-                            FlexItem(
-                              '',
-                              a(
-                                $p(
-                                  Span(
-                                    'contacts_email_first',
-                                    'Email: '
-                                  ),
-                                  Span(
-                                    'contacts_email_second',
-                                    'info@mik2000.ru'
-                                  )
+                        TabContainer({
+                          tabs: oData.tabs.map(tab => tab.title),
+                        }, (title, index) => Box(
+                          Style({
+                            'padding-top': '53px',
+                          }),
+                          ...oData.tabs[index].list.map(info => CardInfo(info))
+                        ))
+                      ),
+                      FlexItem(
+                        '',
+                        FlexHContainer(
+                          Style({
+                            'justify-content': 'end',
+                            'padding-top': '21px'
+                          }),
+                          FlexItem(
+                            '',
+                            a(
+                              $p(
+                                Span(
+                                  'contacts_email_first',
+                                  'Email: '
                                 ),
-                                $p(
-                                  className('contacts_email'),
-                                  href('mailto:info@mik2000.ru')
+                                Span(
+                                  'contacts_email_second',
+                                  'info@mik2000.ru'
                                 )
+                              ),
+                              $p(
+                                className('contacts_email'),
+                                href('mailto:info@mik2000.ru')
                               )
                             )
                           )
                         )
                       )
-                    ),
-                    FlexItem(
-                      Style({
-                        'min-width': '425px'
-                      }),
-                      Div(
-                        'widget_map',
-                        iframe(
-                          null,
-                          $p(
-                            className('widget_frame'),
-                            src('https://yandex.ru/map-widget/v1/?um=constructor%3A0d9db955c0c89e32e5b28d60d48794a73edad6fbab23ddee965af01a28374b88&amp;source=constructor'),
-                            $attr('frameborder', '0'),
-                          )
+                    )
+                  ),
+                  FlexItem(
+                    'section_contacts_block--first_content--right',
+                    Div(
+                      'widget_map',
+                      iframe(
+                        null,
+                        $p(
+                          className('widget_frame'),
+                          src('https://yandex.ru/map-widget/v1/?um=constructor%3A0d9db955c0c89e32e5b28d60d48794a73edad6fbab23ddee965af01a28374b88&amp;source=constructor'),
+                          $attr('frameborder', '0'),
                         )
                       )
-                    ),
-                  )
-                ),
-                FlexItem(
-                  '',
-                  ContactForm()
+                    )
+                  ),
                 )
+              ),
+              FlexItem(
+                'section_contacts_block--form',
+                ContactForm()
               )
             )
           )
