@@ -1,5 +1,5 @@
 module.exports = (lf, slf, project) => {
-  const { $print: $p, className, menu, button } = lf;
+  const { $print: $p, className, menu, button, li } = lf;
 
   return (config, content) => {
     if (typeof(config) !== 'object' || typeof(content) !== 'function') {
@@ -17,23 +17,37 @@ module.exports = (lf, slf, project) => {
 
     const Span = project.def('Span');
     const Box = project.def('Box');
+    const FlexHContainer = project.def('FlexHContainer');
+    const FlexItem = project.def('FlexItem');
 
     return Box(
       'tab_container',
       Box(
         'tab_container_header',
-        menu(
-          $p(
-            ...defConfig.tabs.map((tab, index) => button(
-              Span(
-                'tab_container_link_text',
-                tab
+        FlexHContainer(
+          'tab_container_header--container',
+          FlexItem(
+            'tab_container_header--item',
+            Box(
+              'tab_container_header--scroll',
+              menu(
+                $p(
+                  ...defConfig.tabs.map((tab, index) => li(
+                    button(
+                      Span(
+                        'tab_container_link_text',
+                        tab
+                      ),
+                      className($p('tab_container_link ', defConfig.tabStyle))
+                    ),
+                    className('tab_container_header--menu_item')
+                  ))
+                ),
+                className('tab_container_header--menu')
               ),
-              className($p('tab_container_link ', defConfig.tabStyle))
-            ))
-          ),
-          className('tab_container_header_menu')
-        ),
+            )
+          )
+        )
       ),
       Box(
         $p('tab_container_content ', defConfig.contentStyle),
