@@ -41,14 +41,13 @@ module.exports = (lf, slf, project) => {
   
   const breakpoint = (input, output) => scssInclude('breakpoint', input, output);
 
-  const Footer = (sClass, ...args) => footer(
+  const Footer = (...args) => footer(
     $p( ...args ),
-    className(sClass)
+    className('footer')
   )
 
   return () => {
     return Footer (
-      'footer',
       FlexHContainer(
         Style({
           'justify-content': 'center',
