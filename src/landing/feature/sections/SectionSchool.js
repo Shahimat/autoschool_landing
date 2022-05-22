@@ -237,7 +237,6 @@ module.exports = (lf, slf, project) => {
       Wrapper(
         TabContainer({
           tabs: oData.tabs.map(tab => tab.title),
-          tabStyle: 'tab_header',
         }, (title, index) => Box(
           '',
           Box(

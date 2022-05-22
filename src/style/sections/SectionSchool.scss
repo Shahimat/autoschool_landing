@@ -4,16 +4,13 @@
     margin-top: 157px;
   }
 
-  .tab_header {
-    width: 100%;
-    padding: 0 0 11px 0;
+  .tab_container_link {
 
     & > .tab_container_link_text {
       font-family: BlissPro;
       font-size: 14px;
       font-weight: bold;
       color: #95a0ac;
-      user-select: none;
     }
 
     &.active > .tab_container_link_text {

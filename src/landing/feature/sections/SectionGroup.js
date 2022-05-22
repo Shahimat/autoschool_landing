@@ -252,7 +252,6 @@ module.exports = (lf, slf, project) => {
             '',
             TabContainer({
               tabs: oData.tabs.map(tab => tab.text),
-              tabStyle: 'tab_header',
             }, (text, index) => Box(
               '',
               Box(
