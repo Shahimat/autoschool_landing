@@ -179,6 +179,7 @@ module.exports = (lf, slf, project) => {
 
   const Style = project.style('group');
 
+  const Wrapper = project.def('Wrapper');
   const Title = project.def('Title');
   const Div = project.def('Div');
   const Span = project.def('Span');
@@ -240,48 +241,47 @@ module.exports = (lf, slf, project) => {
         sClass: 'section_group',
         id: 'group',
       },
-      FlexHContainer(
-        '',
-        FlexItem(
-          Style({
-            width: '1300px',
-            margin: '0 auto',
-          }),
-          FlexVContainer(
+      Wrapper(
+        FlexVContainer(
+          '',
+          FlexItem(
+            'title_content',
+            Title('Идет набор в учебные группы автошколы')
+          ),
+          FlexItem(
             '',
-            FlexItem(
-              'title_content',
-              Title('Идет набор в учебные группы автошколы')
-            ),
-            FlexItem(
+            TabContainer({
+              tabs: oData.tabs.map(tab => tab.text),
+              tabStyle: 'tab_header',
+            }, (text, index) => Box(
               '',
-              TabContainer({
-                tabs: oData.tabs.map(tab => tab.text),
-                tabStyle: 'tab_header',
-              }, (text, index) => Box(
-                '',
-                Box(
-                  'section_group_picture',
-                  img(null, $p( 
-                    className('section_group_picture_img image_quality'),
-                    src(oData.tabs[index].src),
-                    alt('group-bg')
-                  )),
-                ),
+              Box(
+                'section_group_picture',
+                img(null, $p( 
+                  className('section_group_picture_img image_quality'),
+                  src(oData.tabs[index].src),
+                  alt('group-bg')
+                )),
+              ),
+              Box(
+                'section_group_tab_content',
+                Decor(oData.tabs[index].decor),
                 Box(
                   'section_group_content',
-                  Decor(oData.tabs[index].decor),
                   Box(
-                    'section_group_content--title',
-                    Span('category_tab_title', text)
-                  ),
-                  Box(
-                    'section_group_content--table',
-                    Table(oData.tabs[index].table.columns, oData.tabs[index].table.cells)
+                    'section_group_content--overflow',
+                    Box(
+                      'section_group_content--title',
+                      Span('category_tab_title', text)
+                    ),
+                    Box(
+                      'section_group_content--table',
+                      Table(oData.tabs[index].table.columns, oData.tabs[index].table.cells)
+                    )
                   )
                 )
-              ))
-            )
+              )
+            ))
           )
         )
       )
