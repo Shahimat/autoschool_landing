@@ -45,6 +45,7 @@ const Project = lfp.Project({
     ComplexText: 'components.ComplexText',
     Header: 'feature.Header',
     Footer: 'feature.Footer',
+    Wrapper: 'feature.Wrapper',
     Circles: 'feature.Circles',
     SectionHeader: 'feature.sections.SectionHeader',
     SectionCategory: 'feature.sections.SectionCategory',

@@ -1,0 +1,16 @@
+.wrapper {
+  &_item {
+    margin: 0 auto;
+    flex: 0 1 1300px;
+    z-index: 100;
+    @include breakpoint (xxl) {
+      flex: 0 1 1100px;
+    }
+    @include breakpoint (xl) {
+      margin: 0 66px;
+    }
+    @include breakpoint (sm) {
+      margin: 0 20px;
+    }
+  }
+}
