@@ -83,58 +83,100 @@ module.exports = (lf, slf, project) => {
   const Select = project.def('Select');
   const ComplexText = project.def('ComplexText');
 
+  const ModalWrapper = (...args) => FlexHContainer(
+    'modal_wrapper',
+    FlexItem(
+      'modal_wrapper--item',
+      ...args
+    )
+  );
+
   const Modal = () => div(
-    Div(
+    FlexHContainer(
       'modal_content',
-      Div(
-        'scm_close_field',
-        ButtonClose(
-          'scm_close_button',
-          $attr('data-action', 'close_modal')
-        )
-      ),
-      Div(
-        'scm_wrapper',
-        Title('Записаться'),
-        Div('scm_subtitle', Text('Мы свяжемся с Вами в самое ближайшее время для уточнения деталей', 
-          'scm_subtitle_content')),
+      FlexItem(
+        'modal_content--item',
         Div(
-          'scm_form',
+          'scm_close_field',
+          ButtonClose(
+            'scm_close_button',
+            $attr('data-action', 'close_modal')
+          )
+        ),
+        ModalWrapper(
+          Title('Записаться'),
           Div(
-            'scm_form_left',
-            FieldSet('Ваше имя'),
-            FieldSet('E-mail'),
-            FieldSet('Телефон'),
-            Div(
-              'scm_form_left_agreement',
-              Div(
-                'scm_form_check',
-                Checkbox('wf')
-              ),
-              Div(
-                'scm_form_text',
-                Text(
-                  'Я соглашаюсь с условими политики конфеденциальности и обработки персональных данных в соответствии с',
-                  'scm_form_info'
-                ),
-                Link(
-                  'ФЗ РФ №152 - ФЗ "О персональных данных"',
-                  'http://www.consultant.ru/document/cons_doc_LAW_61801/',
-                  '_blank',
-                  'scm_form_link'
-                ),
-              ),
+            'scm_subtitle', 
+            Text(
+              'Мы свяжемся с Вами в самое ближайшее время для уточнения деталей', 
+              'scm_subtitle_content'
             )
           ),
-          Div(
-            'scm_form_right',
-            TextArea('Сообщение', '', 'scm_message_field'),
-            Text(
-              '* Мы ценим вашу конфиденциальность и никогда не передадим вашу информацию кому-либо.',
-              'scm_form_right_text'
+          FlexHContainer(
+            'scm_form',
+            FlexItem(
+              'scm_form--left',
+              FlexVContainer(
+                'scm_form--left_content',
+                FlexItem(
+                  'scm_form--left_content--item',
+                  FieldSet('Ваше имя'),
+                ),
+                FlexItem(
+                  'scm_form--left_content--item',
+                  FieldSet('E-mail'),
+                ),
+                FlexItem(
+                  'scm_form--left_content--item',
+                  FieldSet('Телефон'),
+                ),
+                FlexItem(
+                  'scm_form--left_content--item',
+                  FlexHContainer(
+                    'scm_form--left_content_agreement',
+                    FlexItem(
+                      'scm_form--left_content_agreement--checkbox',
+                      Checkbox('wf')
+                    ),
+                    FlexItem(
+                      'scm_form--left_content_agreement--item',
+                      Text(
+                        'Я соглашаюсь с условими политики конфеденциальности и обработки персональных данных в соответствии с',
+                        'scm_form_info'
+                      ),
+                      Link(
+                        'ФЗ РФ №152 - ФЗ "О персональных данных"',
+                        'http://www.consultant.ru/document/cons_doc_LAW_61801/',
+                        '_blank',
+                        'scm_form_link'
+                      ),
+                    )
+                  )
+                )
+              )
             ),
-            ButtonGradient('Отправить', 'scm_form_right_button'),
-          ),
+            FlexItem(
+              'scm_form--right',
+              FlexVContainer(
+                'scm_form--right_content',
+                FlexItem(
+                  'scm_form--right_content--mf',
+                  TextArea('Сообщение', '', 'scm_message_field')
+                ),
+                FlexItem(
+                  'scm_form--right_content--text',
+                  Text(
+                    '* Мы ценим вашу конфиденциальность и никогда не передадим вашу информацию кому-либо.',
+                    'scm_form_right_text'
+                  ),
+                ),
+                FlexItem(
+                  'scm_form--right_content--button',
+                  ButtonGradient('Отправить'),
+                )
+              )
+            )
+          )
         )
       )
     ),
