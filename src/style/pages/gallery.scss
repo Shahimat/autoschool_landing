@@ -1,7 +1,8 @@
 .gallery_page {
 
   & &--content {
-    margin-top: 82px;
+    box-sizing: border-box;
+    padding-top: 82px;
     padding-bottom: 100px;
     background: url('assets/images/bg.webp') no-repeat;
     background-position: bottom;
@@ -10,10 +11,8 @@
     @include breakpoint (hd) {
       background-size: auto;
     }
-
-    &_wrapper {
-      width: 1170px;
-      margin: 0 auto;
+    @include breakpoint (sm) {
+      padding-bottom: 40px;
     }
   }
 
