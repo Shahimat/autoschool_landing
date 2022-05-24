@@ -113,7 +113,6 @@
   }
 
   .tab_content {
-    background-color: #ffffff;
     border-radius: 10px;
     margin-top: 25px;
 
@@ -125,6 +124,12 @@
     &--left {
       box-sizing: border-box;
       flex: 0 0 200px;
+      margin-right: 1px;
+      background-color: #ffffff;
+      @include breakpoint (md) {
+        flex: 1 0 200px;
+        margin-bottom: 1px;
+      }
 
       &_content {
         &--item {
@@ -137,6 +142,7 @@
       box-sizing: border-box;
       flex: 1 0 200px;
       padding: 18px 25px;
+      background-color: #ffffff;
       @include breakpoint (md) {
         flex: 0 1 100%;
       }
