@@ -196,102 +196,204 @@
     &[data-state-is_open_modal="true"] {
       display: flex;
     }
+  }
 
-    .modal_content {
-      width: 852px;
-      height: 659px;
+  .modal_wrapper {
+    overflow: auto;
+    @include breakpoint (lg) {
+      max-height: 600px;
+    }
+
+    &--item {
+      margin: 0 80px;
+      flex: 0 1 100%;
+      @include breakpoint (md) {
+        margin: 0 40px;
+      }
+      @include breakpoint (sm) {
+        margin: 0 10px;
+      }
+    }
+  }
+
+  .modal_content {
+    margin: 0 40px;
+    @include breakpoint(md) {
+      margin: 0 10px;
+    }
+
+    &--item {
+      box-sizing: border-box;
+      flex: 0 1 100%;
+      max-width: 912px;
       border-radius: 20px;
       box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.1);
       background-color: #ffffff;
+      padding-bottom: 90px;
+      margin: 0 auto;
+      @include breakpoint (lg) {
+        padding-bottom: 40px;
+      }
+      @include breakpoint (sm) {
+        padding-bottom: 20px;
+      }
+    }
 
-      .scm_close_field {
-        display: flex;
-        justify-content: end;
-        padding: 30px;
+    .scm_close_field {
+      box-sizing: border-box;
+      display: flex;
+      justify-content: end;
+      padding: 30px;
+    }
+
+    .scm_subtitle {
+      box-sizing: border-box;
+      padding: 18px 0;
+
+      &_content {
+        margin: 0;
+        font-family: BlissPro;
+        font-size: 24px;
+        font-weight: 300;
+        color: #354a5f;
+      }
+    }
+
+    .scm_form {
+      flex-wrap: wrap;
+
+      &--left {
+        box-sizing: border-box;
+        padding-right: 22px;
+        flex: 0 1 50%;
+        @include breakpoint(md) {
+          flex: 0 1 100%;
+          padding-right: 0;
+        }
+
+        &_content {
+          &--item {
+            box-sizing: border-box;
+            padding-bottom: 18px;
+          }
+          &--item:last-child {
+            padding-bottom: 0;
+          }
+
+          &_agreement {
+            &--checkbox {
+              box-sizing: border-box;
+              padding-right: 20px;
+            }
+          }
+        }
       }
 
-      .scm_wrapper {
-        padding: 0 80px;
-
-        .scm_subtitle {
-          padding: 18px 0;
-
-          &_content {
-            margin: 0;
-            font-family: BlissPro;
-            font-size: 24px;
-            font-weight: 300;
-            color: #354a5f;
-          }
+      &--right {
+        box-sizing: border-box;
+        padding-left: 22px;
+        flex: 0 1 50%;
+        min-height: 320px;
+        @include breakpoint(md) {
+          flex: 0 1 100%;
+          padding-left: 0;
+          padding-top: 10px;
         }
 
-        .scm_form {
-          display: flex;
-          padding-top: 25px;
-          font-family: BlissPro;
-          font-size: 14px;
-          color: #272f4a;
+        &_content{
 
-          &_left {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 342px;
-            width: 50%;
-            padding-right: 22px;
-
-            .scm_form_left_agreement {
-              display: flex;
-              padding-top: 18px;
-
-              .scm_form_check {
-                width: 18px;
-                height: 18px;
-                margin-right: 18px;
-              }
-
-              .scm_form_text {
-                flex-grow: 1;
-
-                .scm_form_info {
-                  margin: 0 0 14px 0;
-                }
-
-                .scm_form_link {
-                  text-decoration: underline;
-                  color: #658ef8;
-                  margin: 0;
-                }
-
-              }
-
-            }
+          &--mf {
+            box-sizing: border-box;
+            flex: 0 1 100%;
+            max-height: 244px;
+            padding-bottom: 10px;
           }
 
-          &_right {
-            width: 50%;
-            padding-left: 22px;
+          &--text {
+            box-sizing: border-box;
+            padding: 18px 0;
+          }
 
-            .scm_message_field {
-              height: 204px;
-            }
-
-            &_text {
-              padding-top: 18px;
-              margin: 0;
-            }
-
-            &_button {
-              margin-top: 28px;
+          &--button {
+            .base_button_gradient {
               width: 100%;
             }
-
           }
+
         }
-          
+
       }
 
     }
+
+    // .custom_textarea {
+    //   max-height: 200px;
+    // }
+
+    // .scm_form {
+    //   display: flex;
+    //   padding-top: 25px;
+    //   font-family: BlissPro;
+    //   font-size: 14px;
+    //   color: #272f4a;
+
+    //   &_left {
+    //     display: flex;
+    //     flex-direction: column;
+    //     justify-content: space-between;
+    //     height: 342px;
+    //     width: 50%;
+    //     padding-right: 22px;
+
+    //     .scm_form_left_agreement {
+    //       display: flex;
+    //       padding-top: 18px;
+
+    //       .scm_form_check {
+    //         width: 18px;
+    //         height: 18px;
+    //         margin-right: 18px;
+    //       }
+
+    //       .scm_form_text {
+    //         flex-grow: 1;
+
+    //         .scm_form_info {
+    //           margin: 0 0 14px 0;
+    //         }
+
+    //         .scm_form_link {
+    //           text-decoration: underline;
+    //           color: #658ef8;
+    //           margin: 0;
+    //         }
+
+    //       }
+
+    //     }
+    //   }
+
+    //   &_right {
+    //     width: 50%;
+    //     padding-left: 22px;
+
+    //     .scm_message_field {
+    //       height: 204px;
+    //     }
+
+    //     &_text {
+    //       padding-top: 18px;
+    //       margin: 0;
+    //     }
+
+    //     &_button {
+    //       margin-top: 28px;
+    //       width: 100%;
+    //     }
+
+    //   }
+    // }
+
   }
 
 }
