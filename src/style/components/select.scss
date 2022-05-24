@@ -19,9 +19,11 @@
     }
   
     .select_arrow {
+      pointer-events: none;
       flex: 0 0 content;
 
       &_decor_img {
+        pointer-events: none;
         transition: 0.2s;
       }
     }
