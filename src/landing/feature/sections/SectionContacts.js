@@ -110,10 +110,22 @@ module.exports = (lf, slf, project) => {
       }
     ],
     inputs: [
-      'Ваше имя',
-      'E-mail',
-      'Телефон',
-      'Сообщение'
+      {
+        value: 'Ваше имя',
+        className: 'mailto_name',
+      },
+      {
+        value: 'E-mail',
+        className: 'mailto_email',
+      },
+      {
+        value: 'Телефон',
+        className: 'mailto_tel',
+      },
+      {
+        value: 'Сообщение',
+        className: 'mailto_message',
+      },
     ]
   };
 
@@ -256,7 +268,7 @@ module.exports = (lf, slf, project) => {
 
   const ContactForm = () => FlexVContainer(
     $p(
-      'contact_form ',
+      'contact_form mailto_form ',
       Style({
         'justify-content': 'space-between',
         'padding-left': '41px',
@@ -274,7 +286,7 @@ module.exports = (lf, slf, project) => {
     ),
     ...oData.inputs.map(input => FlexItem(
       '',
-      FieldSet(input, '')
+      FieldSet(input.value, '', input.className)
     )),
     FlexItem(
       '',
@@ -287,7 +299,7 @@ module.exports = (lf, slf, project) => {
       Style({
         'padding-bottom': '10px',
       }),
-      ButtonGradient('Отправить', 'contact_form_button_send')
+      ButtonGradient('Отправить', 'contact_form_button_send mailto_button')
     )
   );
 

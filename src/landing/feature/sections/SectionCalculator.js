@@ -86,7 +86,7 @@ module.exports = (lf, slf, project) => {
   const ModalWrapper = (...args) => FlexHContainer(
     'modal_wrapper',
     FlexItem(
-      'modal_wrapper--item',
+      'modal_wrapper--item mailto_form',
       ...args
     )
   );
@@ -119,15 +119,15 @@ module.exports = (lf, slf, project) => {
               FlexVContainer(
                 'scm_form--left_content',
                 FlexItem(
-                  'scm_form--left_content--item',
+                  'scm_form--left_content--item mailto_name',
                   FieldSet('Ваше имя'),
                 ),
                 FlexItem(
-                  'scm_form--left_content--item',
+                  'scm_form--left_content--item mailto_email',
                   FieldSet('E-mail'),
                 ),
                 FlexItem(
-                  'scm_form--left_content--item',
+                  'scm_form--left_content--item mailto_tel',
                   FieldSet('Телефон'),
                 ),
                 FlexItem(
@@ -161,7 +161,7 @@ module.exports = (lf, slf, project) => {
                 'scm_form--right_content',
                 FlexItem(
                   'scm_form--right_content--mf',
-                  TextArea('Сообщение', '', 'scm_message_field')
+                  TextArea('Сообщение', '', 'scm_message_field mailto_message')
                 ),
                 FlexItem(
                   'scm_form--right_content--text',
@@ -171,7 +171,7 @@ module.exports = (lf, slf, project) => {
                   ),
                 ),
                 FlexItem(
-                  'scm_form--right_content--button',
+                  'scm_form--right_content--button mailto_button',
                   ButtonGradient('Отправить'),
                 )
               )
