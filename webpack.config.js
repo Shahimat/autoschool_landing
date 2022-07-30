@@ -27,6 +27,7 @@ let config = {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
       'node_modules': path.join(__dirname, 'node_modules'),
+      'logic': path.join(__dirname, 'src', 'logic'),
     }
   },
 };
