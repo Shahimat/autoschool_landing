@@ -16,6 +16,14 @@
     }
   }
 
+  & &_images {
+    flex-wrap: wrap;
+
+    &--item {
+      flex: 1 0 12.5%;
+    }
+  }
+
   .gallery_photo {
 
     &_img {

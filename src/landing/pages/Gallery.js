@@ -8,6 +8,10 @@ module.exports = (lf, slf, project) => {
   const H1 = project.def('H1');
   const Model = project.model('photoModel');
 
+  const FlexHContainer = project.def('FlexHContainer');
+  const FlexVContainer = project.def('FlexVContainer');
+  const FlexItem = project.def('FlexItem');
+
   return () => {
 
     return doctype(
@@ -50,24 +54,30 @@ module.exports = (lf, slf, project) => {
               section(
                 Wrapper(
                   H1('Фото автошколы МИК 2000'),
-                  ...Model.get().map(elem => a(
-                    img(
-                      null,
-                      $p(
-                        className('gallery_photo_img'),
-                        src(`assets/photos/${elem}`),
-                        alt(elem)
+                  FlexHContainer(
+                    'gallery_page_images',
+                    ...Model.get().map(elem => FlexItem(
+                      'gallery_page_images--item',
+                      a(
+                        img(
+                          null,
+                          $p(
+                            className('gallery_photo_img'),
+                            src(`assets/photos/${elem}`),
+                            alt(elem)
+                          )
+                        ),
+                        $p(
+                          className('gallery_photo'),
+                          href(`assets/photos/${elem}`),
+                          $attr('data-fancybox', 'gallery'),
+                          $attr('data-caption', elem),
+                          $attr('data-width', '640'),
+                          $attr('data-height', '480'),
+                        )
                       )
-                    ),
-                    $p(
-                      className('gallery_photo'),
-                      href(`assets/photos/${elem}`),
-                      $attr('data-fancybox', 'gallery'),
-                      $attr('data-caption', elem),
-                      $attr('data-width', '640'),
-                      $attr('data-height', '480'),
-                    )
-                  ))
+                    ))
+                  ),
                 ),
                 className('gallery_page--content')
               ),
