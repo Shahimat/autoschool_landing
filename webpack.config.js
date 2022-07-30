@@ -25,6 +25,9 @@ let config = {
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      'node_modules': path.join(__dirname, 'node_modules'),
+    }
   },
 };
 
