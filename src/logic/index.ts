@@ -1,13 +1,13 @@
-import model from "./model/index";
-import circles from "./components/Circles";
-import fieldset from "./components/Fieldset";
-import tabContainer from "./components/TabContainer";
-import textArea from "./components/TextArea";
-import select from "./components/Select";
-import slider from "./components/Slider";
-import mailto from "./components/Mailto";
-import homePage from "./pages/HomePage";
-import pageScroll from "./PageScroll";
+import model from "logic/model/index";
+import circles from "logic/components/Circles";
+import fieldset from "logic/components/Fieldset";
+import tabContainer from "logic/components/TabContainer";
+import textArea from "logic/components/TextArea";
+import select from "logic/components/Select";
+import slider from "logic/components/Slider";
+import mailto from "logic/components/Mailto";
+import homePage from "logic/pages/HomePage";
+import pageScroll from "logic/PageScroll";
 
 jQuery(function () {
   model();
