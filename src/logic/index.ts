@@ -9,7 +9,7 @@ import mailto from "./components/Mailto";
 import homePage from "./pages/HomePage";
 import pageScroll from "./PageScroll";
 
-function run() {
+jQuery(function () {
   model();
   circles();
   fieldset();
@@ -20,10 +20,4 @@ function run() {
   mailto();
   homePage();
   pageScroll();
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', run);
-} else {
-  run();
-}
+});
