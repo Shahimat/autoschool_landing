@@ -29,22 +29,24 @@ const shiftLeft = (list, lifetime = 300) => {
   }, lifetime);
 };
 
-from(byClass('slider_base'), slider => {
-  const list = byClassSimple('slider_base_list', slider);
-
-  let isBlock = false;
-  const lifetime = 300;
-  const unblock = () => setTimeout(() => isBlock = false, lifetime);
-  slider.addEventListener('slider_shift', event => {
-    if (!isBlock) {
-      isBlock = true;
-      const direction = event.detail? event.detail.direction: '';
-      if (direction === 'left') {
-        shiftLeft(list, lifetime);
-      } else if (direction === 'right') {
-        shiftRight(list, lifetime);
+export default function () {
+  from(byClass('slider_base'), slider => {
+    const list = byClassSimple('slider_base_list', slider);
+  
+    let isBlock = false;
+    const lifetime = 300;
+    const unblock = () => setTimeout(() => isBlock = false, lifetime);
+    slider.addEventListener('slider_shift', event => {
+      if (!isBlock) {
+        isBlock = true;
+        const direction = event.detail? event.detail.direction: '';
+        if (direction === 'left') {
+          shiftLeft(list, lifetime);
+        } else if (direction === 'right') {
+          shiftRight(list, lifetime);
+        }
+        unblock();
       }
-      unblock();
-    }
+    });
   });
-});
+}

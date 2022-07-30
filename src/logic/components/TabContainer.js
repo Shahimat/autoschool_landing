@@ -17,12 +17,14 @@ const handleTabClick = (buttons, tabs, current) => {
   }
 }
 
-from(byClass('tab_container'), tabContainer => {
-  const buttons = byClassSimple('tab_container_link', tabContainer);
-  const tabs = byClassSimple('tab_container_item', tabContainer);
-  buttons.forEach((button, index) => {
-    button.addEventListener('click', handleTabClick(buttons, tabs, index));
+export default function () {
+  from(byClass('tab_container'), tabContainer => {
+    const buttons = byClassSimple('tab_container_link', tabContainer);
+    const tabs = byClassSimple('tab_container_item', tabContainer);
+    buttons.forEach((button, index) => {
+      button.addEventListener('click', handleTabClick(buttons, tabs, index));
+    });
+    buttons[0].classList.add(className);
+    tabs[0].classList.add(className);
   });
-  buttons[0].classList.add(className);
-  tabs[0].classList.add(className);
-});
+}

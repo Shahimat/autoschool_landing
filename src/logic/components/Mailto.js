@@ -19,22 +19,24 @@ const handleMailtoClick = (button, name, email, tel, message) => {
   }
 }
 
-from(byClass('mailto_form'), MailtoForm => {
-  const MailtoButton = byClassSimple('mailto_button', MailtoForm);
-  const MailtoName = byClassSimple('mailto_name', MailtoForm);
-  const MailtoNameInput = byClassSimple('custom_fieldset_input', MailtoName);
-  const MailtoEmail = byClassSimple('mailto_email', MailtoForm);
-  const MailtoEmailInput = byClassSimple('custom_fieldset_input', MailtoEmail);
-  const MailtoTel = byClassSimple('mailto_tel', MailtoForm);
-  const MailtoTelInput = byClassSimple('custom_fieldset_input', MailtoTel);
-  const MailtoMessage = byClassSimple('mailto_message', MailtoForm);
-  const MailtoMessageInput = byClassSimple('custom_fieldset_input', MailtoMessage);
-  const MailtoMessageTextArea = byClassSimple('custom_textarea_input', MailtoMessage);
-  MailtoButton.addEventListener('click', handleMailtoClick(
-    MailtoButton, 
-    MailtoNameInput, 
-    MailtoEmailInput, 
-    MailtoTelInput, 
-    MailtoMessageInput.innerHTML !== undefined? MailtoMessageInput : MailtoMessageTextArea
-  ));
-});
+export default function () {
+  from(byClass('mailto_form'), MailtoForm => {
+    const MailtoButton = byClassSimple('mailto_button', MailtoForm);
+    const MailtoName = byClassSimple('mailto_name', MailtoForm);
+    const MailtoNameInput = byClassSimple('custom_fieldset_input', MailtoName);
+    const MailtoEmail = byClassSimple('mailto_email', MailtoForm);
+    const MailtoEmailInput = byClassSimple('custom_fieldset_input', MailtoEmail);
+    const MailtoTel = byClassSimple('mailto_tel', MailtoForm);
+    const MailtoTelInput = byClassSimple('custom_fieldset_input', MailtoTel);
+    const MailtoMessage = byClassSimple('mailto_message', MailtoForm);
+    const MailtoMessageInput = byClassSimple('custom_fieldset_input', MailtoMessage);
+    const MailtoMessageTextArea = byClassSimple('custom_textarea_input', MailtoMessage);
+    MailtoButton.addEventListener('click', handleMailtoClick(
+      MailtoButton, 
+      MailtoNameInput, 
+      MailtoEmailInput, 
+      MailtoTelInput, 
+      MailtoMessageInput.innerHTML !== undefined? MailtoMessageInput : MailtoMessageTextArea
+    ));
+  });
+}

@@ -33,8 +33,10 @@ const storeScroll = () => {
   scroll = window.scrollY;
 }
 
-// Listen for new scroll events, here we debounce our `storeScroll` function
-document.addEventListener('scroll', debounce(storeScroll), { passive: true });
+export default function () {
+  // Listen for new scroll events, here we debounce our `storeScroll` function
+  document.addEventListener('scroll', debounce(storeScroll), { passive: true });
 
-// Update scroll position for first time
-storeScroll();
+  // Update scroll position for first time
+  storeScroll();
+} 

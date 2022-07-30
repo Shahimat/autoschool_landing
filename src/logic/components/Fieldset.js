@@ -18,9 +18,11 @@ const handleFieldSetChange = (input, legend, legendContainer) => {
   }
 }
 
-from(byClass('custom_fieldset'), fieldset => {
-  const input = byClassSimple('custom_fieldset_input', fieldset);
-  const legend = byClassSimple('custom_fieldset_legend_content', fieldset);
-  const legendContainer = byClassSimple('custom_fieldset_border_top_second', fieldset);
-  input.addEventListener('keydown', handleFieldSetChange(input, legend, legendContainer));
-});
+export default function () {
+  from(byClass('custom_fieldset'), fieldset => {
+    const input = byClassSimple('custom_fieldset_input', fieldset);
+    const legend = byClassSimple('custom_fieldset_legend_content', fieldset);
+    const legendContainer = byClassSimple('custom_fieldset_border_top_second', fieldset);
+    input.addEventListener('keydown', handleFieldSetChange(input, legend, legendContainer));
+  });
+}

@@ -9,7 +9,7 @@ const state = new StateConstructor(initialState);
 state.activate( state );
 globalThis.state = state;
 
-setTimeout(() => {
+export default function () {
   const elements = document.querySelectorAll('[data-state]');
   for (let element of elements) {
     let field = element.getAttribute('data-state');
@@ -22,4 +22,4 @@ setTimeout(() => {
     }
   }
   ActionBuilder(actions, state);
-}, 100);
+}
