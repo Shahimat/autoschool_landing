@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require("webpack");
 
 let config = {
   mode: 'development',
@@ -16,6 +17,12 @@ let config = {
       },
     ],
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+    })
+  ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
