@@ -232,7 +232,7 @@ module.exports = (lf, slf, project) => {
                     'select_block--item',
                     InfoBox({
                       title: 'Транспорт',
-                      content: Select(oData.transport.map(item => ComplexText(item))),
+                      content: Select(oData.transport.map(item => ComplexText(item)), '', 'transport'),
                       sClass: 'info_box_select--first noselect',
                     })
                   ),
@@ -240,7 +240,7 @@ module.exports = (lf, slf, project) => {
                     'select_block--item',
                     InfoBox({
                       title: 'Коробка передач',
-                      content: Select(oData.transmission.map(item => ComplexText(item))),
+                      content: Select(oData.transmission.map(item => ComplexText(item)), '', 'transmission'),
                       sClass: 'info_box_select--second noselect',
                     })
                   )

@@ -3,7 +3,7 @@ module.exports = (lf, slf, project) => {
 
   const aData = [
     {
-      name: 'О школе',
+      name: 'Об автошколе',
       link: 'about.html',
     },
     {

@@ -3,7 +3,7 @@ module.exports = (lf, slf, project) => {
 
   const aData = [
     {
-      name: 'О школе',
+      name: 'Об автошколе',
       link: 'about.html',
     },
     {
@@ -33,7 +33,7 @@ module.exports = (lf, slf, project) => {
   const Span = project.def('Span');
   const FlexHContainer = project.def('FlexHContainer');
   const FlexItem = project.def('FlexItem');
-  const ButtonGradient = project.def('ButtonGradient');
+  const LinkGradient = project.def('LinkGradient');
 
   const Style = project.style('header');
 
@@ -52,7 +52,7 @@ module.exports = (lf, slf, project) => {
     ),
   );
 
-  const LoginButton = () => ButtonGradient(
+  const LoginButton = () => LinkGradient(
     'личный кабинет',
     '',
     'https://avto-online.pro/kabinet/',

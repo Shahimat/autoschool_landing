@@ -40,6 +40,7 @@ const Project = lfp.Project({
     Mail: 'components.Mail',
     Title: 'components.Title',
     ButtonGradient: 'components.ButtonGradient',
+    LinkGradient: 'components.LinkGradient',
     ButtonClose: 'components.ButtonClose',
     Select: 'components.Select',
     ComplexText: 'components.ComplexText',

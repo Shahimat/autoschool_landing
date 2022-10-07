@@ -59,51 +59,51 @@ module.exports = (lf, slf, project) => {
               },
               {
                 type: 'big',
-                text: '21:15',
+                text: '20',
               },
             ]
           },
-          {
-            title: 'И в группах выходного дня с перерывами',
-            text: [
-              {
-                type: 'small',
-                text: 'с',
-              },
-              {
-                type: 'big',
-                text: '10',
-              },
-              {
-                type: 'small',
-                text: 'до',
-              },
-              {
-                type: 'big',
-                text: '13:15',
-              },
-              {
-                type: 'padding',
-                length: 3,
-              },
-              {
-                type: 'small',
-                text: 'и с',
-              },
-              {
-                type: 'big',
-                text: '14',
-              },
-              {
-                type: 'small',
-                text: 'до',
-              },
-              {
-                type: 'big',
-                text: '17:15',
-              },
-            ]
-          }
+          // {
+          //   title: 'И в группах выходного дня с перерывами',
+          //   text: [
+          //     {
+          //       type: 'small',
+          //       text: 'с',
+          //     },
+          //     {
+          //       type: 'big',
+          //       text: '10',
+          //     },
+          //     {
+          //       type: 'small',
+          //       text: 'до',
+          //     },
+          //     {
+          //       type: 'big',
+          //       text: '13:15',
+          //     },
+          //     {
+          //       type: 'padding',
+          //       length: 3,
+          //     },
+          //     {
+          //       type: 'small',
+          //       text: 'и с',
+          //     },
+          //     {
+          //       type: 'big',
+          //       text: '14',
+          //     },
+          //     {
+          //       type: 'small',
+          //       text: 'до',
+          //     },
+          //     {
+          //       type: 'big',
+          //       text: '17:15',
+          //     },
+          //   ]
+          // }
         ]
       },
       {
@@ -149,7 +149,7 @@ module.exports = (lf, slf, project) => {
         ],
         right_content: [
           {
-            title: 'Практические занятия проводятся индивидуально с каждым в любой день по записи',
+            title: 'Практические занятия проводятся индивидуально каждый день, по предварительной записи через личный кабинет или приложение',
             text: [
               {
                 type: 'small',

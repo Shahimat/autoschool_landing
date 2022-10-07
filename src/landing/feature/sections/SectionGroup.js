@@ -12,7 +12,7 @@ module.exports = (lf, slf, project) => {
           columns: [
             {
               title: 'Теоретические занятия',
-              description: 'в классе',
+              description: 'в классе / дистанционное обучение',
             },
             {
               title: 'Набор в учебную группу на категорию А',
@@ -23,7 +23,7 @@ module.exports = (lf, slf, project) => {
             [
               {
                 title: 'г. Наро-Фоминск',
-                description: 'ул. Московская д. 9к'
+                description: 'ул. Московская д. 9к, ул. Карла-Маркса-19'
               },
               {
                 date: '17 мая 2022'
@@ -41,7 +41,7 @@ module.exports = (lf, slf, project) => {
           columns: [
             {
               title: 'Теоретические занятия',
-              description: 'в классе',
+              description: 'в классе / дистанционное обучение',
             },
             {
               title: 'Группа выходного дня',
@@ -68,7 +68,7 @@ module.exports = (lf, slf, project) => {
             [
               {
                 title: 'г. Наро-Фоминск',
-                description: 'ул. Московская'
+                description: 'ул. Московская, ул. Карла-Маркса-19'
               },
               {
                 date: '14 мая 2022'
@@ -80,7 +80,7 @@ module.exports = (lf, slf, project) => {
             [
               {
                 title: 'г. Апрелевка',
-                description: ''
+                description: 'ул. Августовская д. 1'
               },
               {
                 date: '16 июля 2022'
@@ -92,7 +92,7 @@ module.exports = (lf, slf, project) => {
             [
               {
                 title: 'п. Селятино',
-                description: ''
+                description: 'ул. Промышленная д. 81/1'
               },
               {
                 date: '3 июля 2022'
@@ -125,7 +125,7 @@ module.exports = (lf, slf, project) => {
           columns: [
             {
               title: 'Теоретические занятия',
-              description: 'в классе',
+              description: 'в классе / дистанционное обучение',
             },
             {
               title: 'Набор в учебную группу на переобучение с "В" на "С"',
@@ -136,7 +136,7 @@ module.exports = (lf, slf, project) => {
             [
               {
                 title: 'г. Наро-Фоминск',
-                description: 'ул. Московская д. 9к'
+                description: 'ул. Московская д. 9к, ул. Карла-Маркса-19'
               },
               {
                 date: '20 июня 2022'
@@ -154,7 +154,7 @@ module.exports = (lf, slf, project) => {
           columns: [
             {
               title: 'Теоретические занятия',
-              description: 'в классе',
+              description: 'в классе / дистанционное обучение',
             },
             {
               title: 'Набор в учебную группу на переобучение с "С" на "D"',
@@ -165,7 +165,7 @@ module.exports = (lf, slf, project) => {
             [
               {
                 title: 'г. Наро-Фоминск',
-                description: 'ул. Московская д. 9к'
+                description: 'ул. Московская д. 9к, ул. Карла-Маркса-19'
               },
               {
                 date: '17 мая 2022'

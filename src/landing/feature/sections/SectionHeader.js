@@ -47,17 +47,17 @@ module.exports = (lf, slf, project) => {
             Span('sh_address_phone', '+7 (926) 534 16 22'),
             Span('sh_address_place', 'г. Наро-Фоминск, ул. Карла Маркса, д. 19'),
           ),
-          Div(
-            'sh_quarantine',
-            Span('sh_quarantine_text', 'Как проходят занятия в условиях карантина?'),
-            a(
-              'Подробнее',
-              $p(
-                className('sh_quarantine_href'),
-                href('/#group')
-              )
-            )
-          )
+          // Div(
+          //   'sh_quarantine',
+          //   Span('sh_quarantine_text', 'Как проходят занятия в условиях карантина?'),
+          //   a(
+          //     'Подробнее',
+          //     $p(
+          //       className('sh_quarantine_href'),
+          //       href('/#group')
+          //     )
+          //   )
+          // )
         )
       )
     )
