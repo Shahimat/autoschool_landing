@@ -9,23 +9,23 @@ module.exports = (lf, slf, project) => {
         list: [
           {
             title: 'ул. Московская 9К',
-            working_hours: 'с 9:00 до 18:00',
-            tel: '+7 (926) 534 16 22',
-            telhref: 'tel:+79265341622',
+            working_hours: 'с 9:00 до 17:00',
+            tel: '+7 (903) 124 12 61',
+            telhref: 'tel:+79031241261',
             contactType: 'main',
           },
           {
             title: 'ул. Карла-Маркса-19',
-            working_hours: 'с 9:00 до 18:00',
-            tel: '+7 (926) 534 16 22',
-            telhref: 'tel:+79265341622',
+            working_hours: 'с 9:00 до 17:00',
+            tel: '+7 (903) 124 12 61',
+            telhref: 'tel:+79031241261',
             contactType: 'class',
           },
           {
             title: 'ул. Шибанкова д. 71 ТЦ Весна 2 этаж',
-            working_hours: 'с 9:00 до 18:00',
-            tel: '+7 (926) 534 16 22',
-            telhref: 'tel:+79265341622',
+            working_hours: 'с 9:00 до 17:00',
+            tel: '+7 (903) 124 12 61',
+            telhref: 'tel:+79031241261',
             contactType: 'class',
           }
         ]
@@ -34,78 +34,78 @@ module.exports = (lf, slf, project) => {
         title: 'Селятино',
         list: [
           {
-            title: 'ул. Московская 9К',
-            working_hours: 'с 9:00 до 18:00',
-            tel: '+7 (926) 534 16 22',
-            telhref: 'tel:+79265341622',
+            title: 'ул. Промышленная 81/1 (2-й этаж)',
+            working_hours: 'с 9:00 до 17:00',
+            tel: '+7 (903) 124 12 61',
+            telhref: 'tel:+79031241261',
             contactType: 'main',
           },
-          {
-            title: 'ул. Карла-Маркса-19',
-            working_hours: 'с 9:00 до 18:00',
-            tel: '+7 (926) 534 16 22',
-            telhref: 'tel:+79265341622',
-            contactType: 'class',
-          },
-          {
-            title: 'ул. Шибанкова д. 71 ТЦ Весна 2 этаж',
-            working_hours: 'с 9:00 до 18:00',
-            tel: '+7 (926) 534 16 22',
-            telhref: 'tel:+79265341622',
-            contactType: 'class',
-          }
+          // {
+          //   title: 'ул. Карла-Маркса-19',
+          //   working_hours: 'с 9:00 до 17:00',
+          //   tel: '+7 (926) 534 16 22',
+          //   telhref: 'tel:+79031241261',
+          //   contactType: 'class',
+          // },
+          // {
+          //   title: 'ул. Шибанкова д. 71 ТЦ Весна 2 этаж',
+          //   working_hours: 'с 9:00 до 17:00',
+          //   tel: '+7 (926) 534 16 22',
+          //   telhref: 'tel:+79031241261',
+          //   contactType: 'class',
+          // }
         ]
       },
       {
         title: 'Апрелевка',
         list: [
           {
-            title: 'ул. Московская 9К',
-            working_hours: 'с 9:00 до 18:00',
-            tel: '+7 (926) 534 16 22',
-            telhref: 'tel:+79265341622',
+            title: 'ул. Августовская д.1 (3-й этаж)',
+            working_hours: 'с 9:00 до 17:00',
+            tel: '+7 (903) 124 12 61',
+            telhref: 'tel:+79031241261',
             contactType: 'main',
           },
-          {
-            title: 'ул. Карла-Маркса-19',
-            working_hours: 'с 9:00 до 18:00',
-            tel: '+7 (926) 534 16 22',
-            telhref: 'tel:+79265341622',
-            contactType: 'class',
-          },
-          {
-            title: 'ул. Шибанкова д. 71 ТЦ Весна 2 этаж',
-            working_hours: 'с 9:00 до 18:00',
-            tel: '+7 (926) 534 16 22',
-            telhref: 'tel:+79265341622',
-            contactType: 'class',
-          }
+          // {
+          //   title: 'ул. Карла-Маркса-19',
+          //   working_hours: 'с 9:00 до 17:00',
+          //   tel: '+7 (926) 534 16 22',
+          //   telhref: 'tel:+79031241261',
+          //   contactType: 'class',
+          // },
+          // {
+          //   title: 'ул. Шибанкова д. 71 ТЦ Весна 2 этаж',
+          //   working_hours: 'с 9:00 до 17:00',
+          //   tel: '+7 (926) 534 16 22',
+          //   telhref: 'tel:+79031241261',
+          //   contactType: 'class',
+          // }
         ]
       },
       {
         title: 'Вирея',
         list: [
           {
-            title: 'ул. Московская 9К',
-            working_hours: 'с 9:00 до 18:00',
-            tel: '+7 (926) 534 16 22',
-            telhref: 'tel:+79265341622',
+            title: 'Советская площадь д.1',
+            working_hours: 'с 9:00 до 17:00',
+            tel: '+7 (903) 124 12 61',
+            telhref: 'tel:+79031241261',
             contactType: 'main',
           },
-          {
-            title: 'ул. Карла-Маркса-19',
-            working_hours: 'с 9:00 до 18:00',
-            tel: '+7 (926) 534 16 22',
-            telhref: 'tel:+79265341622',
-            contactType: 'class',
-          },
-          {
-            title: 'ул. Шибанкова д. 71 ТЦ Весна 2 этаж',
-            working_hours: 'с 9:00 до 18:00',
-            tel: '+7 (926) 534 16 22',
-            telhref: 'tel:+79265341622',
-            contactType: 'class',
-          }
+          // {
+          //   title: 'ул. Карла-Маркса-19',
+          //   working_hours: 'с 9:00 до 17:00',
+          //   tel: '+7 (926) 534 16 22',
+          //   telhref: 'tel:+79031241261',
+          //   contactType: 'class',
+          // },
+          // {
+          //   title: 'ул. Шибанкова д. 71 ТЦ Весна 2 этаж',
+          //   working_hours: 'с 9:00 до 17:00',
+          //   tel: '+7 (926) 534 16 22',
+          //   telhref: 'tel:+79031241261',
+          //   contactType: 'class',
+          // }
         ]
       }
     ],
@@ -334,7 +334,9 @@ module.exports = (lf, slf, project) => {
                     FlexVContainer(
                       '',
                       FlexItem(
-                        '',
+                        Style({
+                          'flex': '1 0 content',
+                        }),
                         TabContainer({
                           tabs: oData.tabs.map(tab => tab.title),
                         }, (title, index) => Box(

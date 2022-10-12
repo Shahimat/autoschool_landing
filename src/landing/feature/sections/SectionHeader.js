@@ -44,7 +44,7 @@ module.exports = (lf, slf, project) => {
           'sh_right_container',
           Div(
             'sh_address',
-            Span('sh_address_phone', '+7 (926) 534 16 22'),
+            Span('sh_address_phone', '+7 (903) 124 12 61'),
             Span('sh_address_place', 'г. Наро-Фоминск, ул. Московская 9К'),
           ),
           // Div(
