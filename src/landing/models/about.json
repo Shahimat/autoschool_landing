@@ -97,6 +97,14 @@
     {
       "href": "/assets/docs/documents/pps.pdf",
       "value": "Педагогические работники"
+    },
+    {
+      "href": "/assets/docs/documents/zaiavlenie.pdf",
+      "value": "Заявление на согласование программ 2022"
+    },
+    {
+      "href": "/assets/docs/documents/prikaz.pdf",
+      "value": "Приказ МВД России от 4 февраля 2019 г N 49 Об утверждении Порядка согласования"
     }
   ],
   "education": [
@@ -110,10 +118,6 @@
         {
           "href": "/assets/docs/education/op-B.pdf",
           "value": "Образовательная программа профессиональной подготовки водителей транспортных средств категории «B»"
-        },
-        {
-          "href": "/assets/docs/education/op-C.pdf",
-          "value": "Образовательная программа профессиональной подготовки водителей транспортных средств категории «C»"
         },
         {
           "href": "/assets/docs/education/op-B-C.pdf",
@@ -160,14 +164,6 @@
         {
           "href": "/assets/docs/education/kug-B.pdf",
           "value": "Календарный учебный график группы категории «B»"
-        },
-        {
-          "href": "/assets/docs/education/kug-Bv.pdf",
-          "value": "Календарный учебный график группы категории «B» (выходные дни)"
-        },
-        {
-          "href": "/assets/docs/education/kug-C.pdf",
-          "value": "Календарный учебный график группы категории «C»"
         },
         {
           "href": "/assets/docs/education/kug-B-C.pdf",
