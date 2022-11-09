@@ -79,6 +79,10 @@
       "value": "Отчет о результатах самообследования 2021"
     },
     {
+      "href": "/assets/docs/documents/SO-2021-append.pdf",
+      "value": "Приложение к отчету о результатах самообследования"
+    },
+    {
       "href": "/assets/docs/documents/zakl-gibdd.pdf",
       "value": "Заключение ГИБДД"
     },
@@ -139,10 +143,6 @@
         {
           "href": "/assets/docs/education/up-B.pdf",
           "value": "Учебный план профессиональной подготовки водителей ТС на категорию «В»"
-        },
-        {
-          "href": "/assets/docs/education/up-C.pdf",
-          "value": "Учебный план профессиональной подготовки водителей ТС на категорию «С»"
         },
         {
           "href": "/assets/docs/education/up-B-C.pdf",
