@@ -1,5 +1,3 @@
 import test from './bindings/test';
 
-export default [
-  test,
-]
+export default [test];

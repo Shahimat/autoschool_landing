@@ -1,21 +1,21 @@
-const fs   = require('fs')
-const path = require('path')
-const lf   = require('./lf');
-const slf  = require('./slf');
+const fs = require('fs');
+const path = require('path');
+const lf = require('./lf');
+const slf = require('./slf');
 
 const loadModule = (sBasePath, sPath) => {
   let aPath = sPath.split('.');
   aPath[aPath.length - 1] = `${aPath[aPath.length - 1]}.js`;
   let sFullPath = path.join(sBasePath, ...aPath);
   return require(sFullPath);
-}
+};
 
 const loadModel = (sBasePath, sPath) => {
   let aPath = sPath.split('.');
   aPath[aPath.length - 1] = `${aPath[aPath.length - 1]}.json`;
   let sFullPath = path.join(sBasePath, ...aPath);
   return require(sFullPath);
-}
+};
 
 const Project = ({
   basePath,
@@ -28,10 +28,10 @@ const Project = ({
   const inputs = {};
   const generators = {};
   let outputStyleContent = '';
-  if (typeof(input) === 'string') {
+  if (typeof input === 'string') {
     inputs.index = loadModule(basePath, input);
     generators.index = () => {};
-  } else if (typeof(input) === 'object') {
+  } else if (typeof input === 'object') {
     for (let key in input) {
       inputs[key] = loadModule(basePath, input[key]);
       generators[key] = () => {};
@@ -46,35 +46,41 @@ const Project = ({
 
   const oProject = {
     def: (sModuleName) => {
-      if (typeof(sModuleName) !== 'string' || !dependencies[sModuleName]) {
+      if (typeof sModuleName !== 'string' || !dependencies[sModuleName]) {
         throw new Error(`Module by name "${sModuleName}" not found`);
       }
       return dependencies[sModuleName](lf, slf, oProject);
     },
     model: (sModelName) => {
-      if (typeof(sModelName) !== 'string' || !models[sModelName]) {
+      if (typeof sModelName !== 'string' || !models[sModelName]) {
         throw new Error(`Model by name "${sModelName}" not found`);
       }
       return slf.State(models[sModelName]);
     },
     style: (sModelName, isNumeric = false) => {
-      if (typeof(sModelName) !== 'string' || sModelName === '') {
-        throw new Error(`expected model name <string>, but found "${sModelName}"`);
+      if (typeof sModelName !== 'string' || sModelName === '') {
+        throw new Error(
+          `expected model name <string>, but found "${sModelName}"`,
+        );
       }
       if (isNumeric) {
         let num = 0;
-        return (oProps, ...customProps) => () => {
-          let id = `${sModelName}_${num}`;
-          outputStyleContent += lf.$put( lf.$style(id, oProps, ...customProps) ) + ' ';
-          num++;
-          return id;
-        };
+        return (oProps, ...customProps) =>
+          () => {
+            let id = `${sModelName}_${num}`;
+            outputStyleContent +=
+              lf.$put(lf.$style(id, oProps, ...customProps)) + ' ';
+            num++;
+            return id;
+          };
       } else {
-        return (oProps, ...customProps) => () => {
-          let id = `${sModelName}_${slf.guid()}`;
-          outputStyleContent += lf.$put( lf.$style(id, oProps, ...customProps) ) + ' ';
-          return id;
-        };
+        return (oProps, ...customProps) =>
+          () => {
+            let id = `${sModelName}_${slf.guid()}`;
+            outputStyleContent +=
+              lf.$put(lf.$style(id, oProps, ...customProps)) + ' ';
+            return id;
+          };
       }
     },
     build: () => {
@@ -82,7 +88,7 @@ const Project = ({
         const Structure = inputs[key](lf, slf, oProject);
         generators[key] = Structure();
       }
-      console.log('generator(\'s) created');
+      console.log("generator('s) created");
       return generators;
     },
     run: async () => {
@@ -92,11 +98,14 @@ const Project = ({
         await slf.onSaveFile(path.join(output, `${key}.html`), sGen);
       }
       console.log('HTML created');
-      await slf.onSaveFile(path.join(styleOutput, 'outputStyle.gen.scss'), outputStyleContent);
-      console.log('Custom style\'s created');
+      await slf.onSaveFile(
+        path.join(styleOutput, 'outputStyle.gen.scss'),
+        outputStyleContent,
+      );
+      console.log("Custom style's created");
     },
-  }
+  };
   return oProject;
-}
+};
 
 module.exports = { Project };

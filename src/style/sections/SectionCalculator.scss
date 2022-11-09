@@ -1,6 +1,5 @@
 .section_calculator {
-
-  &[data-transport="0"] .select_list--item[data-transmission="1"] {
+  &[data-transport='0'] .select_list--item[data-transmission='1'] {
     display: none;
   }
 
@@ -10,12 +9,12 @@
 
     &--item {
       flex: 1 1 20%;
-      @include breakpoint (xl) {
+      @include breakpoint(xl) {
         flex: 1 1 100%;
       }
 
       .select_block {
-        @include breakpoint (md) {
+        @include breakpoint(md) {
           flex-wrap: wrap;
         }
 
@@ -25,7 +24,7 @@
           padding-bottom: 1px;
           flex: 1 1 50%;
           min-width: 300px;
-          @include breakpoint (md) {
+          @include breakpoint(md) {
             flex: 1 1 100%;
             min-width: 260px;
           }
@@ -33,7 +32,7 @@
       }
 
       .info_block {
-        @include breakpoint (md) {
+        @include breakpoint(md) {
           flex-wrap: wrap;
         }
 
@@ -43,7 +42,7 @@
           padding-bottom: 1px;
           flex: 1 1 33.3%;
           min-width: 132px;
-          @include breakpoint (md) {
+          @include breakpoint(md) {
             flex: 1 1 100%;
           }
         }
@@ -60,7 +59,8 @@
     padding: 12px 40px;
 
     .complex_text {
-      &--big, &--small {
+      &--big,
+      &--small {
         font-family: BlissPro;
         text-transform: none;
         font-size: 16px;
@@ -69,7 +69,8 @@
     }
 
     &:hover .complex_text {
-      &--big, &--small {
+      &--big,
+      &--small {
         color: #fff;
       }
     }
@@ -88,7 +89,6 @@
     }
 
     &_title {
-
       &--text {
         font-family: BlissPro;
         font-size: 14px;
@@ -96,11 +96,9 @@
         text-transform: uppercase;
         color: #0a6ed1;
       }
-
     }
 
     &_description {
-
       &--before {
         font-family: BebasNeue;
         font-size: 18px;
@@ -128,7 +126,6 @@
     &_select--second {
       width: 100%;
     }
-
   }
 
   .btn_part {
@@ -171,7 +168,6 @@
         transform-origin: center center;
       }
     }
-
   }
 
   .calculator_desc {
@@ -197,24 +193,24 @@
     align-items: center;
     justify-content: center;
 
-    &[data-state-is_open_modal="true"] {
+    &[data-state-is_open_modal='true'] {
       display: flex;
     }
   }
 
   .modal_wrapper {
     overflow: auto;
-    @include breakpoint (lg) {
+    @include breakpoint(lg) {
       max-height: 600px;
     }
 
     &--item {
       margin: 0 80px;
       flex: 0 1 100%;
-      @include breakpoint (md) {
+      @include breakpoint(md) {
         margin: 0 40px;
       }
-      @include breakpoint (sm) {
+      @include breakpoint(sm) {
         margin: 0 10px;
       }
     }
@@ -235,10 +231,10 @@
       background-color: #ffffff;
       padding-bottom: 90px;
       margin: 0 auto;
-      @include breakpoint (lg) {
+      @include breakpoint(lg) {
         padding-bottom: 40px;
       }
-      @include breakpoint (sm) {
+      @include breakpoint(sm) {
         padding-bottom: 20px;
       }
     }
@@ -304,8 +300,7 @@
           padding-top: 10px;
         }
 
-        &_content{
-
+        &_content {
           &--mf {
             box-sizing: border-box;
             flex: 0 1 100%;
@@ -323,11 +318,8 @@
               width: 100%;
             }
           }
-
         }
-
       }
-
     }
 
     // .custom_textarea {
@@ -397,7 +389,5 @@
 
     //   }
     // }
-
   }
-
 }

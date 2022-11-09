@@ -1,5 +1,17 @@
 module.exports = (lf, slf, project) => {
-  const { $print: $p, $attr, svg, img, use, a, className, src, alt, href, iframe } = lf;
+  const {
+    $print: $p,
+    $attr,
+    svg,
+    img,
+    use,
+    a,
+    className,
+    src,
+    alt,
+    href,
+    iframe,
+  } = lf;
 
   const oData = {
     decor: 'assets/images/decor/3.png',
@@ -27,8 +39,8 @@ module.exports = (lf, slf, project) => {
             tel: '+7 (903) 124 12 61',
             telhref: 'tel:+79031241261',
             contactType: 'class',
-          }
-        ]
+          },
+        ],
       },
       {
         title: 'Селятино',
@@ -54,7 +66,7 @@ module.exports = (lf, slf, project) => {
           //   telhref: 'tel:+79031241261',
           //   contactType: 'class',
           // }
-        ]
+        ],
       },
       {
         title: 'Апрелевка',
@@ -80,7 +92,7 @@ module.exports = (lf, slf, project) => {
           //   telhref: 'tel:+79031241261',
           //   contactType: 'class',
           // }
-        ]
+        ],
       },
       {
         title: 'Вирея',
@@ -106,8 +118,8 @@ module.exports = (lf, slf, project) => {
           //   telhref: 'tel:+79031241261',
           //   contactType: 'class',
           // }
-        ]
-      }
+        ],
+      },
     ],
     inputs: [
       {
@@ -126,7 +138,7 @@ module.exports = (lf, slf, project) => {
         value: 'Сообщение',
         className: 'mailto_message',
       },
-    ]
+    ],
   };
 
   const Wrapper = project.def('Wrapper');
@@ -138,7 +150,7 @@ module.exports = (lf, slf, project) => {
   const FlexHContainer = project.def('FlexHContainer');
   const FlexVContainer = project.def('FlexVContainer');
   const FlexItem = project.def('FlexItem');
-  
+
   const Div = project.def('Div');
   const Span = project.def('Span');
   const Box = project.def('Box');
@@ -146,43 +158,33 @@ module.exports = (lf, slf, project) => {
 
   const Style = project.style('contacts');
 
-  const Icon = (path) => svg(
-    use(
-      null,
-      $attr('xlink:href', path)
-    ),
-    className('contacts_icon')
-  )
+  const Icon = (path) =>
+    svg(use(null, $attr('xlink:href', path)), className('contacts_icon'));
 
   const InfoBlock = (type) => {
     switch (type) {
       case 'main':
         return Div(
           'contacts_card_type contacts_card_type--main',
-          Span(
-            'contacts_card_type_text',
-            'главный офис',
-          ),
+          Span('contacts_card_type_text', 'главный офис'),
         );
       case 'class':
         return Div(
           'contacts_card_type contacts_card_type--class',
-          Span(
-            'contacts_card_type_text',
-            'учебный класс',
-          ),
+          Span('contacts_card_type_text', 'учебный класс'),
         );
-      default: return '';
+      default:
+        return '';
     }
-  }
+  };
 
   const CardInfo = (info) => {
     return FlexVContainer(
       $p(
         'contacts_card ',
         Style({
-          'padding': '10px 0',
-        })
+          padding: '10px 0',
+        }),
       ),
       FlexItem(
         Style({
@@ -195,27 +197,27 @@ module.exports = (lf, slf, project) => {
           }),
           FlexItem(
             Style({
-              'flex': '0 0 content'
+              flex: '0 0 content',
             }),
-            Icon('assets/images/sprite.svg#icon_map')
+            Icon('assets/images/sprite.svg#icon_map'),
           ),
           FlexItem(
             Style({
-              'flex': '1 1 content',
-              'padding-bottom': '3px'
+              flex: '1 1 content',
+              'padding-bottom': '3px',
             }),
-            Span('contacts_card_title', info.title)
+            Span('contacts_card_title', info.title),
           ),
           FlexItem(
             $p(
               'contacts_card_type ',
               Style({
-                'flex': '0 0 content'
+                flex: '0 0 content',
               }),
             ),
-            InfoBlock(info.contactType)
-          )
-        )
+            InfoBlock(info.contactType),
+          ),
+        ),
       ),
       FlexItem(
         Style({
@@ -225,17 +227,14 @@ module.exports = (lf, slf, project) => {
           Style({
             'align-items': 'center',
           }),
-          FlexItem(
-            '',
-            Icon('assets/images/sprite.svg#icon_time'),
-          ),
+          FlexItem('', Icon('assets/images/sprite.svg#icon_time')),
           FlexItem(
             Style({
-              'padding-bottom': '3px'
+              'padding-bottom': '3px',
             }),
             Span('contacts_card_text', `Время работы: ${info.working_hours}`),
-          )
-        )
+          ),
+        ),
       ),
       FlexItem(
         Style({
@@ -245,66 +244,58 @@ module.exports = (lf, slf, project) => {
           Style({
             'align-items': 'center',
           }),
-          FlexItem(
-            '',
-            Icon('assets/images/sprite.svg#icon_phone'),
-          ),
+          FlexItem('', Icon('assets/images/sprite.svg#icon_phone')),
           FlexItem(
             Style({
-              'padding-bottom': '3px'
+              'padding-bottom': '3px',
             }),
             a(
               `Телефон: ${info.tel}`,
-              $p(
-                className('contacts_card_text'),
-                href(info.telhref)
-              )
+              $p(className('contacts_card_text'), href(info.telhref)),
             ),
-          )
-        )
-      )
-    )
-  }
+          ),
+        ),
+      ),
+    );
+  };
 
-  const ContactForm = () => FlexVContainer(
-    $p(
-      'contact_form mailto_form ',
-      Style({
-        'justify-content': 'space-between',
-        'padding-left': '41px',
-      },
-      `@include breakpoint (xxl) {
+  const ContactForm = () =>
+    FlexVContainer(
+      $p(
+        'contact_form mailto_form ',
+        Style(
+          {
+            'justify-content': 'space-between',
+            'padding-left': '41px',
+          },
+          `@include breakpoint (xxl) {
         padding-left: 0,
-      }`)
-    ),
-    FlexItem(
-      'contact_form_title',
-      Span(
+      }`,
+        ),
+      ),
+      FlexItem(
+        'contact_form_title',
+        Span('', 'Запишитесь онлайн или задайте вопрос'),
+      ),
+      ...oData.inputs.map((input) =>
+        FlexItem('', FieldSet(input.value, '', input.className)),
+      ),
+      FlexItem(
         '',
-        'Запишитесь онлайн или задайте вопрос'
-      )
-    ),
-    ...oData.inputs.map(input => FlexItem(
-      '',
-      FieldSet(input.value, '', input.className)
-    )),
-    FlexItem(
-      '',
-      Span(
-        'contact_form_info',
-        '* Мы ценим вашу конфиденциальность и никогда не передадим вашу информацию кому-либо.'
-      )
-    ),
-    FlexItem(
-      Style({
-        'padding-bottom': '10px',
-      }),
-      ButtonGradient('Отправить', 'contact_form_button_send mailto_button')
-    )
-  );
+        Span(
+          'contact_form_info',
+          '* Мы ценим вашу конфиденциальность и никогда не передадим вашу информацию кому-либо.',
+        ),
+      ),
+      FlexItem(
+        Style({
+          'padding-bottom': '10px',
+        }),
+        ButtonGradient('Отправить', 'contact_form_button_send mailto_button'),
+      ),
+    );
 
   return () => {
-
     return Section(
       {
         sClass: 'section_contacts',
@@ -313,15 +304,19 @@ module.exports = (lf, slf, project) => {
       Wrapper(
         FlexVContainer(
           '',
-          FlexItem(
-            '',
-            Title('Контакты')
-          ),
+          FlexItem('', Title('Контакты')),
           FlexItem(
             'section_contacts--content',
             Box(
               'contacts_decor',
-              img(null, $p( className('contacts_decor--img image_quality'), src(oData.decor), alt('decor'))),
+              img(
+                null,
+                $p(
+                  className('contacts_decor--img image_quality'),
+                  src(oData.decor),
+                  alt('decor'),
+                ),
+              ),
             ),
             FlexHContainer(
               'section_contacts_block',
@@ -335,46 +330,49 @@ module.exports = (lf, slf, project) => {
                       '',
                       FlexItem(
                         Style({
-                          'flex': '1 0 content',
+                          flex: '1 0 content',
                         }),
-                        TabContainer({
-                          tabs: oData.tabs.map(tab => tab.title),
-                        }, (title, index) => Box(
-                          Style({
-                            'padding-top': '53px',
-                          }),
-                          ...oData.tabs[index].list.map(info => CardInfo(info))
-                        ))
+                        TabContainer(
+                          {
+                            tabs: oData.tabs.map((tab) => tab.title),
+                          },
+                          (title, index) =>
+                            Box(
+                              Style({
+                                'padding-top': '53px',
+                              }),
+                              ...oData.tabs[index].list.map((info) =>
+                                CardInfo(info),
+                              ),
+                            ),
+                        ),
                       ),
                       FlexItem(
                         '',
                         FlexHContainer(
                           Style({
                             'justify-content': 'end',
-                            'padding-top': '21px'
+                            'padding-top': '21px',
                           }),
                           FlexItem(
                             '',
                             a(
                               $p(
-                                Span(
-                                  'contacts_email_first',
-                                  'Email: '
-                                ),
+                                Span('contacts_email_first', 'Email: '),
                                 Span(
                                   'contacts_email_second',
-                                  'info@mik2000.ru'
-                                )
+                                  'info@mik2000.ru',
+                                ),
                               ),
                               $p(
                                 className('contacts_email'),
-                                href('mailto:info@mik2000.ru')
-                              )
-                            )
-                          )
-                        )
-                      )
-                    )
+                                href('mailto:info@mik2000.ru'),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                   FlexItem(
                     'section_contacts_block--first_content--right',
@@ -384,24 +382,21 @@ module.exports = (lf, slf, project) => {
                         null,
                         $p(
                           className('widget_frame'),
-                          src('https://yandex.ru/map-widget/v1/?um=constructor%3A0d9db955c0c89e32e5b28d60d48794a73edad6fbab23ddee965af01a28374b88&amp;source=constructor'),
+                          src(
+                            'https://yandex.ru/map-widget/v1/?um=constructor%3A0d9db955c0c89e32e5b28d60d48794a73edad6fbab23ddee965af01a28374b88&amp;source=constructor',
+                          ),
                           $attr('frameborder', '0'),
-                        )
-                      )
-                    )
+                        ),
+                      ),
+                    ),
                   ),
-                )
+                ),
               ),
-              FlexItem(
-                'section_contacts_block--form',
-                ContactForm()
-              )
-            )
-          )
-        )
-      )
+              FlexItem('section_contacts_block--form', ContactForm()),
+            ),
+          ),
+        ),
+      ),
     );
-
-  }
-
-}
+  };
+};

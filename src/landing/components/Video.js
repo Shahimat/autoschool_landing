@@ -3,11 +3,8 @@ module.exports = (lf, slf, project) => {
 
   return (url, sType, sAttrs, sClass) => {
     return video(
-      source(null, $p( src(url), type(sType) )),
-      $p(
-        className(sClass),
-        $attr(sAttrs),
-      )
+      source(null, $p(src(url), type(sType))),
+      $p(className(sClass), $attr(sAttrs)),
     );
   };
-}
+};

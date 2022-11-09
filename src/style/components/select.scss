@@ -17,7 +17,7 @@
       font-size: 36px;
       color: #89919a;
     }
-  
+
     .select_arrow {
       pointer-events: none;
       flex: 0 0 content;
@@ -31,7 +31,6 @@
     &.active .select_arrow_decor_img {
       transform: rotate(180deg);
     }
-
   }
 
   .select_list {

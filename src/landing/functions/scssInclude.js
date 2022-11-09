@@ -5,7 +5,7 @@ module.exports = (lf, slf, project) => {
     return $p(
       `@include ${$put(name)} (${$put(input)}) {`,
       $props(outputProps),
-      '}'
+      '}',
     );
   };
-}
+};

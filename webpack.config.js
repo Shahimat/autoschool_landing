@@ -1,12 +1,12 @@
 const path = require('path');
-const webpack = require("webpack");
+const webpack = require('webpack');
 
 let config = {
   mode: 'development',
   entry: path.join(__dirname, 'src', 'logic', 'index.ts'),
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -19,20 +19,20 @@ let config = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery",
-    })
+      $: 'jquery',
+      jQuery: 'jquery',
+    }),
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
-      'node_modules': path.join(__dirname, 'node_modules'),
-      'logic': path.join(__dirname, 'src', 'logic'),
-    }
+      node_modules: path.join(__dirname, 'node_modules'),
+      logic: path.join(__dirname, 'src', 'logic'),
+    },
   },
 };
 
 module.exports = (env, argv) => {
-  config.mode = argv.mode? argv.mode: 'production';
+  config.mode = argv.mode ? argv.mode : 'production';
   return config;
 };

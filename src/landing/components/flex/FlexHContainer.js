@@ -4,7 +4,7 @@ module.exports = (lf, slf, project) => {
   return (sClass, ...args) => {
     return div(
       $p(...args),
-      className($p('flex_horizontal_container_base ', sClass))
+      className($p('flex_horizontal_container_base ', sClass)),
     );
   };
-}
+};

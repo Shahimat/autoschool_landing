@@ -1,5 +1,5 @@
-const fs     = require('fs');
-const path   = require('path');
+const fs = require('fs');
+const path = require('path');
 const rimraf = require('rimraf');
 
 const sTargetPath = path.join('.', 'dist');
@@ -9,7 +9,7 @@ const aSourceFolders = [
     name: 'assets',
     path: path.join('.', 'src', 'assets'),
     // folder: 'assets'
-  }
+  },
 ];
 
 const copyFiles = async function (sSourcePath, sTargetPath) {
@@ -20,21 +20,21 @@ const copyFiles = async function (sSourcePath, sTargetPath) {
   }
   fs.readdir(sSourcePath, 'utf8', (err, aFiles) => {
     if (err) throw err;
-    aFiles.forEach(sFilePath => {
+    aFiles.forEach((sFilePath) => {
       let sSourceFilePath = path.join(sSourcePath, sFilePath);
       let sTargetFilePath = path.join(sTargetPath, sFilePath);
       if (fs.lstatSync(sSourceFilePath).isDirectory()) {
         copyFiles(sSourceFilePath, sTargetFilePath);
       } else {
-        fs.createReadStream(sSourceFilePath)
-          .pipe(fs.createWriteStream(sTargetFilePath));
+        fs.createReadStream(sSourceFilePath).pipe(
+          fs.createWriteStream(sTargetFilePath),
+        );
       }
-    })
+    });
   });
 };
 
-rimraf(sTargetPath, async function () { 
-
+rimraf(sTargetPath, async function () {
   if (!fs.existsSync(sTargetPath)) {
     await fs.mkdir(sTargetPath, (err) => {
       if (err) throw err;
@@ -53,6 +53,5 @@ rimraf(sTargetPath, async function () {
     sPath = path.join(sPath, oItem.name);
     copyFiles(oItem.path, sPath);
   });
-  console.log('Copied all dir\'s');
-
+  console.log("Copied all dir's");
 });

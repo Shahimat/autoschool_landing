@@ -1,5 +1,5 @@
-const fs     = require('fs');
-const path   = require('path');
+const fs = require('fs');
+const path = require('path');
 
 const sPhotoPath = path.join('.', 'src', 'assets', 'photos');
 const sTargetPath = path.join('.', 'src', 'landing', 'models', 'photos.json');
@@ -16,6 +16,6 @@ const getPhotoNames = async () => {
       if (err) throw err;
     });
   });
-}
+};
 
 getPhotoNames();

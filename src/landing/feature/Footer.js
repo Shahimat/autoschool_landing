@@ -1,5 +1,22 @@
 module.exports = (lf, slf, project) => {
-  const { $print: $p, $attr, footer, div, span, button, img, svg, use, ul, li, a, className, alt, src, href } = lf;
+  const {
+    $print: $p,
+    $attr,
+    footer,
+    div,
+    span,
+    button,
+    img,
+    svg,
+    use,
+    ul,
+    li,
+    a,
+    className,
+    alt,
+    src,
+    href,
+  } = lf;
 
   const aData = [
     {
@@ -26,7 +43,7 @@ module.exports = (lf, slf, project) => {
       name: 'Контакты',
       link: '/#contacts',
     },
-  ]
+  ];
 
   const scssInclude = project.def('scssInclude');
 
@@ -39,79 +56,68 @@ module.exports = (lf, slf, project) => {
   const FlexItem = project.def('FlexItem');
 
   const Style = project.style('footer');
-  
-  const breakpoint = (input, output) => scssInclude('breakpoint', input, output);
 
-  const Footer = (...args) => footer(
-    $p( ...args ),
-    className('footer')
-  )
+  const breakpoint = (input, output) =>
+    scssInclude('breakpoint', input, output);
 
-  const Copyright = () => Span('footer_copyright_text', 'Автошкола «МИК-2000». © 2021 Все права защищены');
+  const Footer = (...args) => footer($p(...args), className('footer'));
 
-  const navBar = () => FlexHContainer(
-    'navbar',
-    ...aData.map(oItem => FlexItem(
-      'navbar--item',
-      a(
-        oItem.name,
+  const Copyright = () =>
+    Span(
+      'footer_copyright_text',
+      'Автошкола «МИК-2000». © 2021 Все права защищены',
+    );
+
+  const navBar = () =>
+    FlexHContainer(
+      'navbar',
+      ...aData.map((oItem) =>
+        FlexItem(
+          'navbar--item',
+          a(oItem.name, $p(className('footer_navlink'), href(oItem.link))),
+        ),
+      ),
+    );
+
+  const vk = () =>
+    a(
+      svg(
+        use(null, $attr('xlink:href', 'assets/images/sprite.svg#icon_vk')),
+        className('footer_link_icon'),
+      ),
+      $p(className('footer_link'), href('https://vk.com/mik2000')),
+    );
+
+  const Decor = () =>
+    Box(
+      'decor_container',
+      img(
+        null,
         $p(
-          className('footer_navlink'),
-          href(oItem.link)
-        )
-      )
-    )),
-  );
-
-  const vk = () => a(
-    svg(
-      use(null, $attr('xlink:href', 'assets/images/sprite.svg#icon_vk')),
-      className('footer_link_icon')
-    ),
-    $p(
-      className('footer_link'),
-      href('https://vk.com/mik2000')
-    )
-  );
-
-  const Decor = () => Box(
-    'decor_container',
-    img(
-      null,
-      $p(
-        className('decor_container_img image_quality'),
-        src('./assets/images/decor/4.png'),
-        alt('decor')
-      )
-    ),
-  )
+          className('decor_container_img image_quality'),
+          src('./assets/images/decor/4.png'),
+          alt('decor'),
+        ),
+      ),
+    );
 
   return () => {
-    return Footer (
+    return Footer(
       Wrapper(
         FlexHContainer(
           'footer_container',
-          FlexItem(
-            'footer_container--copyright',
-            Copyright()
-          ),
+          FlexItem('footer_container--copyright', Copyright()),
           FlexItem(
             'footer_container--navbar',
             FlexHContainer(
               'footer_container--navbar_container',
-              FlexItem(
-                'footer_container--navbar_container--item',
-                navBar()
-              ),
-              FlexItem(
-                'footer_container--navbar_container--vk',
-                vk()
-              )
-            )
-          )
+              FlexItem('footer_container--navbar_container--item', navBar()),
+              FlexItem('footer_container--navbar_container--vk', vk()),
+            ),
+          ),
         ),
         Decor(),
-      )
+      ),
     );
   };
-}
+};

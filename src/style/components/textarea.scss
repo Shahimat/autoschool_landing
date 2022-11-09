@@ -71,9 +71,7 @@
             padding: 0px 2px;
             transform: translateY(-8px);
           }
-
         }
-
       }
 
       &_third {
@@ -87,7 +85,6 @@
         pointer-events: none;
         transition-duration: 0.2s;
       }
-
     }
 
     .custom_textarea_input {
@@ -101,12 +98,13 @@
       color: inherit;
       border-style: none;
 
-      &:focus, &:focus-visible {
+      &:focus,
+      &:focus-visible {
         border-style: none;
         outline-style: none;
       }
 
-      &:focus+.custom_textarea_border_top {
+      &:focus + .custom_textarea_border_top {
         .custom_textarea_border_top_first {
           border-top: solid 2px #0170d8;
           border-left: solid 2px #0170d8;
@@ -135,9 +133,7 @@
           border-right: solid 2px #0170d8;
           border-bottom: solid 2px #0170d8;
         }
-
       }
     }
-
   }
 }

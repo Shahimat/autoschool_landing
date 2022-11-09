@@ -8,7 +8,7 @@ module.exports = (lf, slf, project) => {
   const FlexItem = project.def('FlexItem');
 
   return (input = {}) => {
-    if (typeof(input) !== 'object') {
+    if (typeof input !== 'object') {
       throw new Error(`Expected input <object> but found "${input}"`);
     }
 
@@ -26,24 +26,36 @@ module.exports = (lf, slf, project) => {
 
     return div(
       Div(
-        $p('slider_base_content ', Style({
-          width: config.contentWidth,
-        })),
+        $p(
+          'slider_base_content ',
+          Style({
+            width: config.contentWidth,
+          }),
+        ),
         FlexHContainer(
           'slider_base_list',
-          $by(config.elementsTotal, (index) => FlexItem(
-            $p('slider_base_list--item ', config.elementStyle, ' ', Style({
-              width: config.elementWidth,
-            })),
-            $put(config.content(index))
-          ), config.elementStart)
-        )
+          $by(
+            config.elementsTotal,
+            (index) =>
+              FlexItem(
+                $p(
+                  'slider_base_list--item ',
+                  config.elementStyle,
+                  ' ',
+                  Style({
+                    width: config.elementWidth,
+                  }),
+                ),
+                $put(config.content(index)),
+              ),
+            config.elementStart,
+          ),
+        ),
       ),
       $p(
         className($p('slider_base ', config.sliderStyle)),
-        $attr('data-slider-name', config.sliderName)
-      )
-    )
-
+        $attr('data-slider-name', config.sliderName),
+      ),
+    );
   };
-}
+};

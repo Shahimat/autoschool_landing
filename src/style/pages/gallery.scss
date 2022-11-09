@@ -1,5 +1,4 @@
 .gallery_page {
-
   & &--content {
     box-sizing: border-box;
     padding-top: 82px;
@@ -8,10 +7,10 @@
     background-position: bottom;
     background-color: #f7f8fa;
     background-size: 100%;
-    @include breakpoint (hd) {
+    @include breakpoint(hd) {
       background-size: auto;
     }
-    @include breakpoint (sm) {
+    @include breakpoint(sm) {
       padding-bottom: 40px;
     }
   }
@@ -25,7 +24,6 @@
   }
 
   .gallery_photo {
-
     &_img {
       width: 170px;
       margin: 10px;
@@ -43,5 +41,4 @@
   & .footer .decor_field_container {
     display: none;
   }
-
 }

@@ -30,7 +30,7 @@ module.exports = (lf, slf, project) => {
                 type: 'small',
                 text: 'месяцев',
               },
-            ]
+            ],
           },
         ],
         center_content: [
@@ -61,7 +61,7 @@ module.exports = (lf, slf, project) => {
                 type: 'big',
                 text: '20',
               },
-            ]
+            ],
           },
           // {
           //   title: 'И в группах выходного дня с перерывами',
@@ -104,7 +104,7 @@ module.exports = (lf, slf, project) => {
           //     },
           //   ]
           // }
-        ]
+        ],
       },
       {
         title: 'Практические занятия',
@@ -121,7 +121,7 @@ module.exports = (lf, slf, project) => {
                 type: 'small',
                 text: 'занятий',
               },
-            ]
+            ],
           },
           {
             title: '',
@@ -138,7 +138,7 @@ module.exports = (lf, slf, project) => {
                 type: 'small',
                 text: 'часа',
               },
-            ]
+            ],
           },
         ],
         center_content: [
@@ -149,7 +149,8 @@ module.exports = (lf, slf, project) => {
         ],
         right_content: [
           {
-            title: 'Практические занятия проводятся индивидуально каждый день, по предварительной записи через личный кабинет или приложение',
+            title:
+              'Практические занятия проводятся индивидуально каждый день, по предварительной записи через личный кабинет или приложение',
             text: [
               {
                 type: 'small',
@@ -167,9 +168,9 @@ module.exports = (lf, slf, project) => {
                 type: 'big',
                 text: '18:00',
               },
-            ]
-          }
-        ]
+            ],
+          },
+        ],
       },
       {
         title: 'Организация экзамена в ГИБДД',
@@ -179,8 +180,8 @@ module.exports = (lf, slf, project) => {
           '- подготовка пакета документов, необходимых для ГИБДД',
           '- регистрация на экзамен с назначением даты',
         ],
-        right_content: []
-      }
+        right_content: [],
+      },
     ],
   };
 
@@ -197,97 +198,100 @@ module.exports = (lf, slf, project) => {
   const TabContainer = project.def('TabContainer');
   const ComplexText = project.def('ComplexText');
 
-  const InfoBoxLeft = (title, text) => Box(
-    'info_box_left',
-    FlexVContainer(
-      'info_box_left_container',
-      FlexItem(
-        'info_box_left_title',
-        Span('info_box_left_title--text', title)
+  const InfoBoxLeft = (title, text) =>
+    Box(
+      'info_box_left',
+      FlexVContainer(
+        'info_box_left_container',
+        FlexItem(
+          'info_box_left_title',
+          Span('info_box_left_title--text', title),
+        ),
+        FlexItem('info_box_left_description', ComplexText(text)),
       ),
-      FlexItem(
-        'info_box_left_description',
-        ComplexText(text)
-      )
-    )
-  );
+    );
 
-  const InfoBoxRight = (title, text) => Box(
-    'info_box_right',
-    FlexVContainer(
-      'info_box_right_container',
-      FlexItem(
-        'info_box_right_title',
-        Span('info_box_right_title--text', title)
+  const InfoBoxRight = (title, text) =>
+    Box(
+      'info_box_right',
+      FlexVContainer(
+        'info_box_right_container',
+        FlexItem(
+          'info_box_right_title',
+          Span('info_box_right_title--text', title),
+        ),
+        FlexItem('info_box_right_description', ComplexText(text)),
       ),
-      FlexItem(
-        'info_box_right_description',
-        ComplexText(text)
-      )
-    )
-  );
+    );
 
   return () => {
-
     return Section(
       {
         sClass: 'section_school',
         id: 'info',
       },
       Wrapper(
-        TabContainer({
-          tabs: oData.tabs.map(tab => tab.title),
-        }, (title, index) => Box(
-          '',
-          Box(
-            'section_school_picture',
-            img(null, $p(
-              className('section_school_picture--img image_quality'),
-              src(oData.tabs[index].src),
-              alt('info-bg')
-            ))
-          ),
-          Box(
-            'tab_content',
-            FlexHContainer(
-              'tab_content_container',
-              FlexItem(
-                'tab_content--left',
-                FlexVContainer(
-                  'tab_content--left_content',
-                  ...oData.tabs[index].left_content.map(info => FlexItem(
-                    'tab_content--left_content--item',
-                    InfoBoxLeft(info.title, info.text)
-                  ))
-                )
-              ),
-              FlexItem(
-                'tab_content--center',
-                ...oData.tabs[index].center_content.map(text => $p(
-                  Box(
-                    'tab_content--center_text',
-                    text
+        TabContainer(
+          {
+            tabs: oData.tabs.map((tab) => tab.title),
+          },
+          (title, index) =>
+            Box(
+              '',
+              Box(
+                'section_school_picture',
+                img(
+                  null,
+                  $p(
+                    className('section_school_picture--img image_quality'),
+                    src(oData.tabs[index].src),
+                    alt('info-bg'),
                   ),
-                ))
+                ),
               ),
-              FlexItem(
-                'tab_content--right',
-                FlexVContainer(
-                  'tab_content--right_content',
-                  ...oData.tabs[index].right_content.map(info => FlexItem(
-                    'tab_content--right_content--item',
-                    InfoBoxRight(info.title, info.text)
-                  ))
-                )
-              )
-            )
-          ),
-          Box(
-            'section_school_desc',
-            Span('section_school_desc--text', '* с личным инструктором')
-          )
-        ))
-      )
-    )
+              Box(
+                'tab_content',
+                FlexHContainer(
+                  'tab_content_container',
+                  FlexItem(
+                    'tab_content--left',
+                    FlexVContainer(
+                      'tab_content--left_content',
+                      ...oData.tabs[index].left_content.map((info) =>
+                        FlexItem(
+                          'tab_content--left_content--item',
+                          InfoBoxLeft(info.title, info.text),
+                        ),
+                      ),
+                    ),
+                  ),
+                  FlexItem(
+                    'tab_content--center',
+                    ...oData.tabs[index].center_content.map((text) =>
+                      $p(Box('tab_content--center_text', text)),
+                    ),
+                  ),
+                  FlexItem(
+                    'tab_content--right',
+                    FlexVContainer(
+                      'tab_content--right_content',
+                      ...oData.tabs[index].right_content.map((info) =>
+                        FlexItem(
+                          'tab_content--right_content--item',
+                          InfoBoxRight(info.title, info.text),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Box(
+                'section_school_desc',
+                Span('section_school_desc--text', '* с личным инструктором'),
+              ),
+            ),
+        ),
+      ),
+    );
   };
-}
+};

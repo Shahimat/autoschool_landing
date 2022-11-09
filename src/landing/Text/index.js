@@ -3,5 +3,5 @@ module.exports = (lf, slf, project) => {
 
   return (sText) => {
     return p(sText, className('text'));
-  }
-}
+  };
+};

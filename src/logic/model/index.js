@@ -1,4 +1,4 @@
-import initialState from "./state.json";
+import initialState from './state.json';
 import State from './StateConstructor';
 import bindings from './bindings';
 import StateConstructor from './StateConstructor';
@@ -6,7 +6,7 @@ import ActionBuilder from './ActionBuilder';
 import actions from './actions';
 
 const state = new StateConstructor(initialState);
-state.activate( state );
+state.activate(state);
 globalThis.state = state;
 
 export default function () {

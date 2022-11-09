@@ -22,27 +22,33 @@ module.exports = (lf, slf, project) => {
       text = '&nbsp;'.repeat(current.length);
     }
     return text;
-  }
+  };
 
   return (input) => {
-    if (typeof(input) === 'string' || typeof(input) === 'function') {
+    if (typeof input === 'string' || typeof input === 'function') {
       return Div(
         'complex_text',
-        Div(
-          'complex_text--text complex_text--big',
-          input
-        )
+        Div('complex_text--text complex_text--big', input),
       );
     } else if (Array.isArray(input)) {
       return Div(
         'complex_text',
-        ...input.map((item, index) => Div(
-          `complex_text--text complex_text--${item.type}`,
-          getText(item, index > 0? input[index - 1]: {}, index, input.length)
-        ))
-      )
+        ...input.map((item, index) =>
+          Div(
+            `complex_text--text complex_text--${item.type}`,
+            getText(
+              item,
+              index > 0 ? input[index - 1] : {},
+              index,
+              input.length,
+            ),
+          ),
+        ),
+      );
     } else {
-      throw new Error(`getTextByTypes: expected <string> | <array> but found "${input}"`);
+      throw new Error(
+        `getTextByTypes: expected <string> | <array> but found "${input}"`,
+      );
     }
-  }
-}
+  };
+};

@@ -1,6 +1,29 @@
 module.exports = (lf, slf, project) => {
-  const { $print: $p, $attr, section, div, span, button, img, svg, video, source, use, ul, li, a, br, className, alt, src, 
-    href, type, picture, h1, h2 } = lf;
+  const {
+    $print: $p,
+    $attr,
+    section,
+    div,
+    span,
+    button,
+    img,
+    svg,
+    video,
+    source,
+    use,
+    ul,
+    li,
+    a,
+    br,
+    className,
+    alt,
+    src,
+    href,
+    type,
+    picture,
+    h1,
+    h2,
+  } = lf;
 
   const oData = {
     dataDepth: [
@@ -19,27 +42,27 @@ module.exports = (lf, slf, project) => {
       {
         depth: '0.4',
         class: 'category-decor__circle--sm',
-      }
+      },
     ],
     category: ['A', 'B', 'C', 'D'],
     slider: [
       {
         class: 'category-car--a',
-        src: 'assets/images/slider/a.png'
+        src: 'assets/images/slider/a.png',
       },
       {
         class: 'category-car--b',
-        src: 'assets/images/slider/b.png'
+        src: 'assets/images/slider/b.png',
       },
       {
         class: 'category-car--c',
-        src: 'assets/images/slider/c.png'
+        src: 'assets/images/slider/c.png',
       },
       {
         class: 'category-car--d',
-        src: 'assets/images/slider/d.png'
-      }
-    ]
+        src: 'assets/images/slider/d.png',
+      },
+    ],
   };
 
   const Style = project.style('category');
@@ -53,38 +76,42 @@ module.exports = (lf, slf, project) => {
   const Slider = project.def('Slider');
   const Circles = project.def('Circles');
 
-  const Button = (direction) => button(
-    img(
-      null,
-      $p(
-        src(`assets/images/arrow/slider_arrow_${direction}.svg`),
-        alt(`slider_arrow_${direction}`),
-        className('section_category_nav_arrow_button--img')
-      )
-    ),
-    className(`section_category_nav_arrow_button section_category_nav_arrow_button--${direction}`)
-  );
+  const Button = (direction) =>
+    button(
+      img(
+        null,
+        $p(
+          src(`assets/images/arrow/slider_arrow_${direction}.svg`),
+          alt(`slider_arrow_${direction}`),
+          className('section_category_nav_arrow_button--img'),
+        ),
+      ),
+      className(
+        `section_category_nav_arrow_button section_category_nav_arrow_button--${direction}`,
+      ),
+    );
 
   const getCategoryByIndex = (index) => {
     switch (index) {
-      case 0: return 'a';
-      case 1: return 'b';
-      case 2: return 'c';
-      case 3: return 'd';
-      default: return 'a';
+      case 0:
+        return 'a';
+      case 1:
+        return 'b';
+      case 2:
+        return 'c';
+      case 3:
+        return 'd';
+      default:
+        return 'a';
     }
-  }
+  };
 
   return () => {
-
     return Section(
       'section_category',
       FlexHContainer(
         'section_category_circles',
-        FlexItem(
-          'section_category_circles--item',
-          Circles()
-        )
+        FlexItem('section_category_circles--item', Circles()),
       ),
       Div(
         'section_category_first_slider',
@@ -94,16 +121,19 @@ module.exports = (lf, slf, project) => {
           elementWidth: '960px',
           elementsTotal: 4,
           elementStart: 3,
-          content: (index) => img(
-            null,
-            $p(
-              src(`assets/images/slider/${getCategoryByIndex(index)}.png`),
-              alt(`slider_category_${getCategoryByIndex(index)}`),
-              className(`section_category_first_slider--img section_category_first_slider--${
-                getCategoryByIndex(index)
-              } image_quality`)
-            )
-          ),
+          content: (index) =>
+            img(
+              null,
+              $p(
+                src(`assets/images/slider/${getCategoryByIndex(index)}.png`),
+                alt(`slider_category_${getCategoryByIndex(index)}`),
+                className(
+                  `section_category_first_slider--img section_category_first_slider--${getCategoryByIndex(
+                    index,
+                  )} image_quality`,
+                ),
+              ),
+            ),
         }),
       ),
       FlexHContainer(
@@ -116,21 +146,21 @@ module.exports = (lf, slf, project) => {
             elementWidth: '240px',
             elementsTotal: 4,
             elementStart: 0,
-            content: (index) => Span('section_category_second_slider--text', getCategoryByIndex(index)),
+            content: (index) =>
+              Span(
+                'section_category_second_slider--text',
+                getCategoryByIndex(index),
+              ),
           }),
-        )
+        ),
       ),
       FlexHContainer(
         'section_category_nav',
         FlexItem(
           'section_category_nav--item',
-          Div(
-            'section_category_nav_arrow',
-            Button('left'),
-            Button('right'),
-          )
-        )
-      )
-    )
+          Div('section_category_nav_arrow', Button('left'), Button('right')),
+        ),
+      ),
+    );
   };
-}
+};

@@ -9,6 +9,6 @@ app.use(cors());
 app.use(express.static('dist'));
 
 app.listen(port, () => {
-  console.log(`App listening on http://localhost:${port}/`)
+  console.log(`App listening on http://localhost:${port}/`);
   open(`http://localhost:${port}/`);
-})
+});

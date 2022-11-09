@@ -1,6 +1,9 @@
-import { byClass, byClassSimple, from } from "../lib/slfp";
+import { byClass, byClassSimple, from } from '../lib/slfp';
 
-const getExtremeElements = (list) => [list.firstElementChild, list.lastElementChild];
+const getExtremeElements = (list) => [
+  list.firstElementChild,
+  list.lastElementChild,
+];
 
 const shiftRight = (list, lifetime = 300) => {
   const [first, last] = getExtremeElements(list);
@@ -11,7 +14,7 @@ const shiftRight = (list, lifetime = 300) => {
   window.getComputedStyle(list).marginLeft;
   list.style.cssText = `transition: margin ${lifetime}ms ease;`;
   list.style.marginLeft = '0px';
-  setTimeout(function() {
+  setTimeout(function () {
     list.style.cssText = 'transition: none;';
   }, lifetime);
 };
@@ -22,7 +25,7 @@ const shiftLeft = (list, lifetime = 300) => {
   list.appendChild(elem);
   list.style.cssText = `transition: margin ${lifetime}ms ease;`;
   list.style.marginLeft = `-${elem.clientWidth}px`;
-  setTimeout(function() {
+  setTimeout(function () {
     list.style.cssText = 'transition: none;';
     list.removeChild(first);
     list.style.marginLeft = '0px';
@@ -30,16 +33,16 @@ const shiftLeft = (list, lifetime = 300) => {
 };
 
 export default function () {
-  from(byClass('slider_base'), slider => {
+  from(byClass('slider_base'), (slider) => {
     const list = byClassSimple('slider_base_list', slider);
-  
+
     let isBlock = false;
     const lifetime = 300;
-    const unblock = () => setTimeout(() => isBlock = false, lifetime);
-    slider.addEventListener('slider_shift', event => {
+    const unblock = () => setTimeout(() => (isBlock = false), lifetime);
+    slider.addEventListener('slider_shift', (event) => {
       if (!isBlock) {
         isBlock = true;
-        const direction = event.detail? event.detail.direction: '';
+        const direction = event.detail ? event.detail.direction : '';
         if (direction === 'left') {
           shiftLeft(list, lifetime);
         } else if (direction === 'right') {

@@ -58,14 +58,17 @@ const Project = lfp.Project({
   models: {
     aboutModel: 'models.about',
     photoModel: 'models.photos',
-  }
+  },
 });
 
 Project.build();
-Project.run().then(() => {
-  return slf.onLoadSCSS(path.join(__dirname, 'style', 'index.scss'))
-}).then((css) => {
-  return slf.onSaveFile(path.join(__dirname, '..', 'dist', 'style.css'), css);
-}).then(() => {
-  console.log('CSS created');
-});
+Project.run()
+  .then(() => {
+    return slf.onLoadSCSS(path.join(__dirname, 'style', 'index.scss'));
+  })
+  .then((css) => {
+    return slf.onSaveFile(path.join(__dirname, '..', 'dist', 'style.css'), css);
+  })
+  .then(() => {
+    console.log('CSS created');
+  });

@@ -1,10 +1,12 @@
-import { byClass, byClassSimple, from } from "../lib/slfp";
+import { byClass, byClassSimple, from } from '../lib/slfp';
 
 const handleFieldSetChange = (input, legend, legendContainer) => {
   const setClassByValue = (value) => {
     if (value === '') {
       legend.classList.remove('custom_fieldset_legend_content_filled');
-      legendContainer.classList.remove('custom_fieldset_border_top_second_filled');
+      legendContainer.classList.remove(
+        'custom_fieldset_border_top_second_filled',
+      );
     } else {
       legend.classList.add('custom_fieldset_legend_content_filled');
       legendContainer.classList.add('custom_fieldset_border_top_second_filled');
@@ -15,14 +17,20 @@ const handleFieldSetChange = (input, legend, legendContainer) => {
     setTimeout(() => {
       setClassByValue(input.value);
     }, 10);
-  }
-}
+  };
+};
 
 export default function () {
-  from(byClass('custom_fieldset'), fieldset => {
+  from(byClass('custom_fieldset'), (fieldset) => {
     const input = byClassSimple('custom_fieldset_input', fieldset);
     const legend = byClassSimple('custom_fieldset_legend_content', fieldset);
-    const legendContainer = byClassSimple('custom_fieldset_border_top_second', fieldset);
-    input.addEventListener('keydown', handleFieldSetChange(input, legend, legendContainer));
+    const legendContainer = byClassSimple(
+      'custom_fieldset_border_top_second',
+      fieldset,
+    );
+    input.addEventListener(
+      'keydown',
+      handleFieldSetChange(input, legend, legendContainer),
+    );
   });
 }

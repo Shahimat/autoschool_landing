@@ -11,35 +11,29 @@ module.exports = (lf, slf, project) => {
       $p(
         button(
           $p(
-            Div(
-              'select_input',
-              aList[0]
-            ),
+            Div('select_input', aList[0]),
             Div(
               'select_arrow',
               img(
                 null,
-                $p(src('assets/images/arrow.svg'), alt('decor'), className('select_arrow_decor_img'))
+                $p(
+                  src('assets/images/arrow.svg'),
+                  alt('decor'),
+                  className('select_arrow_decor_img'),
+                ),
               ),
             ),
           ),
-          $p(
-            className('select_base_button'),
-            id(sId),
-          )
+          $p(className('select_base_button'), id(sId)),
         ),
         Div(
           'select_list',
-          ...aList.map(item => button(
-            $p( item ),
-            className('select_list--item')
-          ))
-        )
+          ...aList.map((item) =>
+            button($p(item), className('select_list--item')),
+          ),
+        ),
       ),
-      $p(
-        className($p('select_base ', sClass)),
-        id(sId),
-      )
+      $p(className($p('select_base ', sClass)), id(sId)),
     );
   };
-}
+};

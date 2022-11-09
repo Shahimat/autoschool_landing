@@ -7,7 +7,7 @@ const copyJSON = (any) => {
       }
       return res;
     }
-    if (typeof(any) === 'object') {
+    if (typeof any === 'object') {
       let res = {};
       for (let key in any) {
         res[key] = copyJSONrec(any[key]);
@@ -20,7 +20,7 @@ const copyJSON = (any) => {
 };
 
 const State = function (anyDefault) {
-  const oState = typeof(anyDefault) === 'object'? copyJSON(anyDefault) : {};
+  const oState = typeof anyDefault === 'object' ? copyJSON(anyDefault) : {};
   let instance;
   let bindings = {};
   let elementsByFields = {};
@@ -29,36 +29,40 @@ const State = function (anyDefault) {
   }
 
   const has = (field) => {
-    if (typeof(field) !== 'string') {
+    if (typeof field !== 'string') {
       throw new Error(`field "${field}" must be a string!`);
     }
     return elementsByFields[field] !== undefined;
-  }
+  };
 
   const isSimple = (anyValue) => {
-    return typeof(anyValue) === 'boolean' || typeof(anyValue) === 'number' || 
-      typeof(anyValue) === 'string' || typeof(anyValue) === 'symbol' || 
-      typeof(anyValue) === 'bigint';
-  }
+    return (
+      typeof anyValue === 'boolean' ||
+      typeof anyValue === 'number' ||
+      typeof anyValue === 'string' ||
+      typeof anyValue === 'symbol' ||
+      typeof anyValue === 'bigint'
+    );
+  };
 
   const getter = (field) => {
-    if (typeof(field) !== 'string') {
+    if (typeof field !== 'string') {
       return copyJSON(oState);
     }
     if (has(field)) {
-      return copyJSON( oState[field] );
+      return copyJSON(oState[field]);
     } else {
       return null;
     }
   };
 
   const setter = (field, anyValue) => {
-    if (typeof(field) !== 'string') {
+    if (typeof field !== 'string') {
       throw new Error(`field "${field}" must be a string!`);
     }
-    if (has(field) && typeof(oState[field]) === typeof(anyValue)) {
-      oState[field] = copyJSON( anyValue );
-      if ( isSimple(anyValue) ) {
+    if (has(field) && typeof oState[field] === typeof anyValue) {
+      oState[field] = copyJSON(anyValue);
+      if (isSimple(anyValue)) {
         for (let element of elementsByFields[field]) {
           element.setAttribute(`data-state-${field}`, `${anyValue}`);
         }
@@ -67,23 +71,20 @@ const State = function (anyDefault) {
         let binding = bindings[bindingName];
         if (binding.fields.includes(field)) {
           for (let element of elementsByFields[field]) {
-            binding.callback(
-              element,
-              field,
-              copyJSON( anyValue ),
-              instance
-            );
+            binding.callback(element, field, copyJSON(anyValue), instance);
           }
         }
       }
     } else {
-      console.error(`model.setter error: field "${field}" has "${oState[field]}" but value "${anyValue}"`);
+      console.error(
+        `model.setter error: field "${field}" has "${oState[field]}" but value "${anyValue}"`,
+      );
     }
-  }
+  };
 
   this.get = function (field) {
     return getter(field);
-  }
+  };
   this.set = function (field, anyValue) {
     setter(field, anyValue);
   };
@@ -91,7 +92,7 @@ const State = function (anyDefault) {
     if (has(field)) {
       elementsByFields[field].push(element);
       let anyValue = this.get(field);
-      if ( isSimple(anyValue) ) {
+      if (isSimple(anyValue)) {
         element.setAttribute(`data-state-${field}`, `${anyValue}`);
       }
     } else {
@@ -103,7 +104,7 @@ const State = function (anyDefault) {
       bindings[name] = {
         callback,
         fields: [],
-      }
+      };
     } else {
       console.error(`Callback by name "${name}" already exists`);
     }
@@ -112,7 +113,7 @@ const State = function (anyDefault) {
     if (!has(field)) {
       console.error(`Field "${field}" not found`);
       return;
-    } 
+    }
     if (!bindings[name]) {
       console.error(`Callback "${name}" not found`);
       return;
@@ -125,7 +126,7 @@ const State = function (anyDefault) {
   };
   this.activate = function (inputInstance) {
     instance = inputInstance;
-  }
+  };
 };
 
 export default State;

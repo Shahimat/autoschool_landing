@@ -7,27 +7,24 @@ module.exports = (lf, slf, project) => {
     }
     const getSeparator = (type) => {
       switch (type) {
-        case 'colon': return ': ';
-        case 'comma': return ', ';
-        default: return '';
+        case 'colon':
+          return ': ';
+        case 'comma':
+          return ', ';
+        default:
+          return '';
       }
-    }
-    return div (
+    };
+    return div(
       $p(
-        span(
-          key,
-          className($p('base_kv_key ', classKey))
-        ),
+        span(key, className($p('base_kv_key ', classKey))),
         span(
           getSeparator(type),
-          className($p('base_kv_separator ', classSeparator))
+          className($p('base_kv_separator ', classSeparator)),
         ),
-        span(
-          value,
-          className($p('base_kv_value ', classValue))
-        )
+        span(value, className($p('base_kv_value ', classValue))),
       ),
-      className($p('base_kv ', classKV))
+      className($p('base_kv ', classKV)),
     );
   };
-}
+};

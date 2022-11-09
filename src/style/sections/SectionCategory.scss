@@ -1,7 +1,7 @@
 .section_category {
   position: relative;
   height: 511px;
-  @include breakpoint (sm) {
+  @include breakpoint(sm) {
     transform-origin: top;
     height: 327px;
   }
@@ -9,7 +9,7 @@
   & &_circles {
     position: absolute;
     top: 0;
-    @include breakpoint (sm) {
+    @include breakpoint(sm) {
       transform-origin: top;
       transform: scale(0.5);
     }
@@ -19,7 +19,6 @@
       margin-top: 222px;
       padding-right: 220px;
     }
-
   }
 
   & &_first_slider {
@@ -30,7 +29,7 @@
     width: 2880px;
     height: 415px;
     z-index: 9;
-    @include breakpoint (sm) {
+    @include breakpoint(sm) {
       transform-origin: top;
       transform: translateX(-50%) scale(0.5);
     }
@@ -69,7 +68,7 @@
     left: 0;
     height: 100%;
     z-index: 8;
-    @include breakpoint (sm) {
+    @include breakpoint(sm) {
       transform-origin: top;
       transform: scale(0.5);
     }
@@ -114,14 +113,14 @@
     &--item {
       width: 1300px;
       margin: 0 auto;
-      @include breakpoint (xxl) {
+      @include breakpoint(xxl) {
         width: 1200px;
         margin: 0 66px;
       }
-      @include breakpoint (xl) {
+      @include breakpoint(xl) {
         flex: 1 0 200px;
       }
-      @include breakpoint (sm) {
+      @include breakpoint(sm) {
         margin: 0 20px;
       }
     }
@@ -131,10 +130,10 @@
       width: auto;
       height: auto;
       margin-bottom: 96px;
-      @include breakpoint (sm) {
+      @include breakpoint(sm) {
         margin-bottom: 53px;
       }
-  
+
       &_button {
         z-index: 10;
         padding: 0;
@@ -142,29 +141,28 @@
         width: 48px;
         height: 48px;
         cursor: pointer;
-  
+
         &--img {
           width: 100%;
           height: 100%;
           background: linear-gradient(180deg, #0084ff, #00b3ff);
           opacity: 0.8;
           user-select: none;
-  
+
           &:hover {
             opacity: 1;
           }
-  
+
           &:active {
             opacity: 0.9;
           }
         }
-  
+
         &--right {
           margin-left: 10px;
           user-select: none;
         }
       }
-  
     }
   }
 }

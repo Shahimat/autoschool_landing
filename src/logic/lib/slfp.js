@@ -1,4 +1,4 @@
-import { wait } from "./slf";
+import { wait } from './slf';
 
 let isStart = true;
 const start = (nInterval = 400) => {
@@ -8,55 +8,64 @@ const start = (nInterval = 400) => {
     } else {
       setTimeout(() => {
         res();
-      }, nInterval)
+      }, nInterval);
     }
   });
-}
+};
 
 const byDataAttr = (name) => {
   return new Promise((res, rej) => {
-    start().then(() => {
-      return wait(() => document.querySelector(`[data-${name}]`));
-    }).then(() => {
-      res(document.querySelectorAll(`[data-${name}]`));
-    }).catch(err => {
-      rej(err);
-    });
+    start()
+      .then(() => {
+        return wait(() => document.querySelector(`[data-${name}]`));
+      })
+      .then(() => {
+        res(document.querySelectorAll(`[data-${name}]`));
+      })
+      .catch((err) => {
+        rej(err);
+      });
   });
-}
+};
 
 const byName = (name, element = undefined) => {
-  const elem = element? element: document;
+  const elem = element ? element : document;
   return new Promise((res, rej) => {
-    start().then(() => {
-      return wait(() => elem.querySelector(`[data-name=${name}]`));
-    }).then(() => {
-      const result = elem.querySelectorAll(`[data-${name}]`);
-      res(result.length === 1? result[0]: result);
-    }).catch(err => {
-      rej(err);
-    });
+    start()
+      .then(() => {
+        return wait(() => elem.querySelector(`[data-name=${name}]`));
+      })
+      .then(() => {
+        const result = elem.querySelectorAll(`[data-${name}]`);
+        res(result.length === 1 ? result[0] : result);
+      })
+      .catch((err) => {
+        rej(err);
+      });
   });
-}
+};
 
 const byClassSimple = (name, element = undefined) => {
-  const elem = element? element: document;
+  const elem = element ? element : document;
   const res = elem.querySelectorAll(`.${name}`);
-  return res && res.length === 1? res[0]: res;
-}
+  return res && res.length === 1 ? res[0] : res;
+};
 
 const byClass = (name, element = undefined) => {
-  const elem = element? element: document;
+  const elem = element ? element : document;
   return new Promise((res, rej) => {
-    start().then(() => {
-      return wait(() => elem.querySelector(`.${name}`));
-    }).then(() => {
-      res(byClassSimple(name, elem));
-    }).catch(err => {
-      rej(err);
-    });
+    start()
+      .then(() => {
+        return wait(() => elem.querySelector(`.${name}`));
+      })
+      .then(() => {
+        res(byClassSimple(name, elem));
+      })
+      .catch((err) => {
+        rej(err);
+      });
   });
-}
+};
 
 const from = async (any, cb) => {
   if (any === undefined || any === null) {
@@ -66,14 +75,14 @@ const from = async (any, cb) => {
     for (let elem of any) {
       await from(elem, cb);
     }
-  } else if (typeof(any) === 'function') {
+  } else if (typeof any === 'function') {
     if (any.constructor.name === 'AsyncFunction') {
       let res = await any();
       await from(res, cb);
     } else {
       await from(any(), cb);
     }
-  } else if (typeof(any) === 'object') {
+  } else if (typeof any === 'object') {
     if (any.constructor) {
       if (any.constructor.name === 'Promise') {
         let res = await any;
@@ -91,13 +100,6 @@ const from = async (any, cb) => {
   } else {
     cb(any);
   }
-}
+};
 
-export {
-  start,
-  byDataAttr,
-  byName,
-  byClass,
-  byClassSimple,
-  from,
-}
+export { start, byDataAttr, byName, byClass, byClassSimple, from };

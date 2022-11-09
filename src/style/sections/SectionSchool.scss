@@ -2,12 +2,11 @@
   position: relative;
   z-index: 0;
   margin-top: 91px;
-  @include breakpoint (sm) {
+  @include breakpoint(sm) {
     margin-top: 157px;
   }
 
   .tab_container_link {
-
     & > .tab_container_link_text {
       font-family: BlissPro;
       font-size: 14px;
@@ -35,7 +34,6 @@
       transform: translate(-50%, 0);
       width: 1344px;
     }
-
   }
 
   .info_box_left {
@@ -49,18 +47,15 @@
     }
 
     &_title {
-
       &--text {
         font-family: BlissPro;
         font-size: 14px;
         color: #0a6ed1;
         text-transform: uppercase;
       }
-
     }
 
     &_description {
-
       .complex_text {
         &--big {
           color: #354a5f;
@@ -70,9 +65,7 @@
           color: #89919a;
         }
       }
-
     }
-
   }
 
   .info_box_right {
@@ -86,18 +79,15 @@
     }
 
     &_title {
-
       &--text {
         font-family: BlissPro;
         font-size: 16px;
         font-weight: 300;
         color: #354a5f;
       }
-
     }
 
     &_description {
-
       .complex_text {
         &--big {
           font-family: BebasNeue;
@@ -110,9 +100,7 @@
           font-size: 18px;
         }
       }
-
     }
-
   }
 
   .tab_content {
@@ -129,7 +117,7 @@
       flex: 0 0 200px;
       margin-right: 1px;
       background-color: #ffffff;
-      @include breakpoint (md) {
+      @include breakpoint(md) {
         flex: 1 0 200px;
         margin-bottom: 1px;
       }
@@ -146,7 +134,7 @@
       flex: 1 0 200px;
       padding: 18px 25px;
       background-color: #ffffff;
-      @include breakpoint (md) {
+      @include breakpoint(md) {
         flex: 0 1 100%;
       }
 
@@ -163,7 +151,7 @@
       box-sizing: border-box;
       flex: 0 0 310px;
       background-image: linear-gradient(to bottom, #f7f8f9, #edeff0);
-      @include breakpoint (xl) {
+      @include breakpoint(xl) {
         flex: 0 1 100%;
       }
 

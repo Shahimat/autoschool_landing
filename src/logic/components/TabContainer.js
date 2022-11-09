@@ -1,24 +1,24 @@
-import { byClass, byClassSimple, from } from "../lib/slfp";
+import { byClass, byClassSimple, from } from '../lib/slfp';
 
 const className = 'active';
 
 const handleTabClick = (buttons, tabs, current) => {
   return (event) => {
     setTimeout(() => {
-      buttons.forEach(button => {
+      buttons.forEach((button) => {
         button.classList.remove(className);
-      })
-      tabs.forEach(tab => {
+      });
+      tabs.forEach((tab) => {
         tab.classList.remove(className);
-      })
+      });
       buttons[current].classList.add(className);
       tabs[current].classList.add(className);
     }, 10);
-  }
-}
+  };
+};
 
 export default function () {
-  from(byClass('tab_container'), tabContainer => {
+  from(byClass('tab_container'), (tabContainer) => {
     const buttons = byClassSimple('tab_container_link', tabContainer);
     const tabs = byClassSimple('tab_container_item', tabContainer);
     buttons.forEach((button, index) => {

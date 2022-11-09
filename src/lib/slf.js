@@ -5,7 +5,6 @@ const fs = require('fs');
 const sass = require('node-sass');
 
 const slf = {
-
   /**
    * Производит высокоскоростное копирование объекта наподобие Object.assign, только с дополнительными
    * проверками на входной параметр, который может быть как объектом, так и массивом или простым свойством
@@ -21,7 +20,7 @@ const slf = {
         }
         return res;
       }
-      if (typeof(any) === 'object') {
+      if (typeof any === 'object') {
         let res = {};
         for (let key in any) {
           res[key] = copyJSONrec(any[key]);
@@ -37,8 +36,10 @@ const slf = {
    * Функция генерации guid
    * @returns guid
    */
-  guid: () => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'.replace(/x/g, () => 
-    Math.trunc(Math.random() * 16).toString(16)),
+  guid: () =>
+    'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'.replace(/x/g, () =>
+      Math.trunc(Math.random() * 16).toString(16),
+    ),
 
   State: (anyDefault) => {
     let oContext = slf.copyJSON(anyDefault);
@@ -47,12 +48,12 @@ const slf = {
       set: (any) => {
         oContext = slf.copyJSON(any);
       },
-    }
+    };
   },
 
   onLoadFile: function (sPath) {
     return new Promise((res, rej) => {
-      fs.readFile(sPath, 'utf8' , (err, data) => {
+      fs.readFile(sPath, 'utf8', (err, data) => {
         if (err) {
           rej(err);
           return;
@@ -64,7 +65,7 @@ const slf = {
 
   onSaveFile: function (sPath, sData) {
     return new Promise((res, rej) => {
-      fs.writeFile(sPath, sData, 'utf8' , (err) => {
+      fs.writeFile(sPath, sData, 'utf8', (err) => {
         if (err) {
           rej(err);
           return;
@@ -76,19 +77,21 @@ const slf = {
 
   onLoadSCSS: (sPath) => {
     return new Promise((res, rej) => {
-      sass.render({
-        file: sPath,
-        outputStyle: 'compressed',
-      }, (error, result) => {
-        if (error) {
-          rej(error);
-          return;
-        }
-        res(result.css.toString());
-      });
+      sass.render(
+        {
+          file: sPath,
+          outputStyle: 'compressed',
+        },
+        (error, result) => {
+          if (error) {
+            rej(error);
+            return;
+          }
+          res(result.css.toString());
+        },
+      );
     });
   },
-
 };
 
 module.exports = slf;

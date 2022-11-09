@@ -5,6 +5,6 @@ export default {
     return (event) => {
       state.set('is_open_modal', true);
       event.preventDefault();
-    }
-  }
-}
+    };
+  },
+};
