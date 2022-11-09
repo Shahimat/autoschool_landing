@@ -63,13 +63,14 @@ module.exports = (lf, slf, project) => {
               ),
             ),
           ),
-          Span('sh_agitation', 'Получите права уже этой осенью!'),
+          // Span('sh_agitation', 'Получите права уже этой осенью!'),
         ),
         Div(
           'sh_right_container',
           Div(
             'sh_address',
             Span('sh_address_phone', '+7 (903) 124 12 61'),
+            Span('sh_address_phone', '+7 (800) 500 03 56'),
             Span('sh_address_place', 'г. Наро-Фоминск, ул. Московская 9К'),
           ),
           // Div(
