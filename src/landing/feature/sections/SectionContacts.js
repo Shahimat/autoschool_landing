@@ -22,21 +22,21 @@ module.exports = (lf, slf, project) => {
           {
             title: 'ул. Московская 9К',
             working_hours: 'с 10:00 до 17:00',
-            tel: '+7 (903) 124 12 61',
+            tel: '+7 (903) 124 12 61, +7 (800) 500 03 56',
             telhref: 'tel:+79031241261',
             contactType: 'main',
           },
           {
             title: 'ул. Карла-Маркса-19',
-            working_hours: 'с 10:00 до 17:00',
-            tel: '+7 (903) 124 12 61',
+            // working_hours: 'с 10:00 до 17:00',
+            tel: '+7 (903) 124 12 61, +7 (800) 500 03 56',
             telhref: 'tel:+79031241261',
             contactType: 'class',
           },
           {
             title: 'ул. Шибанкова д. 71 ТЦ Весна 2 этаж',
-            working_hours: 'с 10:00 до 17:00',
-            tel: '+7 (903) 124 12 61',
+            // working_hours: 'с 10:00 до 17:00',
+            tel: '+7 (903) 124 12 61, +7 (800) 500 03 56',
             telhref: 'tel:+79031241261',
             contactType: 'class',
           },
@@ -47,10 +47,10 @@ module.exports = (lf, slf, project) => {
         list: [
           {
             title: 'ул. Промышленная 81/1 (2-й этаж)',
-            working_hours: 'с 10:00 до 17:00',
-            tel: '+7 (903) 124 12 61',
+            // working_hours: 'с 10:00 до 17:00',
+            tel: '+7 (903) 124 12 61, +7 (800) 500 03 56',
             telhref: 'tel:+79031241261',
-            contactType: 'main',
+            contactType: 'class',
           },
           // {
           //   title: 'ул. Карла-Маркса-19',
@@ -73,10 +73,10 @@ module.exports = (lf, slf, project) => {
         list: [
           {
             title: 'ул. Августовская д.1 (3-й этаж)',
-            working_hours: 'с 10:00 до 17:00',
-            tel: '+7 (903) 124 12 61',
+            // working_hours: 'с 10:00 до 17:00',
+            tel: '+7 (903) 124 12 61, +7 (800) 500 03 56',
             telhref: 'tel:+79031241261',
-            contactType: 'main',
+            contactType: 'class',
           },
           // {
           //   title: 'ул. Карла-Маркса-19',
@@ -95,14 +95,14 @@ module.exports = (lf, slf, project) => {
         ],
       },
       {
-        title: 'Вирея',
+        title: 'Верея',
         list: [
           {
             title: 'Советская площадь д.1',
-            working_hours: 'с 10:00 до 17:00',
-            tel: '+7 (903) 124 12 61',
+            // working_hours: 'с 10:00 до 17:00',
+            tel: '+7 (903) 124 12 61, +7 (800) 500 03 56',
             telhref: 'tel:+79031241261',
-            contactType: 'main',
+            contactType: 'class',
           },
           // {
           //   title: 'ул. Карла-Маркса-19',
@@ -219,22 +219,26 @@ module.exports = (lf, slf, project) => {
           ),
         ),
       ),
-      FlexItem(
-        Style({
-          'padding-bottom': '6px',
-        }),
-        FlexHContainer(
-          Style({
-            'align-items': 'center',
-          }),
-          FlexItem('', Icon('assets/images/sprite.svg#icon_time')),
+      $p(
+        info.working_hours ?
           FlexItem(
             Style({
-              'padding-bottom': '3px',
+              'padding-bottom': '6px',
             }),
-            Span('contacts_card_text', `Время работы: ${info.working_hours}`),
-          ),
-        ),
+            FlexHContainer(
+              Style({
+                'align-items': 'center',
+              }),
+              FlexItem('', Icon('assets/images/sprite.svg#icon_time')),
+              FlexItem(
+                Style({
+                  'padding-bottom': '3px',
+                }),
+                Span('contacts_card_text', `Время работы: ${info.working_hours}`),
+              ),
+            ),
+          )
+          : ""
       ),
       FlexItem(
         Style({
