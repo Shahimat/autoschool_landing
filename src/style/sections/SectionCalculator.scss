@@ -2,6 +2,9 @@
   &[data-transport='0'] .select_list--item[data-transmission='1'] {
     display: none;
   }
+  &[data-transport='3'] .select_list--item[data-transmission='1'] {
+    display: none;
+  }
 
   & &_panel {
     box-shadow: 0 2px 14px 0 #f1f2f4;
