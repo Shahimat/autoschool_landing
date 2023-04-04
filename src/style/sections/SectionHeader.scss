@@ -9,6 +9,45 @@
     height: 242px;
   }
 
+  .sh_text {
+    &-red_big {
+      width: 100%;
+      height: 100%;
+      font-family: RobotoSlab;
+      font-size: 172px;
+      font-weight: bold;
+      color: #d0021b;
+      user-select: none;
+      @include breakpoint(lg) {
+        display: none;
+      }
+    }
+
+    &-red_middle {
+      width: 100%;
+      height: 100%;
+      font-family: RobotoSlab;
+      font-size: 56px;
+      font-weight: bold;
+      color: #d0021b;
+      user-select: none;
+      @include breakpoint(lg) {
+        display: none;
+      }
+    }
+
+    &-description {
+      font-family: BlissPro;
+      font-size: 24px;
+      color: #f5a623;
+      user-select: none;
+      // text-transform: uppercase;
+      @include breakpoint(lg) {
+        display: none;
+      }
+    }
+  }
+
   .sh_video {
     position: absolute;
     top: 0;
@@ -42,23 +81,18 @@
         display: flex;
         width: 100%;
         height: 227px;
-        margin-top: 102px;
+        margin-top: 150px;
         @include breakpoint(lg) {
           display: none;
         }
 
         &_left {
-          width: 77px;
           height: 100%;
 
-          &_text {
-            width: 100%;
-            height: 100%;
-            font-family: RobotoSlab;
-            font-size: 172px;
-            font-weight: bold;
-            color: #d0021b;
-            user-select: none;
+          &--up {
+          }
+
+          &--down {
           }
         }
 
@@ -94,16 +128,16 @@
         }
       }
 
-      .sh_agitation {
-        font-family: BlissPro;
-        font-size: 24px;
-        color: #f5a623;
-        user-select: none;
-        text-transform: uppercase;
-        @include breakpoint(lg) {
-          display: none;
-        }
-      }
+      // .sh_agitation {
+      //   font-family: BlissPro;
+      //   font-size: 24px;
+      //   color: #f5a623;
+      //   user-select: none;
+      //   text-transform: uppercase;
+      //   @include breakpoint(lg) {
+      //     display: none;
+      //   }
+      // }
     }
 
     .sh_right_container {
@@ -139,6 +173,7 @@
           font-weight: 900;
           color: #4a90e2;
           user-select: none;
+          white-space: nowrap;
           @include breakpoint(sm) {
             font-size: 12px;
           }
@@ -147,6 +182,33 @@
         &_place {
           margin-top: 2px;
           user-select: none;
+        }
+      }
+
+      &--agitation {
+        margin-top: 22px;
+
+        &-item {
+        }
+
+        &-description {
+        }
+
+        &--up {
+          &-left_item {
+          }
+          &-right_item {
+            padding: 0 8px;
+          }
+
+          &--box {
+            justify-content: center;
+
+            &-up {
+            }
+            &-down {
+            }
+          }
         }
       }
 

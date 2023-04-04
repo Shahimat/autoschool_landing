@@ -30,6 +30,9 @@ module.exports = (lf, slf, project) => {
   const Span = project.def('Span');
   const Section = project.def('Section');
   const Video = project.def('Video');
+  const FlexHContainer = project.def('FlexHContainer');
+  const FlexVContainer = project.def('FlexVContainer');
+  const FlexItem = project.def('FlexItem');
 
   return () => {
     return Section(
@@ -48,20 +51,27 @@ module.exports = (lf, slf, project) => {
             'sh_place_container',
             Div(
               'sh_place_container_left',
-              Span('sh_place_container_left_text', '1'),
-            ),
-            Div(
-              'sh_place_container_right',
-              Span('sh_place_container_right_top', '- e'),
-              Span(
-                'sh_place_container_right_center',
-                'Место<br>в рейтинге ГИБДД',
+              Div(
+                'sh_place_container_left--up',
+                Span('sh_text-red_big', '0%'),
               ),
-              Span(
-                'sh_place_container_right_bottom',
-                'по числу сдавших на права',
+              Div(
+                'sh_place_container_left--down',
+                Span('sh_text-description', 'Действует рассрочка'),
               ),
             ),
+            // Div(
+            //   'sh_place_container_right',
+            //   Span('sh_place_container_right_top', '- e'),
+            //   Span(
+            //     'sh_place_container_right_center',
+            //     'Место<br>в рейтинге ГИБДД',
+            //   ),
+            //   Span(
+            //     'sh_place_container_right_bottom',
+            //     'по числу сдавших на права',
+            //   ),
+            // ),
           ),
           // Span('sh_agitation', 'Получите права уже этой осенью!'),
         ),
@@ -73,6 +83,37 @@ module.exports = (lf, slf, project) => {
             Span('sh_address_phone', '+7 (800) 500 03 56'),
             Span('sh_address_place', 'г. Наро-Фоминск, ул. Московская 9К'),
           ),
+          FlexVContainer(
+            'sh_right_container--agitation',
+            FlexItem(
+              'sh_right_container--agitation-item',
+              FlexHContainer(
+                'sh_right_container--agitation--up',
+                FlexItem(
+                  'sh_right_container--agitation--up-left_item',
+                  Span('sh_text-red_big', '2'),
+                ),
+                FlexItem(
+                  'sh_right_container--agitation--up-right_item',
+                  FlexVContainer(
+                    'sh_right_container--agitation--up--box',
+                    FlexItem(
+                      'sh_right_container--agitation--up--box-up',
+                      Span('sh_text-red_middle', 'тыс.'),
+                    ),
+                    FlexItem(
+                      'sh_right_container--agitation--up--box-down',
+                      Span('sh_text-red_middle', 'руб.'),
+                    )
+                  )
+                )
+              )
+            ),
+            FlexItem(
+              'sh_right_container--agitation-description',
+              Span('sh_text-description', 'Скидка в День рождения'),
+            )
+          )
           // Div(
           //   'sh_quarantine',
           //   Span('sh_quarantine_text', 'Как проходят занятия в условиях карантина?'),
